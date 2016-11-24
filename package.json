@@ -1,0 +1,71 @@
+{
+  "name": "smartcloud",
+  "version": "0.0.1",
+  "description": "A base vue project with webpack",
+  "main": "index.js",
+  "scripts": {
+    "init": "webpack   --progress --config webpack.dev.config.js",
+    "dev": "webpack-dev-server --inline --hot --compress --history-api-fallback --config webpack.dev.config.js",
+    "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "iSAM",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.13.0",
+    "echarts": "^3.2.2",
+    "radon-ui": "^0.2.0",
+    "vue": "^2.0.0",
+    "vue-animated-list": "^1.0.2",
+    "vue-lazyload": "^0.8.2",
+    "vue-msgbox": "^0.2.11",
+    "vue-popup": "^0.1.8",
+    "vue-resource": "^0.9.3",
+    "vue-router": "^2.0.0",
+    "vuex": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^2.0.0",
+    "babel": "^6.3.13",
+    "babel-core": "^6.3.21",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^5.8.34",
+    "bootstrap": "^3.3.7",
+    "bootstrap-loader": "^1.2.0-beta.1",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sftp": "^0.1.5",
+    "html-loader": "^0.3.0",
+    "html-webpack-plugin": "^2.22.0",
+    "imports-loader": "^0.6.5",
+    "jquery": "^3.1.0",
+    "jquery-slimscroll": "^1.3.8",
+    "mockjs": "^1.0.1-beta3",
+    "node-sass": "^3.8.0",
+    "provide": "^0.1.3",
+    "radon-ui": "^0.2.0",
+    "sass-loader": "^4.0.0",
+    "slimscroll": "^0.9.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.2.0",
+    "vue-loader": "^9.7.0",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.13.1",
+    "zepto": "^1.2.0"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+
+<hibernate-mapping>
+	<class name="ZxCloud.entity.User" table="user">
+		<id name="id" column="id">
+			<generator class="assigned"/>
+		</id>
+		<property name="loginId"/>
+		<property name="cellPhone"/>
+		<property name="email"/>
+		<property name="company"/>
+		<property name="userName"/>
+		<property name="password"/>
+		<property name="machineId"/>
+		<property name="walletId"/>
+		<property name="resourceBoxId"/>
+		<property name="createTime"/>
+		<set name="garbages" inverse="true">
+			<key column="user_id"></key>
+			<one-to-many class="ZxCloud.entity.Garbage"/>
+		</set>
+	</class>	
+</hibernate-mapping>

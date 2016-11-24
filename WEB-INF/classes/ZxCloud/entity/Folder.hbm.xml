@@ -1,0 +1,25 @@
+<?xml version="1.0"?>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+
+<hibernate-mapping>
+	<class name="ZxCloud.entity.Folder" table="folder">
+		<id name="id" column="id">
+			<generator class="assigned"/>
+		</id>
+		<property name="name"/>
+		<many-to-one name="parentFolder" class="ZxCloud.entity.Folder" column="parentId"/>
+		<property name="testProperty"/>
+		
+		<set name="childFolders" inverse="true">
+			<key column="parentId"></key>
+			<one-to-many class="ZxCloud.entity.Folder"/>
+		</set>
+		<set name="files" inverse="true">
+			<key column="folderId"></key>
+			<one-to-many class="ZxCloud.entity.FileInFolder"/>
+		</set>
+		<property name="state"/>
+		<property name="createTime"/>
+	</class>	
+</hibernate-mapping>

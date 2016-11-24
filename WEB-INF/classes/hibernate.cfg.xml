@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/zxcloud?useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		
+		<!-- 配置显示sql -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="format_sql">true</property>
+		
+		<!-- 配置数据库方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+		<mapping resource="ZxCloud/entity/User.hbm.xml"/>
+		<mapping resource="ZxCloud/entity/Folder.hbm.xml"/>
+		<mapping resource="ZxCloud/entity/ZxFile.hbm.xml"/>
+		<mapping resource="ZxCloud/entity/FileInFolder.hbm.xml"/>
+		<mapping resource="ZxCloud/entity/Garbage.hbm.xml"/>
+
+	</session-factory>
+</hibernate-configuration>
+
