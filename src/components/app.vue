@@ -1,12 +1,8 @@
 <style  lang = "sass" >
- @import '../styles/custom-bootstrap.css'; 
- @import '../styles/scss/basestyle.scss';
+  @import '../styles/custom-bootstrap.css'; 
+@import '../styles/scss/basestyle.scss';
  @import '../styles/Font-Awesome/css/font-awesome.min.css'; 
  @import '../styles/scss/main.scss';
-body{
-  @extend %bgf5
-
-}
 
 /* index.vue */
 
@@ -113,8 +109,6 @@ body{
 </template>
 <script>
 import 'bootstrap/dist/js/bootstrap.js'
-import store from '../vuex/store.js' // import 我们刚刚创建的 store
-import  { getUserId } from  '../vuex/actions.js'
   export default {
      vuex: {
       getters: {
@@ -122,7 +116,6 @@ import  { getUserId } from  '../vuex/actions.js'
       },
 
       actions: {
-          getUserId
             
       }
     },
@@ -143,10 +136,8 @@ import  { getUserId } from  '../vuex/actions.js'
     methods:{
        
     },
-    store,
    
     created() {
-        this.getUserId()
 
     }
 

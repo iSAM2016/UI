@@ -12,7 +12,9 @@ import App from 'components/app.vue';
 import index from './components/index.vue'
 import show from './components/show.vue'
 import datas from './components/datas.vue'
-import button from './components/button.vue'
+import showCom from './components/showCom.vue'
+
+
 
 
 Vue.use(VueRouter);
@@ -32,7 +34,7 @@ const routes = [
         {
           
           path: '/button',
-          component: button
+          component: showCom
         },
 
 

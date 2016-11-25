@@ -1,4 +1,6 @@
-<style lang= 'sass'></style>
+<style lang= 'sass'>
+  
+</style>
 <template>
    <section>
       <nav class="bar-left-side " role="navigation" >
@@ -21,7 +23,7 @@
           
                           <a href="#"> 
                           <i class="icon-file-alt bar-left-side-item-icon"></i>
-                              <span>跳转2</span>
+                              <span>button</span>
                           </a>
                         </router-link>
                       </li>
@@ -29,7 +31,9 @@
                 </ul>
               </div> 
         </nav>
-      <router-view></router-view>
+        <section  class="main-contant">
+            <router-view></router-view>
+        </section>
     </section>    
 
 </template>

@@ -1,9 +1,9 @@
 <style lang= 'sass'></style>
 <template>
 <div>
-    <section  class="main-contant">
+   
       <personalInfor></personalInfor>
-    </section>
+  
     <section class="main-resource" >
     </section>
   </div>
