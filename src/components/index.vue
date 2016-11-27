@@ -23,7 +23,37 @@
           
                           <a href="#"> 
                           <i class="icon-file-alt bar-left-side-item-icon"></i>
-                              <span>button</span>
+                              <span>
+                                  Button &nbsp; 
+                                  按钮
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+
+                      <li class=" bar-left-side-item" >
+          
+                      <router-link to="/dropbutton" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  dropButton &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+                      <li class=" bar-left-side-item" >
+          
+                      <router-link to="/tag" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  tag &nbsp; 
+                                  
+                              </span>
                           </a>
                         </router-link>
                       </li>

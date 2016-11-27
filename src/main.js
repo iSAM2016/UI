@@ -10,10 +10,14 @@ import Env from './config/env';
 
 import App from 'components/app.vue';
 import index from './components/index.vue'
-import show from './components/show.vue'
-import datas from './components/datas.vue'
-import showCom from './components/showCom.vue'
 
+//首页
+const show = resolve => require(['./components/show.vue'], resolve)
+//基本介绍
+const datas = resolve => require(['./components/datas.vue'], resolve)
+const showButton = resolve => require(['./components/showButton.vue'], resolve)
+const showDropButtn = resolve => require(['./components/showDropButtn.vue'], resolve)
+const showTag = resolve => require(['./components/showTag.vue'], resolve)
 
 
 
@@ -34,7 +38,18 @@ const routes = [
         {
           
           path: '/button',
-          component: showCom
+          component: showButton
+        },
+
+        {
+          
+          path: '/dropButton',
+          component: showDropButtn
+        },
+        {
+          
+          path: '/tag',
+          component: showTag
         },
 
 

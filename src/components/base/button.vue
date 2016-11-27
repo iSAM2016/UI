@@ -1,5 +1,5 @@
-<style lang="sass">
-@import '../../css/index';
+<style lang="sass" >
+ @import '../../css/index'; 
 
 .ol-btn{
     display: inline-block;
@@ -19,11 +19,6 @@
     touch-action: manipulation;
 }
 
-.ol-btn.default{
-  color: #666;
-  background-color: #fff;
-  border-color: #d9d9d9;
-}
 
 .ol-btn.default {
     color: #666;
@@ -156,6 +151,18 @@
     display: inline-block;
     animation: loading 1s infinite linear;
 }
+
+.ol-btn.ol-btn-disabled{
+    color: #c3c3c3;
+    background: #ececec;
+    border-color: #cecece;
+    cursor: not-allowed;
+    &:hover {
+        color: #a7a7a7;
+        background: #ececec;
+        border-color: #d9d9d9;
+    }
+}
 </style>
 <template>
   <button  
@@ -249,12 +256,10 @@
               list.push("info")
               break
 
-            case "default":
-              list.push("default")
-              break  
-            case "waring":
-              list.push("waring")
-              break          
+           
+            case "warning":
+              list.push("warning")
+              break 
 
 
            }
@@ -270,22 +275,16 @@
                 
             }
 
-            switch(this.disabled){
-              case "disabled":
-                list.push("disabled")
-                break
-                
+             if (this.disabled) {
+                list.push('ol-btn-disabled')
             }
 
           
             if (this.icon) {
                 list.push('ol-btn-icon')
-                  
               }
 
-            if (this.disabled) {
-                list.push('ol-btn-disabled')
-            }
+            
          
 
 

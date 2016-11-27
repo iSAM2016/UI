@@ -11,6 +11,7 @@
     <ol-button type="info">information</ol-button>              
     <ol-button type="danger">danger</ol-button>              
     <ol-button type="warning">waring</ol-button>      
+    <ol-button :disabled ='true'>disabled</ol-button>      
 
     <div>
       <h4>
