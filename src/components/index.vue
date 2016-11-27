@@ -58,6 +58,33 @@
                         </router-link>
                       </li>
                       
+                        <li class=" bar-left-side-item" >
+          
+                      <router-link to="/table" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  table &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+                       <li class=" bar-left-side-item" >
+          
+                      <router-link to="/checkbox" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  checkbox &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+                      
                 </ul>
               </div> 
         </nav>

@@ -70,7 +70,7 @@
   </section>
 </template>
 <script>
-import {olButton, olButtonGroup }from './index'
+import {olButton, olButtonGroup }from '../index'
 
   export default {
     components: { 

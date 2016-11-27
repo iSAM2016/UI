@@ -55,7 +55,7 @@
   </section>
 </template>
 <script>
-import { olTag }from './index'
+import { olTag }from '../index'
 
   export default {
     components: { 

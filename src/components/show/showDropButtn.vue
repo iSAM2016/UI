@@ -37,7 +37,7 @@
   </section>
 </template>
 <script>
-import {olButton, olDropButton  }from './index'
+import {olButton, olDropButton  }from '../index'
 
   export default {
     components: { 

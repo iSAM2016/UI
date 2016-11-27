@@ -15,9 +15,11 @@ import index from './components/index.vue'
 const show = resolve => require(['./components/show.vue'], resolve)
 //基本介绍
 const datas = resolve => require(['./components/datas.vue'], resolve)
-const showButton = resolve => require(['./components/showButton.vue'], resolve)
-const showDropButtn = resolve => require(['./components/showDropButtn.vue'], resolve)
-const showTag = resolve => require(['./components/showTag.vue'], resolve)
+const showButton = resolve => require(['./components/show/showButton.vue'], resolve)
+const showDropButtn = resolve => require(['./components/show/showDropButtn.vue'], resolve)
+const showTag = resolve => require(['./components/show/showTag.vue'], resolve)
+const checkbox = resolve => require(['./components/show/showCheckbox.vue'], resolve)
+const table = resolve => require(['./components/show/showTable.vue'], resolve)
 
 
 
@@ -50,6 +52,18 @@ const routes = [
           
           path: '/tag',
           component: showTag
+        },
+
+        {
+          
+          path: '/checkbox',
+          component: checkbox
+        },
+
+        {
+          
+          path: '/table',
+          component:table
         },
 
 
