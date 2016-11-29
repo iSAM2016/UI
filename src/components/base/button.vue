@@ -92,7 +92,7 @@
 
 
 .ol-btn.ol-btn-small {
-    padding: .2rem .3rem;
+    padding: .5rem .6rem;
     min-width: initial;
     font-size: .8rem;
     line-height: 1rem;
@@ -266,7 +266,7 @@
 
            switch(this.size){
             case "small":
-              list.push("ol-btn-samll")
+              list.push("ol-btn-small")
               break
             case "large":
               list.push("ol-btn-large")

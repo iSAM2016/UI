@@ -26,8 +26,16 @@ const table = resolve => require(['./components/show/showTable.vue'], resolve)
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+var  root = {name: 'tom',age: 12}
+let   { name: otername , age: ageother}  = root
+console.log(otername)
 
-
+// 数组的解构
+let obj ={name: 121}
+var str ;
+//str.sort (function(a,b){return a.localeCompare(b)})
+ 
+ 
 
 const routes = [
   {path: '/', component:show },
