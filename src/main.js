@@ -20,6 +20,9 @@ const showDropButtn = resolve => require(['./components/show/showDropButtn.vue']
 const showTag = resolve => require(['./components/show/showTag.vue'], resolve)
 const checkbox = resolve => require(['./components/show/showCheckbox.vue'], resolve)
 const table = resolve => require(['./components/show/showTable.vue'], resolve)
+const card = resolve => require(['./components/show/showCard.vue'], resolve)
+const radio = resolve => require(['./components/show/showRadio.vue'], resolve)
+const input = resolve => require(['./components/show/showInput.vue'], resolve)
 
 
 
@@ -32,7 +35,8 @@ console.log(otername)
 
 // 数组的解构
 let obj ={name: 121}
-var str ;
+var str =[1,2];
+
 //str.sort (function(a,b){return a.localeCompare(b)})
  
  
@@ -72,6 +76,21 @@ const routes = [
           
           path: '/table',
           component:table
+        },
+         {
+          
+          path: '/card',
+          component:card
+        },
+         {
+          
+          path: '/radio',
+          component:radio
+        },
+        {
+          
+          path: '/input',
+          component:input
         },
 
 

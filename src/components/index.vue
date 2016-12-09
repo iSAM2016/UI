@@ -190,6 +190,43 @@
                           </a>
                         </router-link>
                       </li>
+                      <li class=" bar-left-side-item">
+                      <router-link to="/card" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  card &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+                       <li class=" bar-left-side-item">
+                      <router-link to="/radio" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  radio &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+
+                         <li class=" bar-left-side-item">
+                      <router-link to="/input" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  input &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
                       
                 </ul>
               </div> 
