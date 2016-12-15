@@ -63,24 +63,25 @@
           <ol-button :loding="true">save</ol-button>
                 
         
-        
+        <test :level="1"></test>
    </div>  
       
     </div>   
   </section>
 </template>
 <script>
-import {olButton, olButtonGroup }from '../index'
+import { olButton, olButtonGroup }from '../index'
+import test from './test.vue'
 
   export default {
     components: { 
       olButton,
-      olButtonGroup
-          },
-
-    ready() {
-        console.log(this.$route.auth + "user")
+      olButtonGroup,
+      test
     },
+  
+
+    
 
     data () {
       return {

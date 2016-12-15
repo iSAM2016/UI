@@ -23,6 +23,8 @@ const table = resolve => require(['./components/show/showTable.vue'], resolve)
 const card = resolve => require(['./components/show/showCard.vue'], resolve)
 const radio = resolve => require(['./components/show/showRadio.vue'], resolve)
 const input = resolve => require(['./components/show/showInput.vue'], resolve)
+const iswitch = resolve => require(['./components/show/showSwitch.vue'], resolve)
+const slider = resolve => require(['./components/show/showSlider.vue'], resolve)
 
 
 
@@ -34,11 +36,23 @@ let   { name: otername , age: ageother}  = root
 console.log(otername)
 
 // 数组的解构
-let obj ={name: 121}
-var str =[1,2];
 
-//str.sort (function(a,b){return a.localeCompare(b)})
  
+
+Vue.component("anchored-heading",{
+  render: function( createElement){
+      return createElement(
+        'h'+ this.level,
+        this.$slots.default // 子组件中的阵列
+        )
+  },
+   props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+})
  
 
 const routes = [
@@ -91,6 +105,15 @@ const routes = [
           
           path: '/input',
           component:input
+        },
+
+        {
+          path: '/switch',
+          component:iswitch
+        },
+         {
+          path: '/slider',
+          component:slider
         },
 
 

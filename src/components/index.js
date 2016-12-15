@@ -12,6 +12,8 @@ import olCheckbox from "./form/checkbox.vue"
 import olRadio from "./form/radio.vue"
 import olRadioGroup from "./form/radioGroup.vue"
 import olInput from "./form/input.vue"
+import olSwitch from "./form/switch.vue"
+import olSlider from "./form/slider.vue"
 
 
 
@@ -25,5 +27,7 @@ export  {
     olCard,
     olRadio,
     olRadioGroup,
-    olInput
+    olInput,
+    olSwitch,
+    olSlider
 }

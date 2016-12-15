@@ -227,6 +227,31 @@
                           </a>
                         </router-link>
                       </li>
+
+                         <li class=" bar-left-side-item">
+                      <router-link to="/switch" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  switch &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
+                        <li class=" bar-left-side-item">
+                      <router-link to="/slider" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  slider &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
                       
                 </ul>
               </div> 
