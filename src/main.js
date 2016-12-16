@@ -25,6 +25,7 @@ const radio = resolve => require(['./components/show/showRadio.vue'], resolve)
 const input = resolve => require(['./components/show/showInput.vue'], resolve)
 const iswitch = resolve => require(['./components/show/showSwitch.vue'], resolve)
 const slider = resolve => require(['./components/show/showSlider.vue'], resolve)
+const datepick = resolve => require(['./components/show/showDatepick.vue'], resolve)
 
 
 
@@ -114,6 +115,10 @@ const routes = [
          {
           path: '/slider',
           component:slider
+        },
+        {
+          path: '/datepick',
+          component:datepick
         },
 
 

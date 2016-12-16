@@ -4,16 +4,17 @@
 </style>
 <template>
   <section>
-         
-
     <div>
       <h4>
         #标签
       </h4>
-        <ol-slider :value="slider" @change="change"/>
-        {{ value }}
+        <ol-datepick 
+            :value = 'value'
+            @change = "change" />
 
-        <ol-slider :value="slider1" />
+             <ol-datepick 
+            :value = 'value1'
+            @change = "change" />
     </div>  
 
 
@@ -27,30 +28,42 @@
           </code>
         </pre>
     </div>   
+
    
       
    
   </section>
 </template>
 <script>
-import { olSlider }from '../index'
+
+
+
+
+
+import{ olDatepick }from '../index'
 
   export default {
     components: { 
-      olSlider
+      olDatepick
     },
+
 
     data () {
       return {
-        slider:{ "value": 0, "min": 10, "max": 100, "step": 0 },
-        slider1:{ "value": 0, "min": 10, "max": 100, "step": 10 },
-        value:0
+        value:{
+          chose: true,
+          section: false
+        },
+        value1:{
+          chose: false,
+          section: true
+        }
       }
     },
     
     methods: {
-      change(value){
-        this.value = value
+      change(date,dates){
+        console.log(date)
       }
     }
   }

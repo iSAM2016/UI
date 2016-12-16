@@ -1,0 +1,371 @@
+<style lang="sass">
+.clearfix:before, .clearfix:after {   
+    content:"";   
+    display:table;   
+}   
+.clearfix:after{   
+    clear:both;   
+    overflow:hidden;   
+}   
+.clearfix{   
+    *zoom:1;   
+} 
+.ol-datepick-section{
+     position:relative;
+}
+
+
+.ol-datepick{
+   
+    position:absolute;
+    top: 4rem;
+    left:.2rem;
+    width: 16rem;
+    border: 1px solid rgba(0,0,0,.1);
+    background: #fff;
+    z-index: 1111111;
+
+        span {
+            display: inline-block;
+            float: left;
+            height: 2.2rem;
+            width: 2.2rem;
+            text-align: center;
+            line-height: 2.2rem;
+            margin-bottom: .4rem;
+            cursor:pointer;
+
+                &:hover,
+                &:active{
+
+                    background: #2db7f5
+                };
+
+                &.glay{
+                    color: #ccc;
+                };
+
+                &.active{
+                    background: #2db7f5
+                };
+        };
+        .ol-chosedate{
+            text-align: center;
+            width: 100%;
+                a{
+                    display: inline-block;
+                    width: 22%;
+                    line-height: 1;
+                    vertical-align: middle
+                }
+        }
+
+        .ol-title{
+            span{
+                 &:hover{
+                    cursor:default;
+                    background: #fff;
+                }
+            }
+        }
+}
+
+</style>
+<template>
+<div class="ol-datepick-section">
+    <ol-input  
+        :textfield = 'user'
+        @click="showfn"
+        />
+
+
+<div 
+    class="ol-datepick "
+    v-show = "isShow"
+
+>   
+
+   <div class="ol-chosedate" v-if="value.chose">
+        <a @click="preMoth"><i class="icon-angle-left"></i></a>
+        <a href="">
+            {{  this.FullYear }}
+        </a>
+            <a href="">
+            {{  this.Month  }}
+                
+            </a>
+            
+        <a @click="nextMoth"> <i class="icon-angle-right"></i></a>
+   </div> 
+
+   <div class="ol-title">
+       <span>一</span>
+       <span>二</span>
+       <span>三</span>
+       <span>四</span>
+       <span>五</span>
+       <span>六</span>
+       <span>日</span>
+   </div>
+   <div class="ol-content clearfix"> 
+
+     <span 
+        v-for=' (dates,index) in eleArr '
+        :class= "{'glay': dates.iskey,
+                 'active':dates.active     
+        }"
+        @click = "print(dates,index)"
+        >
+         {{ dates.date }}
+     </span>
+   </div>
+</div>
+</div>
+</template>
+
+
+<script>
+import olInput from './input'
+
+export default {
+    props:{
+        value:{
+          type: Object,
+          require: true
+        }
+    },
+
+    data () {
+        return {
+            user: {
+                value: '',
+                placeHolder: 'time',
+                state: 'default',
+                tip: '' 
+            },
+
+            date     :  null,
+            Date     :  null,  //ÌìÊý ×ÜÊý35
+            Day      :  null,  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
+            Month    :  null, 
+            FullYear :  null,  
+            eleArr   :  [],
+            begin    :  null, //¿ªÊ¼µÄ
+            allData  :  null,  //×Ü¹²µÄÌìÊ¹
+            addArr   :  [],
+            isShow   :  false
+
+        }
+    },
+
+    components: { 
+        olInput
+    },
+
+    mounted(){
+        this.getTime();
+        this.init()
+    },
+   
+
+    methods:{
+        getTime(){//getTime
+            this.date        =  new Date()
+            this.Month       =  this.date.getMonth() + 1
+            this.FullYear    =  this.date.getFullYear() 
+
+            this.daycount    = new Date(this.FullYear,this.Month,0).getDate() //±¾ÖÜ¹²¼¸Ìì
+            this.date        =  new Date(this.FullYear+"-"+this.Month+"-"+'01') //±¾ÖÜ¹²¼¸Ìì
+            this.begin         =  this.date.getDay()  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
+            this.Date        =  this.date.getDate()   //µ±Ç°ÌìÊý ×ÜÊý35
+            this.eleArr      = [];
+
+        },
+
+        init(){
+            let that = this;
+                that._layout()  
+        },
+
+        _layout( ){
+                let that = this
+                 // »ñÈ¡Ç°Ò»¸öÔÂµÄ×îºó¼¸¸öÊý¾Ý
+                 let pre = this._prefn()//prefullYear,
+                 let next = this._nextfn()
+                 
+                 this.eleArr.length = 0
+                    for (let i = this.begin-2; i > -1 ; i--){
+                        this.eleArr.push({
+                            year: pre.fullYear,
+                            month: pre.month,
+                            date: pre.date - i,
+                            iskey: true
+                        })
+                    }
+
+                  for (var i = 0; i <  this.daycount ; i++){
+                         this.eleArr.push({
+                            year:  this.FullYear,
+                            month: this.Month ,
+                            date:  i + 1
+                        })
+                  }
+
+                for (var i = 0; i <  43 - this.daycount - this.begin ; i++){
+                         this.eleArr.push({
+                            year:  next.fullYear,
+                            month: next.month ,
+                            date:  i + 1,
+                            iskey: true
+                        })
+                  }
+
+        },
+
+        _prefn(){//Ç°Ò»¸ö
+            let  premonth = this.Month -  1
+            let  prefullYear = this.FullYear
+
+             if( premonth  < 1){
+                premonth = 12
+                prefullYear = this.FullYear -1
+             }
+
+            return this._forverdate( prefullYear,premonth )
+        },
+
+
+        _nextfn(ele){ //ÏÂÒ»¸öÔÂ
+        
+            let nextmonth = this.Month +  1
+            let nextfullYear = this.FullYear
+            if( nextmonth  > 12 ){
+                nextmonth = 1
+                nextfullYear = this.FullYear +1
+            }
+
+           return this._forverdate( nextfullYear,nextmonth )
+        },
+
+        _forverdate(prefullYear,premonth){
+            let currentTime = new Date(prefullYear,premonth,0) //±¾ÖÜ¹²¼¸Ìì
+            let fullYear = currentTime.getFullYear(); //µÃµ½µ±Ç°µÄÄê·Ý
+            let month = currentTime.getMonth() + 1; //µÃµ½µ±Ç°µÄÔÂ·Ý£¨ÏµÍ³Ä¬ÈÏÎª0-11£¬ËùÒÔÒª¼Ó1²ÅËãÊÇµ±Ç°µÄÔÂ·Ý£©
+            let date = currentTime.getDate(); //µÃµ½µ±Ç°µÄÌìÊý
+            let day = currentTime.getDay(); //µÃµ½µ±Ç°µÄÌìÊý
+            return {
+                fullYear,
+                month,
+                date,
+                day,
+            }
+        },
+
+        preMoth(){
+            let  premonth = this.Month -  1
+            let  prefullYear = this.FullYear
+
+             if( premonth  < 1){
+                premonth = 12
+                prefullYear = this.FullYear -1
+             }
+
+              this._changeDate( premonth ,prefullYear)
+           
+        },
+
+
+        nextMoth(){
+            let nextmonth = this.Month +  1
+            let nextfullYear = this.FullYear
+            if( nextmonth  > 12 ){
+                nextmonth = 1
+                nextfullYear = this.FullYear +1
+            }
+
+            this._changeDate( nextmonth,nextfullYear )
+           
+        },
+
+        _changeDate(mymonth,myfullYear){
+            this.Month       =  mymonth
+            this.FullYear    =  myfullYear
+
+            this.daycount    = new Date(myfullYear,mymonth,0).getDate() //±¾ÖÜ¹²¼¸Ìì
+            this.date        =  new Date(myfullYear+"-"+mymonth+"-"+'01') //±¾ÖÜ¹²¼¸Ìì
+            this.begin       =  this.date.getDay() ?  this.date.getDay() : 7  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
+            this.Date        =  this.date.getDate()   //µ±Ç°ÌìÊý ×ÜÊý35
+
+            this._layout()  
+        },
+
+        print(dates,index){
+  
+            let date = dates.year + "-"+ dates.month+ "-"+ dates.date,
+                that = this
+            if(!this.value.section){
+                this.$emit("change",date,dates)
+                this.user.value = date
+                this.isShow = !this.isShow
+            }
+           
+            this.eleArr.forEach((item,index) => {
+                            that.$set(that.eleArr[index],"active",false)
+            })
+            this.$set(this.eleArr[index],"active",true)
+            this.value.section ? this.find(dates) : "";
+            
+
+        },
+
+        find( datas ){
+
+            let key = 0
+            let that  = this
+            this.addArr.push(datas) 
+
+            if( this.addArr.length < 2 ) return // 当有两个的时候触发遍历
+                    if(this.addArr.length > 2){
+                         this.addArr.shift(datas)
+            }
+                 
+            this.eleArr.forEach((item,index) => {
+                    // 判断第一个元素
+                    if( item === that.addArr[0] || item === that.addArr[1] ){
+
+                        key ?  key -= 1 :   key += 1
+                        that.$set(that.eleArr[index],"active",true)
+                    }else{
+
+                        if( key ){
+                            that.$set(that.eleArr[index],"active",true)
+                         }else{
+                            that.$set(that.eleArr[index],"active",false)
+                         }
+
+                    }
+            })
+
+
+            let date =  this.addArr[0].year + "-"+ 
+                        this.addArr[0].month+ "-"+ 
+                        this.addArr[0].date + '---' +
+                        this.addArr[1].year + "-"+ 
+                        this.addArr[1].month+ "-"+ 
+                        this.addArr[1].date 
+            this.$emit("change",date,this.addArr);
+            this.user.value = date
+
+           
+            this.isShow = !this.isShow
+            
+
+        },
+        showfn(){
+            this.isShow = !this.isShow
+            console.log(this.isShow)
+        }
+
+    }
+}
+</script>

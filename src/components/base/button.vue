@@ -168,7 +168,7 @@
   <button  
     class="ol-btn"
     :class="btnClass"
-
+   
     >
      <i class="rd-btn-icon-only" 
         :class="iconClass" 
@@ -298,8 +298,8 @@
       }
     },
     
-    events: {
-      
+    methods: {
+     
     }
   }
 }

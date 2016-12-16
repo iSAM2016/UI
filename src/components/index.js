@@ -14,6 +14,7 @@ import olRadioGroup from "./form/radioGroup.vue"
 import olInput from "./form/input.vue"
 import olSwitch from "./form/switch.vue"
 import olSlider from "./form/slider.vue"
+import olDatepick from "./form/datepick.vue"
 
 
 
@@ -29,5 +30,6 @@ export  {
     olRadioGroup,
     olInput,
     olSwitch,
-    olSlider
+    olSlider,
+    olDatepick
 }

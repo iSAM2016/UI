@@ -252,6 +252,18 @@
                           </a>
                         </router-link>
                       </li>
+                       <li class=" bar-left-side-item">
+                      <router-link to="/datepick" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  datepick &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                      </li>
                       
                 </ul>
               </div> 

@@ -129,7 +129,6 @@
         >
          <span >{{text }}</span>
          <i class="icon-angle-down"></i>
-
         <transition name="bounce">
           
            <div 

@@ -72,6 +72,9 @@
 <template>
    <div
     class="ol-input-content"
+     @click="click"
+
+ 
         
    >
         <input
@@ -209,7 +212,11 @@ export default {
             } else {
                 this.cleanState()
             }
-        }
+        },
+        click(){
+        this.$emit("click")
+        
+      }
     
       
     },
