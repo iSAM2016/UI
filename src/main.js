@@ -26,6 +26,9 @@ const input = resolve => require(['./components/show/showInput.vue'], resolve)
 const iswitch = resolve => require(['./components/show/showSwitch.vue'], resolve)
 const slider = resolve => require(['./components/show/showSlider.vue'], resolve)
 const datepick = resolve => require(['./components/show/showDatepick.vue'], resolve)
+const select = resolve => require(['./components/show/showSelect.vue'], resolve)
+const cascader= resolve => require(['./components/show/showCascader.vue'], resolve)
+const loding= resolve => require(['./components/show/showLoding.vue'], resolve)
 
 
 
@@ -37,7 +40,9 @@ let   { name: otername , age: ageother}  = root
 console.log(otername)
 
 // 数组的解构
-
+Vue.prototype.kl = function(){
+  alert(1)
+}
  
 
 Vue.component("anchored-heading",{
@@ -119,6 +124,17 @@ const routes = [
         {
           path: '/datepick',
           component:datepick
+        }, 
+        {
+          path: '/select',
+          component:select
+        }, {
+          path: '/cascader',
+          component:cascader
+        },
+         {
+          path: '/loding',
+          component:loding
         },
 
 

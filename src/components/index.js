@@ -15,6 +15,11 @@ import olInput from "./form/input.vue"
 import olSwitch from "./form/switch.vue"
 import olSlider from "./form/slider.vue"
 import olDatepick from "./form/datepick.vue"
+import olSelect from "./form/select.vue"
+import olCascader from "./form/cascader.vue"
+
+//common
+import olLoding from "./common/loding.vue"
 
 
 
@@ -31,5 +36,10 @@ export  {
     olInput,
     olSwitch,
     olSlider,
-    olDatepick
+    olDatepick,
+    olSelect,
+    olCascader,
+
+
+    olLoding
 }

@@ -20,12 +20,12 @@
    top: 0;
    width:180px;
    height: 100% ;
-   margin-bottom: 0;
+   
    z-index: 1000000;
    text-align:left;
    font-size:14px;
    background-color:#1f2d3d;
-
+   overflow-y:scroll;
      .navbar-nav{
         .actives{
              background-color: #324057;
@@ -263,6 +263,40 @@
                               </span>
                           </a>
                         </router-link>
+
+                         <router-link to="/select" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  select &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                         <router-link to="/cascader" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  cascader &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+
+                         </router-link>
+                         <router-link to="/loding" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  loding &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+
                       </li>
                       
                 </ul>
