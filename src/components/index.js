@@ -21,6 +21,7 @@ import olCascader from "./form/cascader.vue"
 //common
 import olAlert from "./common/alert.vue"
 import olTimeline from "./common/timeline.vue"
+import olLoding from "./common/loding.vue"
 
 
 
@@ -44,5 +45,6 @@ export  {
 
 
     olAlert,
-    olTimeline
+    olTimeline,
+    olLoding
 }

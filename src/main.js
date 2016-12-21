@@ -30,6 +30,7 @@ const select = resolve => require(['./components/show/showSelect.vue'], resolve)
 const cascader= resolve => require(['./components/show/showCascader.vue'], resolve)
 const alert= resolve => require(['./components/show/showAlert.vue'], resolve)
 const timeline= resolve => require(['./components/show/showTimeline.vue'], resolve)
+const loding= resolve => require(['./components/show/showLoding.vue'], resolve)
 
 
 
@@ -140,6 +141,10 @@ const routes = [
         {
           path: '/timeline',
           component:timeline
+        },
+        {
+          path: '/loding',
+          component:loding
         },
 
 
