@@ -1,6 +1,7 @@
 <style lang="sass" >
  @import '../../css/index'; 
 
+
 .ol-btn{
     display: inline-block;
     margin-bottom: 0;
@@ -166,7 +167,7 @@
 </style>
 <template>
   <button  
-    class="ol-btn"
+    class="ol-btn block block__element"
     :class="btnClass"
    
     >
@@ -299,7 +300,7 @@
     },
     
     methods: {
-     
+
     }
   }
 }

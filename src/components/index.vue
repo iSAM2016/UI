@@ -263,6 +263,49 @@
                               </span>
                           </a>
                         </router-link>
+
+                         <router-link to="/select" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  select &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                         <router-link to="/cascader" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  cascader &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+
+                        <router-link to="/alert" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  alert &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                        <router-link to="/timeline" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  timeline &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+
                       </li>
                       
                 </ul>

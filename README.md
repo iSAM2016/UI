@@ -7,7 +7,9 @@ Is 1 table  组件中的一个排序功能,如this.sorBy没有完整的写出
 
    3 slider  组建学习randui 的代码，重点是事件的绑定 没有真正的使用到vue的 特性，还是采用的DOM操作  
 
-   4 日期选择器 的构建， 在掘金的的文章中有一个介绍时间的选择器  
+   4 日期选择器 的构建， 在掘金的的文章中有一个介绍时间的选择器 学习random   
+
+   5 select  let rect = this.$el.getBoundingClientRect()
 
 
 
