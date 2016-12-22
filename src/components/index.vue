@@ -96,13 +96,13 @@
 
  }
 
-/* 中型设备（台式电脑，992px 起） */
+/* 中型设备（台式电脑，992px */
 @media (min-width: 992px) { 
 
 
 }
 
-/* 大型设备（大台式电脑，1200px 起） */
+/* 大型设备（大台式电脑，1200px */
 @media (min-width: 1200px) { 
   
  }
@@ -287,12 +287,22 @@
 
 
                          </router-link>
-                         <router-link to="/loding" tag="li">
+                          <router-link to="/alert" tag="li">
           
                           <a href="#"> 
                           <i class="icon-file-alt bar-left-side-item-icon"></i>
                               <span>
                                   alert &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                         <router-link to="/loding" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  loding &nbsp; 
                                   
                               </span>
                           </a>
@@ -341,3 +351,4 @@
     }
   }
 </script>
+

@@ -10,9 +10,10 @@
       <h4>
         #标签
       </h4>
-        <ol-loding></ol-loding>
+        <ol-loding :loading="loading"></ol-loding>
+        <ol-loding :loading="loading"></ol-loding>
     </div>  
-
+<br />
 
     <div>
       <h4>
@@ -44,7 +45,9 @@ import { olLoding }from '../index'
 
     data () {
       return {
-        totalTime: 0,
+        loading: {
+          color: '#2db7f5'
+        },
       }
     },
     
