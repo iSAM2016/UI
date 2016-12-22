@@ -317,6 +317,26 @@
                               </span>
                           </a>
                         </router-link>
+                           <router-link to="/upload" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  upload &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
+                         <router-link to="/tree" tag="li">
+          
+                          <a href="#"> 
+                          <i class="icon-file-alt bar-left-side-item-icon"></i>
+                              <span>
+                                  tree &nbsp; 
+                                  
+                              </span>
+                          </a>
+                        </router-link>
 
                       </li>
                       
