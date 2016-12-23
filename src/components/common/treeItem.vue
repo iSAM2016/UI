@@ -1,29 +1,47 @@
 <style lang = "sass">
+.ol-treeItem {
+  display: block;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+      
+      .ol-treeItem-li{
+        padding: 0 2rem 0 2rem;
+      }
+  
+     
+}
 
 </style>
 <template>
+  
+ 
     <ul 
-      v-if="caspanel && caspanel.length" 
-      :class="">
-
+      v-if="treeData && treeData.length" 
+      class="ol-treeItem">
        <li 
-          v-for="item in caspanel"
+          v-for="item in treeData"
           @click.stop="openchild(item)"
+          class="ol-treeItem-li"
 
-        >{{ item.label }}
-       
+        >
+            <radio :radio = 'item.radio'></radio>
+            {{ item.label }}
             <treeItem 
-                v-show="item.show"
-                :caspanel="item.children"> 
+                v-if="item.show"
+                :treeData="item.children"> 
             </treeItem>
         </li>
     </ul>
 </template>
 <script>
+import radio from '../form/radio'
+
 export default {
   name:"treeItem",
   props: {
-    caspanel: {
+    treeData: {
       type:Array,
       require:true,
     },
@@ -31,21 +49,27 @@ export default {
 
   data: function () {
     return {
+      checkbox: {
+                
+      },
     }
   },
 
   components: {
-        
+        radio
   },
 
   methods: {
    openchild(item){
     event.stopPropagation()
      item.show = !item.show
-     console.log(item.show)
      this.$set(item,"show", item.show)
    }
   },
+
+  computed: {
+     
+    },
 
 
 }

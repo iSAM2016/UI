@@ -11,6 +11,11 @@
             :radio="radio"
             @change = "change" 
           ></ol-radio>
+
+           <ol-radio 
+            :radio="radio1"
+            @change = "change" 
+          ></ol-radio>
          
        </div>
     </div> 
@@ -45,6 +50,13 @@ import { olRadio, olRadioGroup }from '../index'
     data () {
       return  {
                 radio: {
+                      // radio 的选择状态:Boolean
+                      checked: false,
+                      // radio 的展示文字: String
+                      value: 'one'
+                     },
+
+                     radio1: {
                       // radio 的选择状态:Boolean
                       checked: false,
                       // radio 的展示文字: String

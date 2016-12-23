@@ -49,7 +49,7 @@
         "checked" : radio.checked,
 
         }'
-    @click="checkAction(radio)"    
+    @click.stop="checkAction(radio)"    
     >        
        <span class="ol-radio-inner"></span> 
       <span class="ol-radio-text"> {{ radio.value }} </span>
@@ -63,6 +63,7 @@ export default {
 
     methods: {
         checkAction(radio){
+             event.stopPropagation()
             radio.checked = !radio.checked
             this.$emit("change", true)
         }
