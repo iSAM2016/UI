@@ -19,13 +19,11 @@
    left: 0;
    top: 0;
    width:180px;
-   height: 100% ;
-   
    z-index: 1000000;
    text-align:left;
    font-size:14px;
-   background-color:#1f2d3d;
-   overflow-y:scroll;
+   background-color:white;
+  
      .navbar-nav{
         .actives{
              background-color: #324057;
@@ -39,7 +37,7 @@
 }
  
 .bar-left-side-item {
-     width:100%;
+    width:100%;
     line-height:3.5;
     margin:0 auto;
     
@@ -48,11 +46,11 @@
        height: 100%;
        display:inline-block;
        padding-left:10px;
-       text-decoration:none;;
-       color:white;;
+       text-decoration:none;
+       color:#999;
         &:hover{
             opacity:0.5; filer:alpha(opacity=50);
-            color: #F9FAFC;
+            color: #2d8aff;
             text-decoration: none;
             outline: none;
             cursor: pointer;
