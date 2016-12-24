@@ -1,0 +1,71 @@
+<style  lang = "sass" >
+ 
+
+</style>
+<template>
+  <section >
+
+    <ol-tree 
+      :tree="tree">
+    </ol-tree>            
+          
+  
+
+    <div>
+        <h4>
+          #loading
+        </h4>
+           <pre>
+           
+           </pre>
+          
+                
+        
+   </div>  
+      
+  </section>
+</template>
+<script>
+const options = [{
+    // label 是级联选项展示值
+    label: '中国',
+
+    // value 是对象自定义属性
+    value: 'china',
+    // 也可以自定义其他属性
+    sku: '2234234',
+    id: 'j4jb345jb34j5',
+
+    // 该对象的子选项数组
+    children: [{
+        value: 'sichuan',
+        label: '四川',
+        children: [{
+            value: 'chegndu',
+            label: '成都'
+        }, {
+            value: 'deyang',
+            label: '德阳'
+        }]
+    }]
+}]
+
+import { olTree }from '../index'
+
+export default {
+    components: { 
+     olTree
+    },
+
+    data () {
+        return {
+            tree: {
+                options: options,
+                valueArr: []
+            }
+        }
+      
+    },
+}
+
+</script>

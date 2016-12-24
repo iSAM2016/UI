@@ -12,17 +12,16 @@
 
         >{{ item.label }}
        
-            <Caspanel 
+            <treeItem 
                 v-show="item.show"
                 :caspanel="item.children"> 
-            </Caspanel>
+            </treeItem>
         </li>
     </ul>
 </template>
 <script>
-import Casitem from './casItem'
 export default {
-  name:"Caspanel",
+  name:"treeItem",
   props: {
     caspanel: {
       type:Array,
@@ -36,7 +35,7 @@ export default {
   },
 
   components: {
-        Casitem
+        
   },
 
   methods: {

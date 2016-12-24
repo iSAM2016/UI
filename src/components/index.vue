@@ -94,13 +94,13 @@
 
  }
 
-/* 中型设备（台式电脑，992px 起） */
+/* 中型设备（台式电脑，992px */
 @media (min-width: 992px) { 
 
 
 }
 
-/* 大型设备（大台式电脑，1200px 起） */
+/* 大型设备（大台式电脑，1200px */
 @media (min-width: 1200px) { 
   
  }
@@ -128,165 +128,180 @@
                 <span>
                   Button &nbsp; 
                                   按钮
-                </span>
-              </a>
-            </router-link>
-          </li>
+                              </span></a>
+                </router-link>
+              </li>
 
-          <li class=" bar-left-side-item" >
+              <li class=" bar-left-side-item" >
 
-            <router-link to="/dropbutton" tag="li">
+                <router-link to="/dropbutton" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>dropButton &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item" >
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>dropButton &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class=" bar-left-side-item" >
 
-            <router-link to="/tag" tag="li">
+                <router-link to="/tag" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>tag &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>tag &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
 
-          <li class=" bar-left-side-item" >
+              <li class=" bar-left-side-item" >
 
-            <router-link to="/table" tag="li">
+                <router-link to="/table" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>table &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item" >
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>table &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class=" bar-left-side-item" >
 
-            <router-link to="/checkbox" tag="li">
+                <router-link to="/checkbox" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>checkbox &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/card" tag="li">
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>checkbox &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class=" bar-left-side-item">
+                <router-link to="/card" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>card &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/radio" tag="li">
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>card &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class=" bar-left-side-item">
+                <router-link to="/radio" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>radio &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>radio &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
 
-          <li class=" bar-left-side-item">
-            <router-link to="/input" tag="li">
+              <li class=" bar-left-side-item">
+                <router-link to="/input" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>input &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>input &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
 
-          <li class=" bar-left-side-item">
-            <router-link to="/switch" tag="li">
+              <li class=" bar-left-side-item">
+                <router-link to="/switch" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>switch &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/slider" tag="li">
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>switch &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class=" bar-left-side-item">
+                <router-link to="/slider" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>slider &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/datepick" tag="li">
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>slider &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class=" bar-left-side-item">
+                <router-link to="/datepick" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>datepick &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/select" tag="li">
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>datepick &nbsp;</span>
+                  </a>
+                </router-link>
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>select &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/cascader" tag="li">
+                <router-link to="/select" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>cascader &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>select &nbsp;</span>
+                  </a>
+                </router-link>
+                <router-link to="/cascader" tag="li">
 
-          <li class=" bar-left-side-item">
-            <router-link to="/loding" tag="li">
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>cascader &nbsp;</span>
+                  </a>
+                </router-link>
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>alert &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/timeline" tag="li">
+              </router-link>
+              <router-link to="/alert" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>timeline &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
-          <li class=" bar-left-side-item">
-            <router-link to="/progress" tag="li">
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>alert &nbsp;</span>
+                </a>
+              </router-link>
+              <router-link to="/loding" tag="li">
 
-              <a href="#">
-                <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>progress &nbsp;</span>
-              </a>
-            </router-link>
-          </li>
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>loding &nbsp;</span>
+                </a>
+              </router-link>
+              <router-link to="/timeline" tag="li">
 
-        </ul>
-      </div>
-    </nav>
-    <section  class="main-contant">
-      <router-view></router-view>
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>timeline &nbsp;</span>
+                </a>
+              </router-link>
+              <router-link to="/upload" tag="li">
+
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>upload &nbsp;</span>
+                </a>
+              </router-link>
+              <li class=" bar-left-side-item">
+                <router-link to="/progress" tag="li">
+
+                  <a href="#">
+                    <i class="icon-file-alt bar-left-side-item-icon"></i>
+                    <span>progress &nbsp;</span>
+                  </a>
+                </router-link>
+              </li>
+              <router-link to="/tree" tag="li">
+
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>tree &nbsp;</span>
+                </a>
+              </router-link>
+
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      <section  class="main-contant">
+        <router-view></router-view>
+      </section>
     </section>
-  </section>
 
-</template>
-<script>
+  </template>
+  <script>
 
   export default {
     components: { 

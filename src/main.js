@@ -31,6 +31,9 @@ const cascader= resolve => require(['./components/show/showCascader.vue'], resol
 const alert= resolve => require(['./components/show/showAlert.vue'], resolve)
 const timeline= resolve => require(['./components/show/showTimeline.vue'], resolve)
 const loding= resolve => require(['./components/show/showLoding.vue'], resolve)
+
+const upload= resolve => require(['./components/show/showUpload.vue'], resolve)
+const tree= resolve => require(['./components/show/showTree.vue'], resolve)
 const progress= resolve => require(['./components/show/showProgress.vue'], resolve)
 
 
@@ -150,6 +153,15 @@ const routes = [
          {
           path: '/progress',
           component:progress
+        },
+
+         {
+          path: '/upload',
+          component:upload
+        },
+         {
+          path: '/tree',
+          component:tree
         },
 
 

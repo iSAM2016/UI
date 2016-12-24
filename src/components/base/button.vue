@@ -169,7 +169,6 @@
   <button  
     class="ol-btn block block__element"
     :class="btnClass"
-   
     >
      <i class="rd-btn-icon-only" 
         :class="iconClass" 
@@ -177,8 +176,6 @@
       >
       </i>
 
-      
-    
        <span class="ol-btn-loading ion-load-a" 
           v-if="loading && !icon"></span>
 
@@ -300,7 +297,7 @@
     },
     
     methods: {
-
+      
     }
   }
 }

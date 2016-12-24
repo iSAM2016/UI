@@ -85,14 +85,14 @@
         class="ol-select-container"
     >
        
-        <caspanel
+        <treeItem
         class="item"
-        :caspanel="treeData"></caspanel>
+        :caspanel="treeData"></treeItem>
    </div>
 </template>
 <script>
 import {catIn} from '../utils.js'
-import caspanel from './caspanel'
+import treeItem from './treeItem'
 
 
 let  data  = [{
@@ -161,7 +161,7 @@ export default {
         }
     },
     components: {
-        caspanel
+        treeItem
     },
 
     mounted(){
