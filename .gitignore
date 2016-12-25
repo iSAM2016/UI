@@ -8,48 +8,10 @@ src/config/env.js
 /index_prod.html
 
 
-##drop database isam2016; //删除数据库
-## 重命名
-create table stu(
- sname varchar(10)
- )engine myisam charset utf8;
 
 
-#truncate stu; 清空表
-truncate 相当于清空表在创建新的表
 
 
-## set names 字符集
-
-create table class(
-id int primary key auto_increment,
-sname varchar(10) not null default '',
-gender char(1) not null default '',
-company varchar(20) not null default '',
-salary  decimal(6,2) not null default 0.00,
-foormany smallint not null default 0
-)engine myisam charset utf8;
 
 
- insert into class
- (id,sname,gender,company,salary,foormany)
- values
- (2,"王",'男','百度',9088,30);
-
-当插入正行的时候，可以不用谢
-
-修改
- update class
- set foormany = 123
- where id=123;
-
- update class
- set foormany=123 where gender="男" and foormany >0;
-
-//删除
-  delete from  [表] where 
- delete from class where  foormany =0;
-
-//selsect
-select sname,gender,company from class where id=1 ;
-select *  form [表]; 选择所有
+  

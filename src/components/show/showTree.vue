@@ -1,73 +1,78 @@
-<style  lang = "sass" >
- 
-
-</style>
+<style  lang = "sass" ></style>
 <template>
-  <section >
+    <section >
 
-    <ol-tree 
-      :trees="tree.options">
-    </ol-tree>            
-          
-  
+        <ol-tree 
+      :trees="tree.options"></ol-tree>
 
-    <div>
-        <h4>
-          #loading
-        </h4>
-           <pre>
-           
-           </pre>
-          
-                
-        
-   </div>  
-      
-  </section>
+        <div>
+            <h4>#loading</h4>
+            <pre></pre>
+
+        </div>
+
+    </section>
 </template>
 <script>
 const options = [{
     // label 是级联选项展示值
     label: '中国',
-
-    // value 是对象自定义属性
-    value: 'china',
-    // 也可以自定义其他属性
-    sku: '2234234',
-    id: 'j4jb345jb34j5',
-
-    // 该对象的子选项数组
+    show: false,
+    radio : {
+            checked: false,
+            },
     children: [{
         value: 'sichuan',
+        show: false,
+        radio : {
+            checked: false,
+            },
         label: '四川',
         children: [{
             value: 'chegndu',
-            label: '成都'
+            label: '成都',
+            show: false,
+            radio : {
+                checked: false,
+            },
         }, {
             value: 'deyang',
-            label: '德阳'
+            label: '德阳',
+            show: false,
+            radio : {
+                checked: false,
+            },
         }]
     }]
 },
 {
     // label 是级联选项展示值
     label: '美国',
+    show: false,
+            radio : {
+                checked: false,
+            },
 
-    // value 是对象自定义属性
-    value: 'china',
-    // 也可以自定义其他属性
-    sku: '2234234',
-    id: 'j4jb345jb34j5',
-
-    // 该对象的子选项数组
     children: [{
         value: 'sichuan',
+        show: false,
+            radio : {
+                checked: false,
+            },
         label: '加州',
         children: [{
             value: 'chegndu',
+            show: false,
+            radio : {
+                checked: false,
+            },
             label: '纽约'
         }, {
             value: 'deyang',
+            show: false,
+            radio : {
+                checked: false,
+            },
             label: '的卓'
         }]
     }]

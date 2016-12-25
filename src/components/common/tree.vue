@@ -14,36 +14,19 @@
         class="ol-tree"
 
     >
-       
+       {{ choseArray }}
         <treeItem
             class="item"
-            :treeData="list">
+            :treeData="trees"
+            @select = "chose"
+            >
         </treeItem>
    </div>
 </template>
 <script>
 import {catIn} from '../utils.js'
 import treeItem from './treeItem'
-
-
-let  deepCopy= function(source,that) { 
-            let obj =  {
-                    checked: false,
-                }
-    source.forEach(source =>{
-        if(!!source["children"]){
-            that.$set(source,"show", false)
-            that.$set(source,"radio", obj)
-            deepCopy(source["children"],that)
-        }else{
-          that.$set(source,"show", false)
-           that.$set(source,"radio", obj)
-          return true;
-        } 
-    })
-        
-   return source; 
-}
+ 
 
 export default {
    props: {
@@ -58,7 +41,7 @@ export default {
          
             valueShow: true,
             open: false,
-          
+            choseArray:[],
             display: '',
             
         }
@@ -73,14 +56,20 @@ export default {
 
     computed: {
         list(){
-            return deepCopy(this.trees,this)
+          
       }
     },
 
     methods: {
-      
-        
-      
+        chose(data){
+            this.choseArray.push(data)
+            this.deep(data)
+        },
+
+        deep(data){
+
+
+            }
     },
 
 }

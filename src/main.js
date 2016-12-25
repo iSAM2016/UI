@@ -6,6 +6,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import Env from './config/env';
+import highlight from 'highlight.js'
+import marked from 'marked'
 
 
 import App from 'components/app.vue';
@@ -31,111 +33,25 @@ const cascader= resolve => require(['./components/show/showCascader.vue'], resol
 const alert= resolve => require(['./components/show/showAlert.vue'], resolve)
 const timeline= resolve => require(['./components/show/showTimeline.vue'], resolve)
 const loding= resolve => require(['./components/show/showLoding.vue'], resolve)
-
 const upload= resolve => require(['./components/show/showUpload.vue'], resolve)
 const tree= resolve => require(['./components/show/showTree.vue'], resolve)
 const progress= resolve => require(['./components/show/showProgress.vue'], resolve)
 
 
+marked.setOptions({
+    highlight: function (code) {
+        return window.highlight.highlightAuto(code).value
+    },
+    
+})
+
+window.highlight = highlight
+window.marked = marked
+console.log(marked('I am using __markdown__.'));
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
-var  root = {name: 'tom',age: 12}
-let   { name: otername , age: ageother}  = root
-console.log(otername)
-
-// 数组的解构
-Vue.prototype.kl = function(){
-  alert(1)
-}
- 
-
-Vue.component("anchored-heading",{
-  render: function( createElement){
-      return createElement(
-        'h'+ this.level,
-        this.$slots.default // 子组件中的阵列
-        )
-  },
-   props: {
-    level: {
-      type: Number,
-      required: true
-    }
-  }
-})
- 
-const options = [{
-    // label 是级联选项展示值
-    label: '中国',
-
-    // value 是对象自定义属性
-    value: 'china',
-    // 也可以自定义其他属性
-    sku: '2234234',
-    id: 'j4jb345jb34j5',
-
-    // 该对象的子选项数组
-    children: [{
-        value: 'sichuan',
-        label: '四川',
-        children: [{
-            value: 'chegndu',
-            label: '成都'
-        }, {
-            value: 'deyang',
-            label: '德阳'
-        }]
-    }]
-},
-{
-    // label 是级联选项展示值
-    label: '美国',
-
-    // value 是对象自定义属性
-    value: 'china',
-    // 也可以自定义其他属性
-    sku: '2234234',
-    id: 'j4jb345jb34j5',
-
-    // 该对象的子选项数组
-    children: [{
-        value: 'sichuan',
-        label: '加州',
-        children: [{
-            value: 'chegndu',
-            label: '纽约'
-        }, {
-            value: 'deyang',
-            label: '的卓'
-        }]
-    }]
-}
-
-]
-
-var deepCopy= function(source) { 
-  
-
-    source.forEach(source =>{
-
-        if(!!source["children"]){
-            source.show = false
-            deepCopy(source["children"])
-
-        }else{
-          source.show = false
-
-          return true;
-        } 
-         
-    })
-        
-   return source; 
-}
-
-console.log(deepCopy(options))
 
 
 const routes = [
