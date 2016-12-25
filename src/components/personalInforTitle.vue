@@ -1,6 +1,18 @@
 <style>
-   .nav-tabs{
-    background-color: #fff
+.ol-contents{
+    position: relative;
+    width: 100%;
+    padding: .2rem;
+    border: 1px solid #ccc;
+
+   }
+
+   .ol-contents{
+    position: relative;
+    width: 100%;
+    padding: .2rem;
+    border: 1px solid #ccc;
+
    }
 </style>
 <template>
@@ -16,31 +28,31 @@
 
     </ul>
 
+ <div class="ol-contents">
+   <div class="ol-content-UI"></div>
+   <div class="ol-content-code"></div>
+ </div>
+
 </template>
 <script>
 
-    module.exports = {
-        filters: {
-           /* NumberSeparator: NumberSeparator*/
-        },
-        directives: {
-           /* time: Time*/
-        },
-        data: function() {
-            return {
-
-            }
-        },
-        ready: function() {
-    
-        },
-        beforeDestroy: function() {
-
-        },
-        methods: {
-            
-        },
-       
+   
+  export default {
+    components: { 
       
+          },
+
+   
+
+    data () {
+      return {
+        totalTime: 0,
+      }
+    },
+    
+    mounted() {
+      $("#show").height($(window).height())
     }
+  }
+
 </script>
