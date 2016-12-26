@@ -28,6 +28,11 @@ import olTree from "./common/tree.vue"
 import olProgress from "./common/progress.vue"
 
 
+import olNotification from "./global/notification.vue"
+
+
+import olBreadcrumb from "./navigation/breadcrumb.vue"
+import olpagination from "./navigation/pagination.vue"
 
 
 export  {
@@ -54,7 +59,13 @@ export  {
     olLoding,
     olUpload,
     olProgress,
-    olTree
+    olTree,
+
+    olNotification,
+
+
+    olBreadcrumb,
+    olpagination
 
 }
 

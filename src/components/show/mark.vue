@@ -1,49 +1,6 @@
-<style  lang = "sass">
-
-
-.ol-contents{
-    position: relative;
-    width: 100%;
-    padding: .2rem;
-    border: 1px solid #ccc;
-   }
-.ol-contents{
-    position: relative;
-    width: 100%;
-    padding: .2rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.ol-content-UI{
-    display: inline-block;
-   vertical-align: top;
-    width: 49%;
-}
-.ol-content-code{
-    position: relative;
-    display: inline-block;
-    border-left: 1px dashed #ccc;
-    height: 220px;
-    width: 50%;
-
-      .ol-drop{
-          position: absolute;
-          bottom: 0;
-          left: 7px;
-          width: 100%;
-          height: 20px;
-          text-align: center;
-          vertical-align: middle;
-          line-height: 20px;
-
-             &:hover{
-                background-color: rgba(0,0,0,.1); 
-             }
-        }
-   }
-
-.ol-mark-text {
-    display: block;
+<style>
+.ex-mark-text {
+    display: none;
 }
 .marked p{
     max-width: 40rem;
@@ -65,7 +22,12 @@
     line-height: 1.5em;
     margin: 1rem 0;
 }
-
+.marked {
+    font-size: .9rem;
+    line-height: 1.8;
+    color: #666;
+    max-width: 40rem;
+}
 .marked h1 {
     font-size: 1.6rem;
 }
@@ -148,41 +110,30 @@
         margin: 0;
     }
 }
-
 </style>
 <template>
-
-    <div class="ol-contents">
-      <div class="ol-content-UI">
-        
-         <slot></slot>
-        
-      </div>
-      <div class="ol-content-code markeds">
-          <div v-html="rawHtml"></div>
-         
-         <div class="ol-drop">↑</div>
-      </div>
+    <div class="marked">
+        <div v-html="rawHtml">
+        </div>
+     
+                 <slot></slot>
     </div>
-
 </template>
 <script>
-    const HTMLDeCode = (str) => {
+const HTMLDeCode = (str) => {
     const div = document.createElement('div')
     div.innerHTML = str
     return div.innerText || div.textContent
 }
 
-  export default {
+export default {
     data () {
-      return {
-        rawHtml:"",
-        logon: "<span>121</span>"
-      }
+        return {
+            rawHtml: ''
+        }
     },
     mounted () {
-        this.rawHtml = window.marked((HTMLDeCode(this.$el.getElementsByClassName('ol-mark-text')[0].innerHTML) ))
+        this.rawHtml = '<pre><button v-el:button v-on:click="click">click me</button></pre>'
     }
-  }
-
+}
 </script>

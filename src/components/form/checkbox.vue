@@ -61,7 +61,7 @@
     <span 
       class="ol-checkbox-inner"
       :class="{
-        'selected': this.checkbox.checked,
+        'selected': checkbox.checked,
         'disabled': checkbox.disabled
         }"
       @click="changeAction" >
@@ -93,14 +93,27 @@
           text: {
               type: String,
               default: ()=> "checkbox"
-          }
+          },
+
+          checked:{
+            type: Boolean,
+            default: ()=> false
+          },
+
+          disabled:{
+            type: Boolean,
+            default: ()=> false
+          },
+
         },
        
     },
     methods:{
       changeAction(){
+         event.stopPropagation()
+         alert(1)
          if (this.checkbox.disabled) return 
-       this.checkbox.checked = !this.checkbox.checked
+          this.checkbox.checked = !this.checkbox.checked
       }
     }
     

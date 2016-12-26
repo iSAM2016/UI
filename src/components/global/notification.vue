@@ -1,0 +1,123 @@
+<style  lang = "sass" >
+.ol-notification-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+}  
+
+.ol-notification{
+    position: relative;
+    width: 20rem;
+    background-color: #fff;
+    margin-right: 1rem;
+    border: 1px solid #eaf8fe;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    &.success,
+    &.warning,
+    &.failed,
+    &.info {
+        padding-left: 4rem;
+    }
+    &.success {
+        .rd-notification-icon {
+            color: #87d068;
+        }
+    }
+    &.info {
+        .rd-notification-icon {
+            color: #2db7f5;
+        }
+    }
+    &.warning {
+        .rd-notification-icon {
+            color: #fa0;
+        }
+    }
+    &.failed {
+        .rd-notification-icon {
+            color: #f50;
+        }
+    }
+}
+.ol-notification-title {
+    font-size: .9rem;
+}
+
+.ol-notification-content {
+    color: #999;
+    font-size: .8rem;
+    line-height: 1.5;
+    margin: 0;
+}
+.ol-notification-close {
+    position: absolute;
+    top: .2rem;
+    right: .5rem;
+    font-size: .8rem;
+    color: #ccc;
+}
+.ol-notification-close:hover {
+    color: #969696;
+}
+.ol-notification-icon{
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    left: 1rem;
+    margin-top: -.75rem;
+    line-height: 1.5rem;
+}
+</style>
+<template>
+    <div class="ol-notification-container" v-show="notifications.length">
+        <div 
+            class="ol-notification"
+            v-for="item in notifications"
+            :class="typeClass(item)"
+        >
+           <span class="ol-notification-icon" :class="iconClass(item)"></span>
+            <span class="ol-notification-title">{{item.title}}</span>
+            <p class="ol-notification-content">{{item.content}}</p>
+            <span class="ol-notification-close ion-close-round" @click="closeItem(item)"></span>
+            
+        </div>
+    </div>
+</template>
+<script>
+
+export default {
+    computed: {
+        notifications () {
+            return this.$root.ROOT_NOTIFICATION
+        }
+    },
+    components: { 
+    },
+
+    data () {
+        return {
+        }
+      
+    },
+
+    methods:{
+        typeClass (item) {
+            if (!item.type) {
+                return {
+                    'rd-notification-info': true
+                }
+            }
+            let classList = {}
+            classList[item.type] = true
+            return classList
+        },
+         closeItem (item) {
+            this.notifications.$remove(item)
+        }
+    }
+}
+
+</script>

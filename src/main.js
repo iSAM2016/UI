@@ -6,10 +6,15 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import Env from './config/env';
+import highlight from 'highlight.js'
+import marked from 'marked'
 
 
 import App from 'components/app.vue';
 import index from './components/index.vue'
+
+
+require( './plugins/notifiction.js')
 
 //首页
 const show = resolve => require(['./components/show.vue'], resolve)
@@ -31,19 +36,42 @@ const cascader= resolve => require(['./components/show/showCascader.vue'], resol
 const alert= resolve => require(['./components/show/showAlert.vue'], resolve)
 const timeline= resolve => require(['./components/show/showTimeline.vue'], resolve)
 const loding= resolve => require(['./components/show/showLoding.vue'], resolve)
-
 const upload= resolve => require(['./components/show/showUpload.vue'], resolve)
 const tree= resolve => require(['./components/show/showTree.vue'], resolve)
 const progress= resolve => require(['./components/show/showProgress.vue'], resolve)
+const notifiction= resolve => require(['./components/show/showNotifiction.vue'], resolve)
+const breadcrumb= resolve => require(['./components/show/showBreadcrumb.vue'], resolve)
+const pagination= resolve => require(['./components/show/showPagination.vue'], resolve)
+const icon= resolve => require(['./components/show/showIcon.vue'], resolve)
+
+marked.setOptions({
+    highlight: function (code) {
+        return window.highlight.highlightAuto(code).value
+    },
+    
+})
 
 
+window.highlight = highlight
+window.marked = marked
+console.log(marked('I am using __markdown__.'));
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+<<<<<<< HEAD
 var marked = require('marked');
 console.log(marked('I am using __markdown__.'));
  
+=======
+/*
+Vue.use(notifiction, {
+    Notification: true
+})
+*/
+
+
+>>>>>>> 5070f5b993f5203dbbafe8d77df8434e8bfa1bf0
 
 const routes = [
   {path: '/', component:show },
@@ -140,6 +168,23 @@ const routes = [
          {
           path: '/tree',
           component:tree
+        },
+
+        {
+          path: '/notifiction',
+          component:notifiction
+        },
+        {
+          path: '/breadcrumb',
+          component:breadcrumb
+        }, {
+          path: '/pagination',
+          component:pagination
+        },
+
+        {
+          path: '/icon',
+          component:icon
         },
 
 
