@@ -41,30 +41,8 @@ const progress= resolve => require(['./components/show/showProgress.vue'], resol
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
-var  root = {name: 'tom',age: 12}
-let   { name: otername , age: ageother}  = root
-console.log(otername)
-
-// 数组的解构
-Vue.prototype.kl = function(){
-  alert(1)
-}
- 
-
-Vue.component("anchored-heading",{
-  render: function( createElement){
-      return createElement(
-        'h'+ this.level,
-        this.$slots.default // 子组件中的阵列
-        )
-  },
-   props: {
-    level: {
-      type: Number,
-      required: true
-    }
-  }
-})
+var marked = require('marked');
+console.log(marked('I am using __markdown__.'));
  
 
 const routes = [
