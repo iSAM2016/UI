@@ -13,6 +13,9 @@ import marked from 'marked'
 import App from 'components/app.vue';
 import index from './components/index.vue'
 
+
+require( './plugins/notifiction.js')
+
 //首页
 const show = resolve => require(['./components/show.vue'], resolve)
 //基本介绍
@@ -36,7 +39,10 @@ const loding= resolve => require(['./components/show/showLoding.vue'], resolve)
 const upload= resolve => require(['./components/show/showUpload.vue'], resolve)
 const tree= resolve => require(['./components/show/showTree.vue'], resolve)
 const progress= resolve => require(['./components/show/showProgress.vue'], resolve)
-
+const notifiction= resolve => require(['./components/show/showNotifiction.vue'], resolve)
+const breadcrumb= resolve => require(['./components/show/showBreadcrumb.vue'], resolve)
+const pagination= resolve => require(['./components/show/showPagination.vue'], resolve)
+const icon= resolve => require(['./components/show/showIcon.vue'], resolve)
 
 marked.setOptions({
     highlight: function (code) {
@@ -45,12 +51,19 @@ marked.setOptions({
     
 })
 
+
 window.highlight = highlight
 window.marked = marked
 console.log(marked('I am using __markdown__.'));
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+
+/*
+Vue.use(notifiction, {
+    Notification: true
+})
+*/
 
 
 
@@ -149,6 +162,23 @@ const routes = [
          {
           path: '/tree',
           component:tree
+        },
+
+        {
+          path: '/notifiction',
+          component:notifiction
+        },
+        {
+          path: '/breadcrumb',
+          component:breadcrumb
+        }, {
+          path: '/pagination',
+          component:pagination
+        },
+
+        {
+          path: '/icon',
+          component:icon
         },
 
 

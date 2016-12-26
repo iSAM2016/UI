@@ -11,6 +11,8 @@ Is 1 table  组件中的一个排序功能,如this.sorBy没有完整的写出
 
    5 select  let rect = this.$el.getBoundingClientRect()
 
+   6 button 绑定事件不能触发
+
 
 
 

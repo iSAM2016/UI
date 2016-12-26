@@ -91,7 +91,7 @@
 export default {
     computed: {
         notifications () {
-            return this.$root.RADON_NOTIFICATION
+            return this.$root.ROOT_NOTIFICATION
         }
     },
     components: { 

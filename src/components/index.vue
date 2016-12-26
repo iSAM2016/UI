@@ -119,7 +119,18 @@
               </a>
             </router-link>
           </li>
+            <li class=" bar-left-side-item" >
 
+            <router-link to="/icon" tag="li">
+
+              <a href="#"> <i class="icon-file-alt bar-left-side-item-icon"></i>
+                <span>
+                  icon &nbsp; 
+                                  按钮
+                </span>
+              </a>
+            </router-link>
+          </li>
           <li class=" bar-left-side-item" >
 
             <router-link to="/button" tag="li">
@@ -304,17 +315,49 @@
               </router-link>
 
             </li>
+            <li class=" bar-left-side-item">
+              <router-link to="/notifiction" tag="li">
 
-          </ul>
-        </div>
-      </nav>
-      <section  class="main-contant">
-        <router-view></router-view>
-      </section>
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>notifiction &nbsp;</span>
+                </a>
+              </router-link>
+
+            </li>
+
+          </li>
+          <li class=" bar-left-side-item">
+            <router-link to="/breadcrumb" tag="li">
+
+              <a href="#">
+                <i class="icon-file-alt bar-left-side-item-icon"></i>
+                <span>breadcrumb &nbsp;</span>
+              </a>
+            </router-link>
+
+          </li>
+          <li class=" bar-left-side-item">
+            <router-link to="/pagination" tag="li">
+
+              <a href="#">
+                <i class="icon-file-alt bar-left-side-item-icon"></i>
+                <span>pagination &nbsp;</span>
+              </a>
+            </router-link>
+
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    <section  class="main-contant">
+      <router-view></router-view>
     </section>
+  </section>
 
-  </template>
-  <script>
+</template>
+<script>
 
   export default {
     components: { 

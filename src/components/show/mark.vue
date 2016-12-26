@@ -133,7 +133,7 @@ export default {
         }
     },
     mounted () {
-        this.rawHtml = '<button v-el:button v-on:click="click">click me</button>'
+        this.rawHtml = '<pre><button v-el:button v-on:click="click">click me</button></pre>'
     }
 }
 </script>
