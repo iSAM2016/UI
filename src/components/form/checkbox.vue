@@ -26,8 +26,8 @@
     font-size: .8rem;
     left: 38%;
     top: 50%;
-    width: .8rem;
-    height: .8rem;
+    width: 100%;
+    height: 100%;
     margin-top: -.3rem;
     margin-left: -.4rem;
     line-height: .8rem;
@@ -66,7 +66,7 @@
         }"
       @click="changeAction" >
 
-        <i class="ol-checkbox-inner-icon icon-ok ">
+        <i class="ol-checkbox-inner-icon ion-android-done ">
         </i>  
 
         <input 
@@ -111,7 +111,6 @@
     methods:{
       changeAction(){
          event.stopPropagation()
-         alert(1)
          if (this.checkbox.disabled) return 
           this.checkbox.checked = !this.checkbox.checked
       }

@@ -48,13 +48,25 @@ marked.setOptions({
     highlight: function (code) {
         return window.highlight.highlightAuto(code).value
     },
+     renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: true,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false
     
 })
 
 
 window.highlight = highlight
 window.marked = marked
-console.log(marked('I am using __markdown__.'));
+
+
+
+
+
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -215,7 +227,6 @@ router.beforeEach((to, from, next) => {
     }
 });
 router.afterEach((to, from, next) => { 
-console.log(to.path)
 });
 
 

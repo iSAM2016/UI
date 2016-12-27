@@ -11,17 +11,6 @@
        <ol-table :table="TableData" />
     </div>  
 
-
-    <div>
-      <h4>
-        #代码
-      </h4>
-        <pre>
-          <code>
-           html
-          </code>
-        </pre>
-    </div>   
    
   </section>
 </template>

@@ -8,9 +8,8 @@
     position: relative;
     height: 1.4rem;
     width: 1.4rem;
-    vertical-align: text-top;
+    top:.4rem;
     display: inline-block;
-    box-sizing: border-box;
     border-radius: 50%;
     border: 1px solid #ccc;
         &:hover{
@@ -22,11 +21,11 @@
 .ol-radio-inner:after{
     position: absolute;
     display: inline-block;
-    width: .75rem;
-    height: .75rem;
+    width: .76rem;
+    height: .76rem;
     content: "";
-    top: 2.6px;
-    left: 2.6px;
+    top: 4.1px;
+    left: 4.3px;
     border-radius: 50%;
     background-color: #2db7f5; 
     opacity: 0;
@@ -45,14 +44,11 @@
 <template>
 <label 
     class="ol-radio"
-    :class='{
-        "checked" : radio.checked,
-
-        }'
+    :class='{"checked" : radio.checked}'
     @click.stop="checkAction(radio)"    
     >        
-       <span class="ol-radio-inner"></span> 
-      <span class="ol-radio-text"> {{ radio.value }} </span>
+        <span class="ol-radio-inner"></span> 
+        <span class="ol-radio-text"> {{ radio.value }} </span>
     </label>
 </template>
 <script>

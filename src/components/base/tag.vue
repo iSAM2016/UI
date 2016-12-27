@@ -10,8 +10,6 @@
 }
 
 
-
-
 .ol-tg-wrapper.primary {
     color: #fff;
     background-color: #57c5f7;

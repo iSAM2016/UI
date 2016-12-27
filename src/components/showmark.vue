@@ -177,7 +177,6 @@
     data () {
       return {
         rawHtml:"",
-        logon: "<span>121</span>"
       }
     },
     mounted () {

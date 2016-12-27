@@ -23,9 +23,9 @@
     <div>
       <h4>#图标</h4>
 
-      <ol-button  icon="icon-file-alt " type="primary"></ol-button>
+      <ol-button  icon="ion-android-add " type="primary"></ol-button>
 
-      <ol-button   type="primary"> <i class="icon-file-alt"></i>
+      <ol-button   type="primary"> <i class="ion-android-locate"></i>
         推荐
       </ol-button>
 
@@ -45,17 +45,7 @@
     </div>
 
     <div>
-      <marked>
 
-        <textarea class="ex-mark-text">
-          ### 按钮类       
-```html
-          <ol-button>默认按钮</ol-button>
-          <ol-button type="primary">推荐</ol-button>
-          <ol-button type="ghost">ghost</ol-button>
-          ```
-        </textarea>
-      </marked>
 
       <markshow>
         <div class="ol-mark-text">
@@ -79,8 +69,7 @@
 </template>
 <script>
 import { olButton, olButtonGroup }from '../index'
-import  marked from './mark.vue'
-import  markshow from '../personalInforTitle.vue'
+import  markshow from '../showmark.vue'
 import test from './test.vue'
 
   export default {

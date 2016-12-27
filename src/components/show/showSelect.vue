@@ -17,21 +17,7 @@
       :select="form.selectProvince3">
     </ol-select>
 
-   
   
-
-    <div>
-        <h4>
-          #loading
-        </h4>
-           <pre>
-           
-           </pre>
-          
-                
-        
-   </div>  
-      
   </section>
 </template>
 <script>

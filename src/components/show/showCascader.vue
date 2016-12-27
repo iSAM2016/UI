@@ -8,21 +8,7 @@
     <ol-cascader 
       :cascader="cascader">
     </ol-cascader>            
-          
-        
-   
-  
-
-    <div>
-        <h4>
-          #loading
-        </h4>
-           <pre>
-           
-           </pre>
-          
-                
-        
+    
    </div>  
       
   </section>
