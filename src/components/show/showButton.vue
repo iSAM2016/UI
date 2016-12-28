@@ -44,25 +44,7 @@
 
     </div>
 
-    <div>
-
-
-      <markshow>
-        <div class="ol-mark-text">
-``` html
-  <ol-button>默认按钮</ol-button>
-  <ol-button type="primary">推荐</ol-button>
-  <ol-button type="ghost">ghost</ol-button>
-  <ol-button type="success">success</ol-button>
-  <ol-button type="info">information</ol-button>
-  <ol-button type="danger">danger</ol-button>
-  <ol-button type="warning">waring</ol-button>
-  <ol-button :disabled ='true'>disabled</ol-button>
-
-```
-        </div>
-      </markshow>
-    </div>
+   
 
   </div>
 </section>
@@ -72,6 +54,16 @@ import { olButton, olButtonGroup }from '../index'
 import  markshow from '../showmark.vue'
 import test from './test.vue'
 
+let str =` \`\`\`html<ol-button>默认按钮</ol-button>
+  <ol-button type="primary">推荐</ol-button>
+  <ol-button type="ghost">ghost</ol-button>
+  <ol-button type="success">success</ol-button>
+  <ol-button type="info">information</ol-button>
+  <ol-button type="danger">danger</ol-button>
+  <ol-button type="warning">waring</ol-button>
+  <ol-button :disabled ='true'>disabled</ol-button>  \`\`\` ` 
+
+
   export default {
     components: { 
       olButton,
@@ -79,13 +71,9 @@ import test from './test.vue'
       marked,
       markshow
     },
-  
-
-    
-
     data () {
       return {
-        totalTime: 0,
+        str:str,
       }
     },
     

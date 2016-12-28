@@ -54,7 +54,7 @@
 <template>
 <div ref = "kl">
   <div class="progress">
-          <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 100%;">
+          <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 85%;">
             <div class="progress-value">85%</div>
           </div>
         </div>

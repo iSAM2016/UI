@@ -174,13 +174,18 @@
 }
 
   export default {
+    props:{
+        str:{
+          type: String
+        }
+    },
     data () {
       return {
         rawHtml:"",
       }
     },
     mounted () {
-        this.rawHtml = window.marked((HTMLDeCode(this.$el.getElementsByClassName('ol-mark-text')[0].innerHTML) ))
+        this.rawHtml = window.marked(this.str)
     }
   }
 
