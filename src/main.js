@@ -68,23 +68,13 @@ window.marked = marked
 
 
 
+
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
+                       
 
-<<<<<<< HEAD
-var marked = require('marked');
-console.log(marked('I am using __markdown__.'));
  
-=======
-/*
-Vue.use(notifiction, {
-    Notification: true
-})
-*/
-
-
->>>>>>> 5070f5b993f5203dbbafe8d77df8434e8bfa1bf0
-
 const routes = [
   {path: '/', component:show },
   { path: '/index', component: index, 

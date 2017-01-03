@@ -15,33 +15,29 @@
 <template>
 
   <ul 
-      v-if="treeData && treeData.length" 
-      class="ol-treeItem">
-    <li 
-          v-for="item in treeData"
-          @click.stop="openchild(item)"
-          class="ol-treeItem-li"
-
-        >
-      <radio 
-                :radio = 'item.radio' 
-                @change = "change(item.children,item,parent)"
-
-            ></radio>
-      {{ item.label }}
-      <treeItem 
-                v-if="item.show"
-                :treeData="item.children"
-                :parent= item
-                @select = "chose"
-                ></treeItem>
-    </li>
+    v-if="treeData && treeData.length" 
+    class="ol-treeItem">
+      <li 
+        v-for="item in treeData"
+        @click.stop="openchild(item)"
+        class="ol-treeItem-li"
+      >
+        <radio 
+          :radio = 'item.radio' 
+          @change = "change(item.children,item,parent)"
+        ></radio>
+        {{ item.label }}
+        <treeItem 
+          v-if="item.show"
+          :treeData="item.children"
+          :parent= item
+          @select = "chose"
+        ></treeItem>
+      </li>
   </ul>
 </template>
 <script>
 import radio from '../form/radio'
-
-
 export default {
   name:"treeItem",
   props: {

@@ -15,8 +15,9 @@
 </template>
 <script>
 const options = [{
-    // label 是级联选项展示值
+    // label 是级联选项展
     label: '中国',
+    id: 1,
     show: false,
     radio : {
             checked: false,
@@ -28,16 +29,55 @@ const options = [{
             checked: false,
             },
         label: '四川',
+        id: 2,
         children: [{
             value: 'chegndu',
             label: '成都',
+            id: 3,
+            show: false,
+            radio : {
+                checked: false,
+            },
+
+        }, {
+            value: 'deyang',
+            label: '德阳',
+            id: 4,
+            show: false,
+            radio : {
+                checked: false,
+            },
+        },
+            {
+            value: 'deyang',
+            label: '重庆',
+            id: 14,
+            show: false,
+            radio : {
+                checked: false,
+            },
+        }]
+    },
+    {
+        value: 'sichuan',
+        show: false,
+        radio : {
+            checked: false,
+            },
+        label: '河北',
+        id: 2,
+        children: [{
+            value: 'chegndu',
+            label: '石家庄',
+            id: 3,
             show: false,
             radio : {
                 checked: false,
             },
         }, {
             value: 'deyang',
-            label: '德阳',
+            label: '承德',
+            id: 4,
             show: false,
             radio : {
                 checked: false,
@@ -46,8 +86,9 @@ const options = [{
     }]
 },
 {
-    // label 是级联选项展示值
+    // label 是级联选项展
     label: '美国',
+    id: 5,
     show: false,
             radio : {
                 checked: false,
@@ -60,21 +101,24 @@ const options = [{
                 checked: false,
             },
         label: '加州',
+        id: 6,
         children: [{
             value: 'chegndu',
             show: false,
             radio : {
                 checked: false,
             },
-            label: '纽约'
+            label: '纽约',
+            id: 7,
         }, {
             value: 'deyang',
             show: false,
             radio : {
                 checked: false,
             },
-            label: '的卓'
-        }]
+            label: '的卓',
+            id: 8,       
+ }]
     }]
 }]
 
