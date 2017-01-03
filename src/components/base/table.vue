@@ -4,33 +4,26 @@
   max-width: 100%;
   text-align: left;
 
-    // Cells
     > thead,
     > tbody,
     > tfoot {
       > tr {
-            color: rgba(0, 0, 0, 0.870588);
-            height: 3rem;
-            border-bottom: 1px solid #e9e9e9;
-            &:hover {
-                background: #f1f4f9;
-            }
-          
-          
+           
         }
       }
 
 
-  > thead > tr {
+    > thead > tr {
       >th,
       >td{
-            
-
-      }
     } 
-  
 }
-
+}
+.ol-table-th{
+color: rgba(0, 0, 0, 0.870588);
+    height: 3rem;
+    border-bottom: 1px solid #e9e9e9;
+}
 
 .ol-table-td {
     position: relative;

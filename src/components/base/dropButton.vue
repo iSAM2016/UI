@@ -9,8 +9,9 @@
 
 .ol-drop-button-list{
     position: absolute;
-    top: 3.5rem;
+    top: 3rem;
     left: 50%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     background: #fff;
@@ -23,6 +24,7 @@
 }
 
 .ol-drop-button-list .ol-btn {
+  width: 100%;
   background: #fff;
   border-radius: 0;
   border: none;

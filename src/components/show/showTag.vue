@@ -32,25 +32,11 @@
         <ol-tag 
           type="danger" 
           value="simple tag" 
-          icon="icon-envelope"
+          icon="ion-alert"
         >
         </ol-tag>
     </div>  
 
-
-    <div>
-      <h4>
-        #代码
-      </h4>
-        <pre>
-          <code>
-           html
-          </code>
-        </pre>
-    </div>   
-
-   
-      
    
   </section>
 </template>

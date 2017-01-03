@@ -25,13 +25,14 @@
         >
       <radio 
                 :radio = 'item.radio' 
-                @change = "change(item.children,item)"
+                @change = "change(item.children,item,parent)"
 
             ></radio>
       {{ item.label }}
       <treeItem 
                 v-if="item.show"
                 :treeData="item.children"
+                :parent= item
                 @select = "chose"
                 ></treeItem>
     </li>
@@ -48,13 +49,13 @@ export default {
       type:Array,
       require:true,
     },
+    parent:{
+      type: Object
+    }
   },
 
   data: function () {
     return {
-     
-        choseArr:[]
-      
     }
   },
 
@@ -65,26 +66,26 @@ export default {
   methods: {
     openchild(item){
       event.stopPropagation()
+      if(!item.children) return true;
        item.show = !item.show
        this.$set(item,"show", item.show)
     },
 
-    change(children,item){
+    change(children,item,parent){
       let that = this;
       
       if(!children){ 
-          that.$emit("select",item)
+          that.$emit("select",item,parent)
         return 
       }
 
-        that.$emit("select",item)
-        this.deep( children)
+        that.$emit("select",item,parent)
+        ///this.deep( children)
     },
 
-    chose( data ){
+    chose( data,parent ){
         console.log(data)
-          this.choseArr.push(data)
-          this.$emit("select",data)
+          this.$emit("select",data,parent)
     },
 
     deep(children){

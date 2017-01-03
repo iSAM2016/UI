@@ -1,6 +1,4 @@
 <style lang="sass" >
- @import '../../css/index'; 
-
 
 .ol-alert{
     position: relative;
@@ -23,14 +21,18 @@
 
 .ol-alert-icon{
     display: table-cell;
-    font-size: 800;
+    font-size: 2rem;
     padding-right: 1rem; 
-    vertical-align: middle;     
+    vertical-align: middle; 
+    line-height: 2rem; 
+     &.samll{
+        font-size: 1.4rem;
+        line-height: 1.4rem; 
+     }   
   }
 
 .ol-alert-content{
     display: table-cell;
-    line-height: 2;
 
       .ol-alert-title{
          font-weight: bolder;
@@ -111,8 +113,14 @@
         v-if="item.show"
       >
 
-        <i class="icon-file-alt ol-alert-icon"></i>
-        <div class="ol-alert-content ">
+        <i class=" ol-alert-icon" :class='{
+          "ion-ios-checkmark": item.state === "success",
+          "ion-android-cancel": item.state === "failed",
+          "ion-information-circled": item.state === "info",
+          "ion-android-alert": item.state === "warning",
+          "samll": !item.content
+          }'></i>
+        <div class="ol-alert-content " >
            <span class="ol-alert-title">{{ item.title }}</span>
            <p class="ol-alert-word" v-if="item.content">{{ item.content }}</p>
         <i class="icon-file-alt ol-alert-close"
@@ -124,6 +132,9 @@
 </template>
 <script>
 
+
+
+   
   export default {
     mounted (){
      
@@ -147,37 +158,6 @@
 
     computed: {
 
-      alertClass(){
-          let list = []
-
-          switch(this.alerts.state){
-            case "default":
-              list.push("default")
-              break
-            case "success":
-              list.push("success")
-              break
-            case "primary":
-              list.push("primary")
-              break
-            case "danger":
-              list.push("danger")
-              break
-            case "info":
-              list.push("info")
-              break
-
-           
-            case "warning":
-              list.push("warning")
-              break 
-
-
-           }
-
-        return list
-       
-      }
     },
 
     methods: {

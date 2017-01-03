@@ -1,5 +1,5 @@
 <style  lang = "sass" >
-@import '../styles/custom-bootstrap.css'; 
+
 @import '../styles/ionicons/ionicons.min.css'; 
  
 </style>

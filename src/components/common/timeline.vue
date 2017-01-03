@@ -1,5 +1,4 @@
 <style lang="sass" >
- @import '../../css/index'; 
 .ol-timeline-recourse{
     position: relative;
 }
@@ -26,7 +25,9 @@
 .ol-timeline-icon{
     background-color: #fff;
     position: relative;
+    left:-.6rem;
     z-index: 2;
+    font-size: 1.2rem;
     padding-right: 1rem;
 }
 
@@ -62,11 +63,17 @@
       <li
         v-for="(item,index) in timeline"
         class='ol-timeline'
+        :class="item.state"
         
       >
-         <i  class="icon-file-alt ol-timeline-icon"
+         <i  class="ion-alert-circled ol-timeline-icon"
+            :class='{
+                "ion-ios-checkmark successs": item.state === "success",
+                "ion-android-cancel failed": item.state === "failed",
+                "ion-information-circled info": item.state === "info",
+                "ion-android-alert warning": item.state === "warning",
+              }'
 
-            :class="item.state"
         ></i>
         <span class="ol-timeline-word">{{  item.text }}</span>
         <span class="ol-timeline-line" v-if="index+1 !== timeline.length"></span>              

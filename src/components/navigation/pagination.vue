@@ -19,6 +19,10 @@
     outline: none;
     transition: background 0.2s;
     touch-action: manipulation;
+
+    &.notborder{
+      border: none
+    }
 }
 
 
@@ -63,13 +67,13 @@
 </style>
 <template>
 <div>
-  <span  class="ol-pagination "  @click="pre(-1)">{{'<'}}</span>
+  <span  class="ol-pagination notborder"  @click="pre(-1)"><i class="ion-chevron-left"></i></span>
   <span  
     class="ol-pagination " 
     v-show="leftShow"
     @click="changeNum(1)"
   >1</span>
-  <span  class="ol-pagination " v-show="leftShow">...</span>
+  <span  class="ol-pagination notborder" v-show="leftShow">...</span>
   <span  
     class="ol-pagination "
     v-for="(item,index) in paginaton.pageSize"
@@ -81,13 +85,13 @@
 
      
   </span>
-  <span class="ol-pagination" v-show="rigthShow">...</span>
+  <span class="ol-pagination notborder" v-show="rigthShow">...</span>
   <span 
-      class="ol-pagination" 
+      class="ol-pagination " 
       v-show="rigthShow"
       @click="changeNum(paginaton.totle)"
   >{{ this.paginaton.totle }}</span>
-  <span class="ol-pagination" @click="pre(1)">{{'>'}}</span>
+  <span class="ol-pagination notborder" @click="pre(1)"><i class="ion-chevron-right"></i></span>
 </div>
 </template>
 <script>
@@ -139,11 +143,11 @@
           }
 
          this.start = start
+console.log(this.start)
          this.iconshow()
 
       },
       iconshow(){
-        console.log(this.start)
          if(this.start < (this.paginaton.pageSize-1)/2){
             this.leftShow = false
 
@@ -159,7 +163,7 @@
          }
       },
       pre(num){
-          this.changeNum(this.start+num)
+        this.changeNum(this.start+num)
       }
     },
   }

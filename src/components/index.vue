@@ -60,7 +60,17 @@
 
     }
 
+  
 }
+
+.router-link-active{
+      text-decoration:none;
+      background:rgba(125,125,125,.1);
+
+      a{
+         color: #2db7f5;
+      }
+  }
 
 .bar-left-side-item-icon {
     color:white;
@@ -112,7 +122,7 @@
         <ul class="resact">
           <li class=" bar-left-side-item" >
 
-            <router-link to="/index" tag="li">
+            <router-link to="/index" tag="li" active-class="active">
 
               <a href="#"> <i class="icon-file-alt bar-left-side-item-icon"></i>
                 <span>跳转</span>
@@ -126,7 +136,6 @@
               <a href="#"> <i class="icon-file-alt bar-left-side-item-icon"></i>
                 <span>
                   icon &nbsp; 
-                                  按钮
                 </span>
               </a>
             </router-link>
@@ -138,7 +147,6 @@
               <a href="#"> <i class="icon-file-alt bar-left-side-item-icon"></i>
                 <span>
                   Button &nbsp; 
-                                  按钮
                 </span>
               </a>
             </router-link>

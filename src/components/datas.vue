@@ -2,7 +2,6 @@
 <template>
 <div>
    
-      <personalInfor></personalInfor>
   
     <section class="main-resource" >
     </section>
@@ -11,10 +10,8 @@
 </template>
 <script>
 
-import personalInfor from './personalInforTitle.vue'
   export default {
     components: { 
-        personalInfor,
       
           },
 

@@ -4,31 +4,13 @@
 </style>
 <template>
   <section>
-         
-
     <div>
       <h4>
         #标签
       </h4>
-        <ol-progress  @change="change"/>
-       
-      
+        <ol-progress  :pregress = pregress @change="change"/>
     </div>  
 
-
-    <div>
-      <h4>
-        #代码
-      </h4>
-        <pre>
-          <code>
-           html
-          </code>
-        </pre>
-    </div>   
-   
-      
-   
   </section>
 </template>
 <script>
@@ -41,9 +23,8 @@ import { olProgress }from '../index'
 
     data () {
       return {
-        slider:{ "value": 0, "min": 10, "max": 100, "step": 0 },
-        slider1:{ "value": 0, "min": 10, "max": 100, "step": 10 },
-        value:0
+        pregress:{  "start": 10},
+        
       }
     },
     

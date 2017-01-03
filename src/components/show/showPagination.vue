@@ -12,20 +12,6 @@
     </div>  
     <olpagination :paginaton='paginaton'></olpagination>
 
-    <div>
-      <h4>
-        #代码
-      </h4>
-        <pre>
-          <code>
-           html
-          </code>
-        </pre>
-    </div>   
-
-   
-      
-   
   </section>
 </template>
 <script>
@@ -45,7 +31,7 @@ import{ olpagination}from '../index'
     data () {
       return {
         paginaton:{
-          current: 4,
+          current: 1,
           totle: 10,
           pageSize: 5,
           offset: 2,
