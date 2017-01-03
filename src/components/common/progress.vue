@@ -1,19 +1,20 @@
 <style lang = "sass">
-    .progress{
+    .ol-progress{
         height: 25px;
         background: #f3f3f3;
         padding: 2px;
         overflow: visible;
         border-radius: 20px;
-       
         margin-top: 50px;
       }
-      .progress .progress-bar{
+      .ol-progress .ol-progress-bar{
+        height: 100%;
         border-radius: 20px;
         position: relative;
         animation: animate-positive 2s;
+        background: #2db7f5;
       }
-      .progress .progress-value{
+      .ol-progress .ol-progress-value{
         display: block;
         padding: 3px 7px;
         font-size: 13px;
@@ -22,10 +23,10 @@
         background: #191919;
         border: 1px solid #000;
         position: absolute;
-        top: -40px;
+        top: -60px;
         right: -10px;
       }
-      .progress .progress-value:after{
+      .ol-progress .ol-progress-value:after{
         content: "";
         border-top: 10px solid #191919;
         border-left: 10px solid transparent;
@@ -35,8 +36,8 @@
         left: 26%;
       }
   
-      .progress-bar.active{
-          animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
+      .ol-progress-bar.active{
+          animation: reverse ol-progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
       }
 
       @-webkit-keyframes animate-positive{
@@ -52,10 +53,10 @@
 
 </style>
 <template>
-<div ref = "kl">
-  <div class="progress">
-          <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 85%;">
-            <div class="progress-value">85%</div>
+<div>
+  <div class="ol-progress">
+          <div class="ol-progress-bar ol-progress-bar-info ol-progress-bar-striped active" :style="{width: start +'%'}">
+            <div class="ol-progress-value"> {{start}}%</div>
           </div>
         </div>
   
@@ -64,22 +65,16 @@
 <script>
 export default {
   props: {
-    caspanel: {
-      type:Array,
-      require:true,
+    pregress: {
+      type:Object,
     },
-  
-
   },
 
   data: function () {
     return {
-      data: [],
-      sublist:[]
+      start: this.pregress.start,
     }
   },
-   
- 
 
   methods: {
    

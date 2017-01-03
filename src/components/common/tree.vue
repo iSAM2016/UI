@@ -14,7 +14,10 @@
         class="ol-tree"
 
     >
-       {{ choseArray }}
+    {{ choseArray }}
+    <p>
+        
+    </p>
         <treeItem
             class="item"
             :treeData="trees"
@@ -42,6 +45,7 @@ export default {
             valueShow: true,
             open: false,
             choseArray:[],
+            isexistArray:[],
             display: '',
             
         }
@@ -61,15 +65,56 @@ export default {
     },
 
     methods: {
-        chose(data){
-            this.choseArray.push(data)
-            this.deep(data)
+        chose(data,parent){
+            //添加数据
+            //有子节点 : 没有子节点
+            data.children ?  this.deep(data.children) : this._isadd(data)
+
+
+          if(parent){//有父节点 //首先统计他的子节点
+
+                //this.parentDeep(parent.children)
+            }
         },
 
-        deep(data){
-
-
+        deep(children){
+            if(!children){ 
+                return 
             }
+            children.forEach(source =>{
+                    if( source.children){
+                         this.deep(source.children)
+
+                    }else{
+                         this._isadd(source)
+                    } 
+            })
+        },
+
+        parentDeep(children){
+             if(!children){ 
+                return 
+            }
+            children.forEach(source =>{
+                    if( source.children){
+                         this.deep(source.children)
+
+                    }else{
+                         if(this.choseArray.includes(data)){
+                            this.isexistArray(data)
+                         }
+                    } 
+            })
+        },
+
+        _isadd(data){
+            if(this.choseArray.includes(data)){//存在
+                this.choseArray.splice(this.choseArray.findIndex(item=>item === data),1)
+            }else{
+                this.choseArray.push(data)
+            }
+        }
+
     },
 
 }
