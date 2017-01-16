@@ -15,7 +15,6 @@ import{ olBreadcrumb }from '../index'
     components: { 
       olBreadcrumb
     },
-
     data () {
       return {
             list: [

@@ -56,7 +56,8 @@
                     display: inline-block;
                     width: 22%;
                     line-height: 1;
-                    vertical-align: middle
+                    vertical-align: middle;
+                    height: 1rem;
                 }
         }
 
@@ -86,26 +87,28 @@
 >   
 
    <div class="ol-chosedate" v-if="value.chose">
-        <a @click="preMoth"><i class="icon-angle-left"></i></a>
+        <a @click="preMoth">{{
+         pre
+        }}</a>
         <a href="">
             {{  this.FullYear }}
         </a>
             <a href="">
-            {{  this.Month  }}
+            {{  this.Month +1 }}
                 
             </a>
             
-        <a @click="nextMoth"> <i class="icon-angle-right"></i></a>
+        <a @click="nextMoth"> <i class="icon-angle-right">></i></a>
    </div> 
 
    <div class="ol-title">
+       <span>日</span>
        <span>一</span>
        <span>二</span>
        <span>三</span>
        <span>四</span>
        <span>五</span>
        <span>六</span>
-       <span>日</span>
    </div>
    <div class="ol-content clearfix"> 
 
@@ -171,13 +174,12 @@ export default {
     methods:{
         getTime(){//getTime
             this.date        =  new Date()
-            this.Month       =  this.date.getMonth() + 1
+            this.Month       =  this.date.getMonth()
             this.FullYear    =  this.date.getFullYear() 
 
-            this.daycount    = new Date(this.FullYear,this.Month,0).getDate() //±¾ÖÜ¹²¼¸Ìì
-            this.date        =  new Date(this.FullYear+"-"+this.Month+"-"+'01') //±¾ÖÜ¹²¼¸Ìì
-            this.begin         =  this.date.getDay()  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
-            this.Date        =  this.date.getDate()   //µ±Ç°ÌìÊý ×ÜÊý35
+            this.daycount    = new Date(this.FullYear, this.Month +1, 0).getDate() //
+            this.date        =  new Date(this.FullYear, this.Month ,'1') //
+            this.begin       =  this.date.getDay()  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
             this.eleArr      = [];
 
         },
@@ -190,11 +192,11 @@ export default {
         _layout( ){
                 let that = this
                  // »ñÈ¡Ç°Ò»¸öÔÂµÄ×îºó¼¸¸öÊý¾Ý
-                 let pre = this._prefn()//prefullYear,
-                 let next = this._nextfn()
+                 let pre = this._others(-1)//prefullYear,
+                 let next = this._others(+1)
                  
                  this.eleArr.length = 0
-                    for (let i = this.begin-2; i > -1 ; i--){
+                    for (let i = 0; i < this.begin ; i++){
                         this.eleArr.push({
                             year: pre.fullYear,
                             month: pre.month,
@@ -203,15 +205,15 @@ export default {
                         })
                     }
 
-                  for (var i = 0; i <  this.daycount ; i++){
+                    for (var i = 0; i <  this.daycount ; i++){
                          this.eleArr.push({
                             year:  this.FullYear,
                             month: this.Month ,
                             date:  i + 1
                         })
-                  }
+                    }
 
-                for (var i = 0; i <  43 - this.daycount - this.begin ; i++){
+                for (var i = 0; i <  42 - this.daycount - this.begin ; i++){
                          this.eleArr.push({
                             year:  next.fullYear,
                             month: next.month ,
@@ -222,79 +224,58 @@ export default {
 
         },
 
-        _prefn(){//Ç°Ò»¸ö
-            let  premonth = this.Month -  1
+       
+        _others(key) {
+            let  otherMonth = this.Month + key
             let  prefullYear = this.FullYear
 
-             if( premonth  < 1){
-                premonth = 12
+            if( otherMonth  < 0){
+                otherMonth = 11
                 prefullYear = this.FullYear -1
-             }
-
-            return this._forverdate( prefullYear,premonth )
-        },
-
-
-        _nextfn(ele){ //ÏÂÒ»¸öÔÂ
-        
-            let nextmonth = this.Month +  1
-            let nextfullYear = this.FullYear
-            if( nextmonth  > 12 ){
-                nextmonth = 1
+            }else if(otherMonth  > 11){
+                otherMonth = 0
                 nextfullYear = this.FullYear +1
             }
-
-           return this._forverdate( nextfullYear,nextmonth )
+            return this._forverdate( prefullYear, otherMonth )
         },
 
-        _forverdate(prefullYear,premonth){
-            let currentTime = new Date(prefullYear,premonth,0) //±¾ÖÜ¹²¼¸Ìì
-            let fullYear = currentTime.getFullYear(); //µÃµ½µ±Ç°µÄÄê·Ý
-            let month = currentTime.getMonth() + 1; //µÃµ½µ±Ç°µÄÔÂ·Ý£¨ÏµÍ³Ä¬ÈÏÎª0-11£¬ËùÒÔÒª¼Ó1²ÅËãÊÇµ±Ç°µÄÔÂ·Ý£©
-            let date = currentTime.getDate(); //µÃµ½µ±Ç°µÄÌìÊý
-            let day = currentTime.getDay(); //µÃµ½µ±Ç°µÄÌìÊý
+        _forverdate(currentYear,currentMoth){
+            let currentTime = new Date(currentYear,currentMoth+1,0) //±¾ÖÜ¹²¼¸Ìì
+            let    fullYear = currentTime.getFullYear(); //µÃµ½µ±Ç°µÄÄê·Ý
+            let       month = currentTime.getMonth() ; 
+            let        date = currentTime.getDate(); //µÃµ½µ±Ç°µÄÌìÊý
+            let         day = currentTime.getDay(); //µÃµ½µ±Ç°µÄÌìÊý
+            let       begin = new Date(fullYear, month, '1').getDay() //±¾ÖÜ¹²¼¸Ìì
+
             return {
                 fullYear,
                 month,
-                date,
+                date,//daycount
                 day,
+                begin
             }
         },
-
-        preMoth(){
-            let  premonth = this.Month -  1
+        
+         otherMonth(key){
+            let  otherMonth = this.Month -  1
             let  prefullYear = this.FullYear
 
-             if( premonth  < 1){
-                premonth = 12
+            if( otherMonth  < 0){
+                otherMonth = 11
                 prefullYear = this.FullYear -1
-             }
-
-              this._changeDate( premonth ,prefullYear)
-           
-        },
-
-
-        nextMoth(){
-            let nextmonth = this.Month +  1
-            let nextfullYear = this.FullYear
-            if( nextmonth  > 12 ){
-                nextmonth = 1
+            } else if ( otherMonth  > 11 ){
+                otherMonth = 0
                 nextfullYear = this.FullYear +1
             }
-
-            this._changeDate( nextmonth,nextfullYear )
-           
-        },
+            this._changeDate( premonth ,prefullYear)
+         },
 
         _changeDate(mymonth,myfullYear){
-            this.Month       =  mymonth
-            this.FullYear    =  myfullYear
-
-            this.daycount    = new Date(myfullYear,mymonth,0).getDate() //±¾ÖÜ¹²¼¸Ìì
-            this.date        =  new Date(myfullYear+"-"+mymonth+"-"+'01') //±¾ÖÜ¹²¼¸Ìì
-            this.begin       =  this.date.getDay() ?  this.date.getDay() : 7  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
-            this.Date        =  this.date.getDate()   //µ±Ç°ÌìÊý ×ÜÊý35
+            let obj = this._forverdate(prefullYear, premonth)
+            this.Month       =  obj.month
+            this.FullYear    =  obj.fullYear
+            this.daycount    =  obj.date
+            this.begin       =  this.begin
 
             this._layout()  
         },

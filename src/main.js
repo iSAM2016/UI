@@ -64,20 +64,13 @@ window.marked = marked
 
 
 
-
-
-
-
-
-
 Vue.use(VueRouter);
 Vue.use(VueResource);
                        
 
  
 const routes = [
-  {path: '/', component:show },
-  { path: '/index', component: index, 
+  { path: '/', component: index, 
     children: [
         {
           path: '',

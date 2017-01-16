@@ -188,7 +188,6 @@
 
   export default {
     mounted (){
-     
     },
     props:{
         type:{
