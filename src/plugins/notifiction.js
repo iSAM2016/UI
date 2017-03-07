@@ -5,6 +5,8 @@ import Vue from 'vue'
 
 let $root = {};
   Vue.set($root,'ROOT_NOTIFICATION',[])
+
+  
   // 添加实例方法
     Vue.prototype.$Notification = {
         remove (item, duration){

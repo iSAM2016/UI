@@ -51,7 +51,6 @@
 </template>
 <script>
 import { olButton, olButtonGroup }from '../index'
-import  markshow from '../showmark.vue'
 import test from './test.vue'
 
 let str =` \`\`\`html<ol-button>默认按钮</ol-button>
@@ -68,8 +67,6 @@ let str =` \`\`\`html<ol-button>默认按钮</ol-button>
     components: { 
       olButton,
       olButtonGroup,
-      marked,
-      markshow
     },
     data () {
       return {

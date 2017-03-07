@@ -13,6 +13,9 @@ import marked from 'marked'
 import App from 'components/app.vue';
 import index from './components/index.vue'
 
+import server from './plugins/'
+console.log(server);
+Vue.use(server)
 
 require( './plugins/notifiction.js')
 

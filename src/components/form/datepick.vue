@@ -83,7 +83,6 @@
 <div 
     class="ol-datepick "
     v-show = "isShow"
-
 >   
 
    <div class="ol-chosedate" v-if="value.chose">
@@ -196,11 +195,11 @@ export default {
                  let next = this._others(+1)
                  
                  this.eleArr.length = 0
-                    for (let i = 0; i < this.begin ; i++){
+                    for (let i = this.begin; i > 0 ; i--){
                         this.eleArr.push({
                             year: pre.fullYear,
                             month: pre.month,
-                            date: pre.date - i,
+                            date: pre.date - i + 1,
                             iskey: true
                         })
                     }
@@ -281,7 +280,6 @@ export default {
         },
 
         print(dates,index){
-  
             let date = dates.year + "-"+ dates.month+ "-"+ dates.date,
                 that = this
             if(!this.value.section){
@@ -345,6 +343,12 @@ export default {
         showfn(){
             this.isShow = !this.isShow
             console.log(this.isShow)
+        },
+        preMoth() {
+
+        },
+        nextMoth() {
+
         }
 
     }

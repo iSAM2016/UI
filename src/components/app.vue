@@ -4,10 +4,8 @@
  
 </style>
 <template>
-
        <router-view></router-view> 
        <!-- <ol-notification></ol-notification> -->
-  
 </template>
 <script>
   export default {
@@ -27,7 +25,6 @@
     },
     data () {
       return {
-       
         
       }
     },
@@ -39,7 +36,7 @@
     },
    
     created() {
-
+      console.log(this.$myMethod(2))
     }
 
   }
