@@ -13,15 +13,11 @@ import marked from 'marked'
 import App from 'components/app.vue';
 import index from './components/index.vue'
 
-import server from './plugins/'
-console.log(server);
-Vue.use(server)
 
-require( './plugins/notifiction.js')
+import myPlugin from './plugins/notifiction.js'
+Vue.use(myPlugin)
 
 //首页
-const show = resolve => require(['./components/show.vue'], resolve)
-//基本介绍
 const datas = resolve => require(['./components/datas.vue'], resolve)
 const showButton = resolve => require(['./components/show/showButton.vue'], resolve)
 const showDropButtn = resolve => require(['./components/show/showDropButtn.vue'], resolve)
@@ -66,11 +62,8 @@ window.highlight = highlight
 window.marked = marked
 
 
-
 Vue.use(VueRouter);
 Vue.use(VueResource);
-                       
-
  
 const routes = [
   { path: '/', component: index, 
@@ -80,45 +73,37 @@ const routes = [
           component: datas
         },
         {
-          
           path: '/button',
           component: showButton
         },
 
         {
-          
           path: '/dropButton',
           component: showDropButtn
         },
         {
-          
           path: '/tag',
           component: showTag
         },
 
         {
-          
           path: '/checkbox',
           component: checkbox
         },
 
         {
-          
           path: '/table',
           component:table
         },
          {
-          
           path: '/card',
           component:card
         },
          {
-          
           path: '/radio',
           component:radio
         },
         {
-          
           path: '/input',
           component:input
         },
@@ -158,7 +143,6 @@ const routes = [
           path: '/progress',
           component:progress
         },
-
          {
           path: '/upload',
           component:upload
@@ -167,7 +151,6 @@ const routes = [
           path: '/tree',
           component:tree
         },
-
         {
           path: '/notifiction',
           component:notifiction
@@ -179,13 +162,10 @@ const routes = [
           path: '/pagination',
           component:pagination
         },
-
         {
           path: '/icon',
           component:icon
         },
-
-
       ] 
        },
   { path: '*', redirect: '/' },
@@ -198,14 +178,9 @@ const routes = [
 Vue.config.debug = true;
 
 // 路由配置
-
-
 const router = new VueRouter({
   routes,
 })
-
-
-
 
 router.beforeEach((to, from, next) => { 
  window.scrollTo(0, 0);
@@ -218,10 +193,9 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
+
 router.afterEach((to, from, next) => { 
 });
-
-
 
 const app = new Vue({
   router,

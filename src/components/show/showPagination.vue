@@ -34,7 +34,7 @@ import{ olpagination}from '../index'
           current: 1,
           totle: 10,
           pageSize: 5,
-          offset: 2,
+         
         },
        
       }

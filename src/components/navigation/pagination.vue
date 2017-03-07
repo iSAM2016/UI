@@ -76,14 +76,11 @@
   <span  class="ol-pagination notborder" v-show="leftShow">...</span>
   <span  
     class="ol-pagination "
-    v-for="(item,index) in paginaton.pageSize"
-    @click="changeNum(index+start)"
-    >
-
-      {{index+start}}
-          </span>
-
-     
+    v-for="(item,index) in start"
+    @click="changeNum(item)"
+  >
+      {{item}}
+  </span>
   </span>
   <span class="ol-pagination notborder" v-show="rigthShow">...</span>
   <span 
@@ -110,13 +107,10 @@
         },
     },
 
-    components: { 
-      
-    },
-
     data () {
       return {
-        start:this.paginaton.current,
+        current: this.paginaton.current,
+        start:[],
         leftShow: true,
         rigthShow: true,
       }
@@ -131,39 +125,33 @@
     },
     
     methods: {
-      changeNum(num){
-        console.log(num)
-        let start = num - (this.paginaton.pageSize-1)/2;
-          if( start <=0){
-              start = 1
-            }else if(num +(this.paginaton.pageSize-1)/2 >+  this.paginaton.totle){
-              start = this.paginaton.totle - (this.paginaton.pageSize-1)
-            }else{
+      changeNum(curr){
+        this.current = curr;
+          //pageSize: 5,
+        let left = Math.max(1 , curr-2);
+        //最右侧页码
+        let right = Math.min( left+4 , this.paginaton.totle);
+        //最左侧页码
+        left = Math.max(1 , right-4);
 
-          }
+        this.start.length = 0;
+        for(let i = left; i <= right; i++){
+          this.start.push(i);
+        }
 
-         this.start = start
-console.log(this.start)
          this.iconshow()
 
       },
       iconshow(){
-         if(this.start < (this.paginaton.pageSize-1)/2){
-            this.leftShow = false
-
-         }else{
-           this.leftShow = true
-
-         }
-
-          if(this.start +  (this.paginaton.pageSize) >this.paginaton.totle){
-              this.rigthShow = false
-          }else{
-           this.rigthShow = true
-         }
+        let offset = Math.floor(this.paginaton.pageSize/2);
+        this.leftShow = this.start[0] < offset? false :true;
+        this.rigthShow =  this.start[this.start.length-1]  < this.paginaton.totle ? true : false
       },
+
       pre(num){
-        this.changeNum(this.start+num)
+        let page;
+        page = (this.current+num <= 0) || (this.current+num >=this.paginaton.totle) ? 0 : num;
+        this.changeNum(this.current + page)
       }
     },
   }

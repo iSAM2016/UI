@@ -6,15 +6,9 @@ const  catIn = (targer, parent)=>{
      arr.push( parentNode );
      parentNode = parentNode.parentNode
   }
-
   return arr.indexOf(parent) !== -1
-  
-
 }
 
-
-
 export {
-   
     catIn
 }

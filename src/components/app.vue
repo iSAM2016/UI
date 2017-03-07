@@ -4,18 +4,17 @@
  
 </style>
 <template>
-       <router-view></router-view> 
-       <!-- <ol-notification></ol-notification> -->
+<div>
+  <router-view></router-view> 
+  <kl></kl> 
+</div>
 </template>
 <script>
   export default {
      vuex: {
       getters: {
-       // userId: ({ mResorce })=> mResorce.datas
       },
-
       actions: {
-            
       }
     },
     components: { 
@@ -25,7 +24,6 @@
     },
     data () {
       return {
-        
       }
     },
     events: {
@@ -34,9 +32,7 @@
     methods:{
        
     },
-   
     created() {
-      console.log(this.$myMethod(2))
     }
 
   }

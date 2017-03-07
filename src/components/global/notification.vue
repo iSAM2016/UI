@@ -78,7 +78,7 @@
             v-for="item in notifications"
             :class="typeClass(item)"
         >
-           <span class="ol-notification-icon" :class="iconClass(item)"></span>
+           <!-- <span class="ol-notification-icon" :class="iconClass(item)"></span> -->
             <span class="ol-notification-title">{{item.title}}</span>
             <p class="ol-notification-content">{{item.content}}</p>
             <span class="ol-notification-close ion-close-round" @click="closeItem(item)"></span>
@@ -87,22 +87,22 @@
     </div>
 </template>
 <script>
-
+import Vue  from 'vue'
 export default {
     computed: {
         notifications () {
-            return this.$root.ROOT_NOTIFICATION
+            return this.a
         }
     },
     components: { 
     },
-
     data () {
         return {
+            a: Vue.$root.ROOT_NOTIFICATION
         }
-      
     },
-
+    mounted() {
+    },
     methods:{
         typeClass (item) {
             if (!item.type) {
@@ -119,5 +119,4 @@ export default {
         }
     }
 }
-
 </script>
