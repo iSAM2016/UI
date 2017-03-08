@@ -1,6 +1,6 @@
-VUE 组件 （自己练习，仿照现有的UI组件）
+#VUE 组件 （自己练习，仿照现有的UI组件）
 
-Is 1 table  组件中的一个排序功能,如this.sorBy没有完整的写出
+ 1 table  组件中的一个排序功能,如this.sorBy没有完整的写出
           猜想是注册实例跟下
 
    2 dropbutton   布局混乱   
@@ -11,7 +11,7 @@ Is 1 table  组件中的一个排序功能,如this.sorBy没有完整的写出
 
    5 select  let rect = this.$el.getBoundingClientRect()
 
-   6 button 绑定事件不能触发
+   6 button 绑定绑定@click事件不能触发，需要添加@click.native
 
 
 

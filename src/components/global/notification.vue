@@ -5,7 +5,6 @@
     right: 1rem;
     z-index: 9999;
 }  
-
 .ol-notification{
     position: relative;
     width: 20rem;
@@ -72,10 +71,10 @@
 }
 </style>
 <template>
-    <div class="ol-notification-container" v-show="notifications.length">
+    <div class="ol-notification-container" >
         <div 
             class="ol-notification"
-            v-for="item in notifications"
+            v-for="item in allItem"
             :class="typeClass(item)"
         >
            <!-- <span class="ol-notification-icon" :class="iconClass(item)"></span> -->
@@ -87,18 +86,17 @@
     </div>
 </template>
 <script>
-import Vue  from 'vue'
 export default {
     computed: {
         notifications () {
-            return this.a
+            return Vue.$root.ROOT_NOTIFICATION
         }
     },
     components: { 
     },
     data () {
         return {
-            a: Vue.$root.ROOT_NOTIFICATION
+            allItem: []
         }
     },
     mounted() {
@@ -114,8 +112,13 @@ export default {
             classList[item.type] = true
             return classList
         },
-         closeItem (item) {
-            this.notifications.$remove(item)
+        closeItem (item) {
+            this.allItem = this.allItem.filter(function(current) {
+                return current !== item
+            })
+        },
+        addItem (item) {
+            this.allItem.push(item);
         }
     }
 }

@@ -4,10 +4,7 @@
  
 </style>
 <template>
-<div>
   <router-view></router-view> 
-  <kl></kl> 
-</div>
 </template>
 <script>
   export default {

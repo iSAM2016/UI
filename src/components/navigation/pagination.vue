@@ -9,7 +9,6 @@
     background-image: none;
     background-color: #fff;
     cursor: pointer;
-   
     white-space: normal;
     vertical-align: middle;
     text-indent:5px;
@@ -19,14 +18,10 @@
     outline: none;
     transition: background 0.2s;
     touch-action: manipulation;
-
     &.notborder{
       border: none
     }
 }
-
-
-
 .ol-pagination.primary {
     color: #fff;
     background-color: #57c5f7;
@@ -37,22 +32,15 @@
         color: #fff;
     }
 }
-
-
-
 .ol-pagination:focus, .ol-pagination:hover {
     color: #57c5f7;
     background-color: #fff;
     border-color: #57c5f7;
 }
-
 .ol-pagination.active{
    color: #fff;
     background-color: #57c5f7;
 }
-
-
-
 .ol-pagination.ol-pagination-disabled{
     color: #c3c3c3;
     background: #ececec;

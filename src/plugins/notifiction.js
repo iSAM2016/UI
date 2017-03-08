@@ -4,7 +4,14 @@ import Vue from 'vue'
 // 注册全局的组件
 let $root = {};
 // Vue.set($root,'ROOT_NOTIFICATION',[])
-Vue.component("kl", olNotification)
+//Vue.component("kl", olNotification)
+const div = document.createElement('div');
+div.innerHTML = `<ol-notification></ol-notification>`;
+document.body.appendChild(div);
+const notification = new Vue({
+    el: div,
+    components: { olNotification }
+}).$children[0];
 
 export default {
     install: function (Vue, options) {
@@ -17,22 +24,21 @@ export default {
         Vue.prototype.$Notification = {
             remove (item, duration){
                 setTimeout(() => {
-                    Vue.$root.ROOT_NOTIFICATION = Vue.$root.ROOT_NOTIFICATION.filter(function(i){
-                        return i !== item
-                    })
-                    console.log(Vue.$root.ROOT_NOTIFICATION)
+                    notification.closeItem(item)
                 }, duration)
             },
             create(type, title, content, duration){
-                 let item = {
-                    type: type,
-                    title: title,
-                    content: content
+                let data = {
+                    title,
+                    content,
+                    duration
                 }
-                Vue.$root.ROOT_NOTIFICATION.push(item)
+                notification.addItem(data)
+
                 if(duration){
-                    this.remove(item,duration)
+                    this.remove(data, duration)
                 }
+
             },
             success (title, content, duration) {
                 this.create('success', title, content, duration)
