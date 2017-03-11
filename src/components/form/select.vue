@@ -10,8 +10,6 @@
     padding: 0 2rem 0 .5rem;
     vertical-align: bottom;
     width: 100%;
-        
-        
         &.disabled:hover{
             background: #efefef;
             border: 1px solid #ccc;

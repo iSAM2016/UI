@@ -268,12 +268,18 @@
             </router-link>
           </li>
           <li class=" bar-left-side-item">
-
             <router-link to="/alert" tag="li">
-
               <a href="#">
                 <i class="icon-file-alt bar-left-side-item-icon"></i>
                 <span>alert &nbsp;</span>
+              </a>
+            </router-link>
+          </li>
+           <li class=" bar-left-side-item">
+            <router-link to="/showTooltip" tag="li">
+              <a href="#">
+                <i class="icon-file-alt bar-left-side-item-icon"></i>
+                <span>tooltip &nbsp;</span>
               </a>
             </router-link>
           </li>
@@ -319,6 +325,16 @@
                 <a href="#">
                   <i class="icon-file-alt bar-left-side-item-icon"></i>
                   <span>tree &nbsp;</span>
+                </a>
+              </router-link>
+
+            </li>
+               <li class=" bar-left-side-item">
+              <router-link to="/model" tag="li">
+
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>model &nbsp;</span>
                 </a>
               </router-link>
 

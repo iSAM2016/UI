@@ -5,15 +5,14 @@
 <template>
   <section >
     <ol-timeline :timeline="timeline"></ol-timeline>
-
   </section>
 </template>
 <script>
-import { olTimeline }from '../index'
+import { olToolTip }from '../index'
 
   export default {
     components: { 
-     olTimeline
+     olToolTip
     },
 
     data () {

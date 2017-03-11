@@ -69,28 +69,40 @@
     margin-top: -.75rem;
     line-height: 1.5rem;
 }
+.notification-enter {
+    opacity: 0;
+}
+.notification-enter-active, .notification-leave  {
+    transition: opacity .5s ease;
+}
+.notification-leave-active {
+    opacity: 0;
+    position: absolute;
+}
+.notification-move {
+    transition: transform .5s cubic-bezier(.55,0,.1,1);
+}
 </style>
 <template>
     <div class="ol-notification-container" >
-        <div 
-            class="ol-notification"
-            v-for="item in allItem"
-            :class="typeClass(item)"
-        >
-           <!-- <span class="ol-notification-icon" :class="iconClass(item)"></span> -->
-            <span class="ol-notification-title">{{item.title}}</span>
-            <p class="ol-notification-content">{{item.content}}</p>
-            <span class="ol-notification-close ion-close-round" @click="closeItem(item)"></span>
-            
-        </div>
+        <transition-group  name="notification">
+            <div 
+                class="ol-notification"
+                v-for="(item, index) in allItem"
+                :class="typeClass(item)"
+                v-bind:key="item"
+            >
+               <!-- <span class="ol-notification-icon" :class="iconClass(item)"></span> -->
+                <span class="ol-notification-title">{{item.title}}</span>
+                <p class="ol-notification-content">{{item.content}}</p>
+                <span class="ol-notification-close    ion-close-round" @click="closeItem(item)"></span>
+            </div>
+        </transition-group >
     </div>
 </template>
 <script>
 export default {
     computed: {
-        notifications () {
-            return Vue.$root.ROOT_NOTIFICATION
-        }
     },
     components: { 
     },

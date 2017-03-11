@@ -41,6 +41,8 @@ const progress= resolve => require(['./components/show/showProgress.vue'], resol
 const notifiction= resolve => require(['./components/show/showNotifiction.vue'], resolve)
 const breadcrumb= resolve => require(['./components/show/showBreadcrumb.vue'], resolve)
 const pagination= resolve => require(['./components/show/showPagination.vue'], resolve)
+const tooltip= resolve => require(['./components/show/showTooltip.vue'], resolve)
+const model= resolve => require(['./components/show/showModel.vue'], resolve)
 const icon= resolve => require(['./components/show/showIcon.vue'], resolve)
 
 marked.setOptions({
@@ -132,6 +134,10 @@ const routes = [
           component:alert
         },
         {
+          path: '/showTooltip',
+          component:tooltip
+        },
+        {
           path: '/timeline',
           component:timeline
         },
@@ -150,6 +156,10 @@ const routes = [
          {
           path: '/tree',
           component:tree
+        },
+         {
+          path: '/model',
+          component:model
         },
         {
           path: '/notifiction',

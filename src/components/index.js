@@ -18,8 +18,9 @@ import olDatepick from "./form/datepick.vue"
 import olSelect from "./form/select.vue"
 import olCascader from "./form/cascader.vue"
 
-//common
+// common
 import olAlert from "./common/alert.vue"
+import olTooltip from "./common/toolTip.vue"
 import olTimeline from "./common/timeline.vue"
 import olLoding from "./common/loding.vue"
 
@@ -27,9 +28,9 @@ import olUpload from "./common/upload.vue"
 import olTree from "./common/tree.vue"
 import olProgress from "./common/progress.vue"
 
-
+// global
+import olModal from "./global/modal.vue"
 import olNotification from "./global/notification.vue"
-
 
 import olBreadcrumb from "./navigation/breadcrumb.vue"
 import olpagination from "./navigation/pagination.vue"
@@ -55,6 +56,8 @@ export  {
 
 
     olAlert,
+    olModal,
+    olTooltip,
     olTimeline,
     olLoding,
     olUpload,
