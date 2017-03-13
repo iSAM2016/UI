@@ -120,6 +120,7 @@
     <nav class="bar-left-side " role="navigation" >
       <div>
         <ul class="resact">
+        <a href="" v-for=""></a>
           <li class=" bar-left-side-item" >
 
             <router-link to="/index" tag="li" active-class="active">
@@ -388,8 +389,8 @@
       
           },
 
-    ready() {
-        console.log(this.$route.auth + "user")
+    mounted() {
+        console.log(this.$route.path)
     },
 
     data () {
