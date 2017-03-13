@@ -355,4 +355,79 @@ URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的�
 语法:
 
 window.URL.revokeObjectURL(objectURL);
+
+
+遇到的问题
+
+自定义组件的原生事件
+
+在 Vue 2.0 中的组定义组件上使用 v-on 就能直接监听自定义事件。
+
+如果要监听原生事件就必须使用修饰符 .native
+
+Vue 组件库 Element 的 Button 组件支持两种事件监听方式
+
+  <el-button @click.native="handleClick">Click Me!</el-button>
+  <el-button @click="handleClick">Click Me!</el-button>
+我根据尽量保持轻量和不打扰用户的原则，权衡之后决定只让用户自己决定事件的监听：
+
+  <r-btn info @click.native="handleClick">Button Click</r-btn>
+而且任何自定义的组件都可以用 @click.native="handleClick" 的方式给跟组件添加事件监听
+
+事件机制 Event Bus
+
+组件库中的组件之间肯定会有关联，而且父子组件之间也会通信，所以需要一套事件机制(简单的 pub/sub )来把所有的组件糅合在一起。
+
+因为事件库起到了桥梁的作用，所以我起名叫 util/bridge.js ，其实叫 bus.js 或者 events.js 可能会更清晰点。
+
+把 bridge 挂载到 Vue.prototype.$rubik 上，就很容易的通过 this.$rubik.bridge 在每个组件中进行事件的传递了。
+
+bridge.js 如下：
+
+import EventEmitter from 'events'
+
+class Bridge extends EventEmitter {
+  constructor () {
+    super()
+    this.setMaxListeners(500)
+  }
+
+  sub (event, cb) {
+    const type = typeof event
+
+    if (type !== 'object' && type !== 'array') {
+      return this.on(event, cb)
+    }
+
+    event.forEach(i => this.on.apply(this, i))
+  }
+
+  unsub (event, cb) {
+    const type = typeof event
+
+    if (type !== 'object' && type !== 'array') {
+      return this.removeListener(event, cb)
+    }
+    
+    event.forEach(i => this.removeListener.apply(this, i))
+  }
+
+  pub () {
+    this.emit.apply(this, arguments)
+  }
+}
+
+export default new Bridge()
+
+当组件被销毁时，注册事件也要执行 unsub，因为有了 Vue 生命周期的 Hook ，所以很简单，只需要写一个 mixin: mixins/event.js
+
+export default {
+  mounted () {
+    this.$rubik.bridge.sub(this.events)
+  },
+
+  beforeDestroy () {
+    this.$rubik.bridge.unsub(this.events)
+  }
+}
  

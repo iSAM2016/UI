@@ -14,8 +14,10 @@ import App from 'components/app.vue';
 import index from './components/index.vue'
 
 
-import myPlugin from './plugins/notifiction.js'
-Vue.use(myPlugin)
+import myPlugin from './plugins/plugins.js'
+Vue.use(myPlugin, {
+ preview: true
+})
 
 //首页
 const datas = resolve => require(['./components/datas.vue'], resolve)
@@ -43,6 +45,7 @@ const breadcrumb= resolve => require(['./components/show/showBreadcrumb.vue'], r
 const pagination= resolve => require(['./components/show/showPagination.vue'], resolve)
 const tooltip= resolve => require(['./components/show/showTooltip.vue'], resolve)
 const model= resolve => require(['./components/show/showModel.vue'], resolve)
+const preview= resolve => require(['./components/show/showPreview.vue'], resolve)
 const icon= resolve => require(['./components/show/showIcon.vue'], resolve)
 
 marked.setOptions({
@@ -164,6 +167,10 @@ const routes = [
         {
           path: '/notifiction',
           component:notifiction
+        },
+        {
+          path: '/preview',
+          component:preview
         },
         {
           path: '/breadcrumb',

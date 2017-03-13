@@ -1,7 +1,4 @@
 <style lang= 'sass'>
-
-
-
 .main-resource,.main-contant{
      margin: 0 1rem 0 200px;; 
      line-height: 3.5;
@@ -9,11 +6,9 @@
      -webkit-transition: all 0.5s;
      transition: all 0.5s;
 }
-
 .resact{
   padding: 0
 }
-
 .bar-left-side{
    position: absolute; 
    left: 0;
@@ -23,7 +18,6 @@
    text-align:left;
    font-size:14px;
    background-color:white;
-  
      .navbar-nav{
         .actives{
              background-color: #324057;
@@ -33,9 +27,7 @@
             }
         }
      }
-
 }
- 
 .bar-left-side-item {
     width:100%;
     line-height:3.5;
@@ -57,12 +49,8 @@
             -webkit-transition: color .3s ease;
             transition: color .3s ease;
         }
-
     }
-
-  
 }
-
 .router-link-active{
       text-decoration:none;
       background:rgba(125,125,125,.1);
@@ -71,13 +59,10 @@
          color: #2db7f5;
       }
   }
-
 .bar-left-side-item-icon {
     color:white;
    margin-right:1rem;
-
 }
-
 @media (max-width:768px) { 
     .bar-left-side{
         width: 0px;
@@ -101,15 +86,11 @@
 
  }
 @media (min-width:768px) { 
-
  }
 
 /* 中型设备（台式电脑，992px */
 @media (min-width: 992px) { 
-
-
 }
-
 /* 大型设备（大台式电脑，1200px */
 @media (min-width: 1200px) { 
   
@@ -126,7 +107,7 @@
             <router-link to="/index" tag="li" active-class="active">
 
               <a href="#"> <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>跳转</span>
+                <span>总结</span>
               </a>
             </router-link>
           </li>
@@ -342,19 +323,23 @@
             </li>
             <li class=" bar-left-side-item">
               <router-link to="/notifiction" tag="li">
-
                 <a href="#">
                   <i class="icon-file-alt bar-left-side-item-icon"></i>
                   <span>notifiction &nbsp;</span>
                 </a>
               </router-link>
-
             </li>
-
+               <li class=" bar-left-side-item">
+              <router-link to="/preview" tag="li">
+                <a href="#">
+                  <i class="icon-file-alt bar-left-side-item-icon"></i>
+                  <span>preview &nbsp;</span>
+                </a>
+              </router-link>
+            </li>
           </li>
           <li class=" bar-left-side-item">
             <router-link to="/breadcrumb" tag="li">
-
               <a href="#">
                 <i class="icon-file-alt bar-left-side-item-icon"></i>
                 <span>breadcrumb &nbsp;</span>
@@ -364,7 +349,6 @@
           </li>
           <li class=" bar-left-side-item">
             <router-link to="/pagination" tag="li">
-
               <a href="#">
                 <i class="icon-file-alt bar-left-side-item-icon"></i>
                 <span>pagination &nbsp;</span>
