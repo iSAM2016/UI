@@ -1,5 +1,16 @@
+import Vue from 'vue'
 import { olNotification } from "../components/index"
-export default function(Vue) {
+// 注册全局的组件
+let $root = {};
+const div = document.createElement('div');
+div.innerHTML = `<ol-notification></ol-notification>`;
+document.body.appendChild(div);
+const notification = new Vue({
+    el: div,
+    components: { olNotification }
+}).$children[0];
+
+export default function() {
     Vue.prototype.$Notification = {
         remove (item, duration){
             setTimeout(() => {
@@ -7,7 +18,6 @@ export default function(Vue) {
             }, duration)
         },
         create(type, title, content, duration){
-            this.createDom();
             let data = {
                 title,
                 content,
@@ -20,18 +30,7 @@ export default function(Vue) {
             }
 
         },
-        createDom() {
-            if (!!$root.$Notification) {
-                const div = document.createElement('div');
-                div.innerHTML = `<ol-notification></ol-notification>`;
-                document.body.appendChild(div);
-                const notification = new Vue({
-                    el: div,
-                    components: { olNotification }
-                }).$children[0];
-                $root.$Notification = notification;
-            }
-        },
+
         success (title, content, duration) {
             this.create('success', title, content, duration)
         },

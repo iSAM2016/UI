@@ -75,112 +75,140 @@ const routes = [
     children: [
         {
           path: '',
+          name: '总结',
           component: datas
         },
         {
           path: '/button',
+          name: 'button',
           component: showButton
         },
 
         {
           path: '/dropButton',
+          name: 'dropButton',
           component: showDropButtn
         },
         {
           path: '/tag',
+          name: 'tag',
           component: showTag
         },
 
         {
           path: '/checkbox',
+          name: 'checkbox',
           component: checkbox
         },
 
         {
           path: '/table',
+          name: 'table',
           component:table
         },
          {
           path: '/card',
+          name: 'card',
           component:card
         },
          {
           path: '/radio',
+          name: 'radio',
           component:radio
         },
         {
           path: '/input',
+          name: 'input',
           component:input
         },
 
         {
           path: '/switch',
+          name: 'switch',
           component:iswitch
         },
          {
           path: '/slider',
+          name: 'slider',
           component:slider
         },
         {
           path: '/datepick',
+          name: 'datepick',
           component:datepick
         }, 
         {
           path: '/select',
+          name: 'select',
           component:select
-        }, {
+        }, 
+        {
           path: '/cascader',
+          name: 'cascader',
           component:cascader
         },
          {
           path: '/alert',
+          name: 'alert',
           component:alert
         },
         {
           path: '/showTooltip',
+          name: 'showTooltip',
           component:tooltip
         },
         {
           path: '/timeline',
+          name: 'timeline',
           component:timeline
         },
         {
           path: '/loding',
+          name: 'loding',
           component:loding
         },
          {
           path: '/progress',
+          name: 'progress',
           component:progress
         },
          {
           path: '/upload',
+          name: 'upload',
           component:upload
         },
          {
           path: '/tree',
+          name: 'tree',
           component:tree
         },
          {
           path: '/model',
+          name: 'model',
           component:model
         },
         {
           path: '/notifiction',
+          name: 'notifiction',
           component:notifiction
         },
         {
           path: '/preview',
+          name: 'preview',
           component:preview
         },
         {
           path: '/breadcrumb',
+          name: 'breadcrumb',
           component:breadcrumb
         }, {
           path: '/pagination',
+          name: 'pagination',
           component:pagination
         },
         {
           path: '/icon',
+          name: 'icon',
           component:icon
         },
       ] 
