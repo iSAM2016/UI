@@ -106,7 +106,7 @@
             <router-link to="/index" tag="li" active-class="active">
 
               <a href="#"> <i class="icon-file-alt bar-left-side-item-icon"></i>
-                <span>跳转</span>
+                <span>总结</span>
               </a>
             </router-link>
           </li>
