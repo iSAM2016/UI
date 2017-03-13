@@ -4,9 +4,13 @@
  
 </style>
 <template>
+<div>
   <router-view></router-view> 
+  <ol-preview></ol-preview>
+</div>
 </template>
 <script>
+import olPreview from './global/preview';
   export default {
      vuex: {
       getters: {
@@ -14,25 +18,16 @@
       actions: {
       }
     },
-    components: { 
-          },
-    ready() {
-       
+    components: {
+       olPreview 
     },
     data () {
       return {
       }
     },
-    events: {
-      
-    },
     methods:{
-       
     },
     created() {
     }
-
   }
-
-
 </script>
