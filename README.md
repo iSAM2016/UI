@@ -1,331 +1,236 @@
 #VUE 组件 （自己练习，仿照现有的UI组件）
+>本来是昨天要写总结的，感觉自己写不好，就放弃了。今天看到了iview和element有一些摩擦，是关于代码借鉴的问题（哈哈），不做评价。谁下生会写组件，我仿（chao）写了radonUI，这个组件体量比较小，好仿写。就是以这个为切入口写UI组件，先自己写，然后在仿写。看看别人写的比如bootstrap，这样提高挺快的。其实UI组件套路差不多，写过一遍就有感觉了。不像以前没想法、没思路。
 
- 1 table  组件中的一个排序功能,如this.sorBy没有完整的写出
-          猜想是注册实例跟下
+### 概述
+大部分组件我都写了一遍，剩下的要参考iview和element组件。这些组件中表格、表单、tree还是比较有难度的，前俩个还没有实践。下面是我的总结
 
-   2 dropbutton   布局混乱   
+####全局插件notification
 
-   3 slider  组建学习randui 的代码，重点是事件的绑定 没有真正的使用到vue的 特性，还是采用的DOM操作  
+1. 思考：在全局组件中要做到像window.alert()一样调用，在代码任何的地方调用，就有收集‘调用结果’的地方。
+2. 这时候插件思想就出现了，就像把alert写在window上，把调用的方法写在Vue上
 
-   4 日期选择器 的构建， 在掘金的的文章中有一个介绍时间的选择器 学习random   
+代码：
+```
+// plugins.js
 
-   5 select  let rect = this.$el.getBoundingClientRect()
-
-   6 button 绑定绑定@click事件不能触发，需要添加@click.native
-
-
-
-
-
-***执行条件
-  ###1、安装node.js(64位) 
-  ###2、启动cmd，进入文件夹
-  ###3、执行 npm i (中途可能有错误，可能会有影响)
-  ###4、执行 npm run init
-  ###5、执行 npm run dev
-  ###6、启动 浏览器 输入 http://localhost:8080
-  ###7、完成
-
-
-https://gold.xitu.io/post/5843dcad128fe100577876e1
-
-2016年11月25日 button
-2016年11月29日 bable
-
-
-###自定义组件使用 v-model
-
-我们知道，v-model是在表单类元素上进行双向绑定时使用的，比如：
-
-<template>
-    <input type="text" v-model="data">
-    {{ data }}
-</template>
-<script>
-    export default {
-        data () {
-            return {
-                data: ''
-            }
-        }
-    }
-</script>
-这时data就是双向绑定的，输入的内容会实时显示在页面上。在 Vue 1.x 中，自定义组件可以使用 props 的.sync双向绑定，比如：
-
-<my-component :data.sync="data"></my-component>
-在 Vue 2.x 中，可以直接在自定义组件上使用 v-model了，比如：
-
-<my-component v-model="data"></my-component>
-在组件my-component中，通过this.$emit('input')就可以改变data的值了。
-虽然 Vue 1.x 中无法这样使用，但是如果你的组件的模板外层是 input、select、textarea等支持绑定 v-model 特性的元素，也是可以使用的，比如 my-component 的代码是：
-
-<template>
-    <input type="text">
-</template>
-那也可以使用上面2.x的写法。
-
-
-
-
-
-
-
-
-######使用$compile()在指定上下文中手动编译组件
-
-注：该方法是在 Vue 1.x 中的使用介绍，官方文档并没有给出该方法的任何说明，不可过多依赖此方法。
-使用$compile()方法，可以在任何一个指定的上下文（Vue实例）上手动编译组件，该方法在 iView 新发布的表格组件 Table 中有使用：
-https://github.com/iview/iview/tree/master/src/components/table/cell.vue
-由于表格的列配置是通过一个 Object 传入 props 的，因此不能像 slot 那样自动编译带有 Vue 代码的部分，因为传入的都是字符串，比如：
-
-{
-    render (row) {
-        return `<i-button>${row.name}</i-button>`
-    }
-}
-render函数最终返回一个字符串，里面含有一个自定义组件 i-button，如果直接用{{{ }}}显示，i-button 是不会被编译的，那为了实现在单元格内支持渲染自定义组件，就用到了$compile()方法。
-比如我们在组件的父级编译：
-
-// 代码片段
-const template = this.render(this.row);    // 通过上面的render函数得到字符串
-const div = document.createElement('div');
-div.innerHTML = template;
-this.$parent.$compile(div);    // 在父级上下文编译组件
-this.$el.appendChild(cell);    // 将编译后的html插入当前组件
-这样一来， i-button就被编译了。
-在某些时候使用$compile()确实能带来益处，不过也会遇到很多问题值得思考：
-
-这样编译容易把作用域搞混，所以要知道是在哪个Vue实例上编译的；
-手动编译后，也需要在合适的时候使用$destroy()手动销毁；
-有时候容易重复编译，所以要记得保存当前编译实例的id，这里可以通过 Vue 组件的_uid来唯一标识（每个Vue实例都会有一个递增的id，可以通过this._uid获取）
-另外，Vue 1.x 文档也有提到另一个$mount()方法，可以实现类似的效果，在 Vue 2.x 文档中，有 Vue.compile()方法，用于在render函数中编译模板字符串，读者可以结合来看。
-
-
-
-
-
-
-
-
-
-
-隐式创建 Vue 实例
-
-在 webpack 中，我们都是用 .vue 单文件的模式来开发，每个文件即一个组件，在需要的地方通过 components: {}来使用组件。
-比如我们需要一个提示框组件，可能会在父级中这样写：
-
-<template>
-    <Message>这是提示标题</Message>
-</template>
-<script>
-    import Message from '../components/message.vue';
-    export default {
-        components: { Message }
-    }
-</script>
-这样写没有任何问题，但从使用角度想，我们其实并不期望这样来用，反而原生的window.alert('这是提示标题')这样使用起来更灵活，那这时很多人可能就用原生 JS 拼字符串写一个函数了，这也没问题，不过如果你的提示框组件比较复杂，而且多处复用，这种方法还是不友好的，体现不到 Vue 的价值。
-iView 在开发全局提示组件（Message）、通知提醒组件（Notice）、对话框组件（Modal）时，内部都是使用 Vue 来渲染，但却是 JS 来隐式地创建这些实例，这样我们就可以像Message.info('标题')这样使用，但其内部还是通过 Vue 来管理。相关代码地址：
-https://github.com/iview/iview/tree/master/src/components/base/notification
-
-下面我们来看一下具体实现：
-
-
-
-上图是最终效果图，这部分 .vue 代码比较简单，相信大家都能写出这样一个组件来，所以直接说创建实例的部分，先看下核心代码：
-import Notification from './notification.vue';
-import Vue from 'vue';
-import { camelcaseToHyphen } from '../../../utils/assist';
-
-Notification.newInstance = properties => {
-    const _props = properties || {};
-
-    let props = '';
-    Object.keys(_props).forEach(prop => {
-        props += ' :' + camelcaseToHyphen(prop) + '=' + prop;
-    });
-
-    const div = document.createElement('div');
-    div.innerHTML = `<notification${props}></notification>`;
-    document.body.appendChild(div);
-
-    const notification = new Vue({
-        el: div,
-        data: _props,
-        components: { Notification }
-    }).$children[0];
-
-    return {
-        notice (noticeProps) {
-            notification.add(noticeProps);
-        },
-        remove (key) {
-            notification.close(key);
-        },
-        component: notification,
-        destroy () {
-            document.body.removeChild(div);
-        }
-    }
-};
-
-export default Notification;
-与上文介绍的$compile()不同的是，这种方法是在全局（body）直接使用 new Vue创建一个 Vue 实例，我们只需要在入口处对外暴露几个 API 即可：
-
-import Notification from '../base/notification';
-
-const prefixCls = 'ivu-message';
-const iconPrefixCls = 'ivu-icon';
-const prefixKey = 'ivu_message_key_';
-
-let defaultDuration = 1.5;
-let top;
-let messageInstance;
-let key = 1;
-
-const iconTypes = {
-    'info': 'information-circled',
-    'success': 'checkmark-circled',
-    'warning': 'android-alert',
-    'error': 'close-circled',
-    'loading': 'load-c'
-};
-
-function getMessageInstance () {
-    messageInstance = messageInstance || Notification.newInstance({
-        prefixCls: prefixCls,
-        style: {
-            top: `${top}px`
-        }
-    });
-
-    return messageInstance;
-}
-
-function notice (content, duration = defaultDuration, type, onClose) {
-    if (!onClose) {
-        onClose = function () {
-
-        }
-    }
-    const iconType = iconTypes[type];
-
-    // if loading
-    const loadCls = type === 'loading' ? ' ivu-load-loop' : '';
-
-    let instance = getMessageInstance();
-
-    instance.notice({
-        key: `${prefixKey}${key}`,
-        duration: duration,
-        style: {},
-        transitionName: 'move-up',
-        content: `
-            <div class="${prefixCls}-custom-content ${prefixCls}-${type}">
-                <i class="${iconPrefixCls} ${iconPrefixCls}-${iconType}${loadCls}"></i>
-                <span>${content}</span>
-            </div>
-        `,
-        onClose: onClose
-    });
-
-    // 用于手动消除
-    return (function () {
-        let target = key++;
-
-        return function () {
-            instance.remove(`${prefixKey}${target}`);
-        }
-    })();
-}
+import Vue from 'vue'
+import Notification  from './Notification.js'
 
 export default {
-    info (content, duration, onClose) {
-        return notice(content, duration, 'info', onClose);
-    },
-    success (content, duration, onClose) {
-        return notice(content, duration, 'success', onClose);
-    },
-    warning (content, duration, onClose) {
-        return notice(content, duration, 'warning', onClose);
-    },
-    error (content, duration, onClose) {
-        return notice(content, duration, 'error', onClose);
-    },
-    loading (content, duration, onClose) {
-        return notice(content, duration, 'loading', onClose);
-    },
-    config (options) {
-        if (options.top) {
-            top = options.top;
+
+    // install是Vue写插件固有方法
+    install: function (Vue, {
+        notification=true
+    }={}) {
+        if ( notification ) {
+            Notification(Vue);
         }
-        if (options.duration) {
-            defaultDuration = options.duration;
-        }
-    },
-    destroy () {
-        let instance = getMessageInstance();
-        messageInstance = null;
-        instance.destroy();
-    }
-}
-到这里组件已经可以通过Message.info()直接调用了，不过我们还可以在 Vue 上进行扩展：
-Vue.prototype.$Message = Message;
-这样我们可以直接用this.$Message.info()来调用，就不用 import Message 了。
-
-
-
-Render 函数
-
-<h1>
-  <a name="hello-world" href="#hello-world">
-    Hello world!
-  </a>
-</h1>
-
-
-<anchored-heading :level="1">Hello world!</anchored-heading>
-
-
-<script type="text/x-template" id="anchored-heading-template">
-  <div>
-    <h1 v-if="level === 1">
-      <slot></slot>
-    </h1>
-    <h2 v-if="level === 2">
-      <slot></slot>
-    </h2>
-    <h3 v-if="level === 3">
-      <slot></slot>
-    </h3>
-    <h4 v-if="level === 4">
-      <slot></slot>
-    </h4>
-    <h5 v-if="level === 5">
-      <slot></slot>
-    </h5>
-    <h6 v-if="level === 6">
-      <slot></slot>
-    </h6>
-  </div>
-</script>
-Vue.component('anchored-heading', {
-  template: '#anchored-heading-template',
-  props: {
-    level: {
-      type: Number,
-      required: true
-    }
   }
-})
+};
+```
 
-Vue.component('anchored-heading', {
-    render: function( createElemnet ){
-        return createElement(
-        )
+``{notification=true}={}``
+是options,写插件的时候可以提供这个选项，他的作用决定组件是否自动加载。这样的调用插件可以
+```
+import myPlugin from './plugins/plugins.js'
+Vue.use(myPlugin)
+```
+
+如果``{notification=false}={}``就改变调用方式
+```
+import myPlugin from './plugins/plugins.js'
+Vue.use(myPlugin, {
+  notification: true
+})
+```
+
+```
+// Notification.js
+
+import Vue from 'vue'
+import { olNotification } from "../components/index"
+
+// 注册全局的组件
+// 创建一个div 把olNotification组件挂在到div中，就可以调用组件中方法了，把‘调用结果’放到组件（olNotification）中，来展示视图
+
+const div = document.createElement('div');
+div.innerHTML = `<ol-notification></ol-notification>`;
+document.body.appendChild(div);
+const notification = new Vue({
+    el: div,
+    components: { olNotification }
+}).$children[0];
+
+
+export default function() {
+    Vue.prototype.$Notification = {
+        remove (item, duration){
+            setTimeout(() => {
+                notification.closeItem(item)
+            }, duration)
+        },
+        create(type, title, content, duration){
+            let data = {
+                title,
+                content,
+                duration
+            }
+
+            // 把‘调用结果’放到组件
+            notification.addItem(data)
+            if(duration){
+
+                // 一段时间（duration）把‘调用结果’移除组件
+                this.remove(data, duration)
+            }
+        },
+
+        // 四种组件形态
+        success (title, content, duration) {
+            this.create('success', title, content, duration)
+        },
+        info (title, content, duration) {
+            this.create('info', title, content, duration)
+        },
+        warning (title, content, duration) {
+            this.create('warning', title, content, duration)
+        },
+        failed (title, content, duration) {
+            this.create('failed', title, content, duration)
+        }
+    }
 }
-})
+```
 
+```
+// olNotification.vue
+<style  lang = "sass" >
+.ol-notification-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+}  
+.ol-notification{
+    position: relative;
+    width: 20rem;
+    background-color: #fff;
+    margin-right: 1rem;
+    border: 1px solid #eaf8fe;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    &.success,
+    &.warning,
+    &.failed,
+    &.info {
+        padding-left: 4rem;
+    }
+    &.success {
+        .rd-notification-icon {
+            color: #87d068;
+        }
+    }
+    &.info {
+        .rd-notification-icon {
+            color: #2db7f5;
+        }
+    }
+    &.warning {
+        .rd-notification-icon {
+            color: #fa0;
+        }
+    }
+    &.failed {
+        .rd-notification-icon {
+            color: #f50;
+        }
+    }
+}
+.ol-notification-title {
+    font-size: .9rem;
+}
+.ol-notification-content {
+    color: #999;
+    font-size: .8rem;
+    line-height: 1.5;
+    margin: 0;
+}
+.ol-notification-close {
+    position: absolute;
+    top: .2rem;
+    right: .5rem;
+    font-size: .8rem;
+    color: #ccc;
+}
+.ol-notification-close:hover {
+    color: #969696;
+}
+.ol-notification-icon{
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    left: 1rem;
+    margin-top: -.75rem;
+    line-height: 1.5rem;
+}
+.notification-enter {
+    opacity: 0;
+}
+.notification-enter-active, .notification-leave  {
+    transition: opacity .5s ease;
+}
+.notification-leave-active {
+    opacity: 0;
+    position: absolute;
+}
+.notification-move {
+    transition: transform .5s cubic-bezier(.55,0,.1,1);
+}
+</style>
+<template>
+    <div class="ol-notification-container" >
+        <transition-group  name="notification">
+            <div 
+                class="ol-notification"
+                v-for="(item, index) in allItem"
+                v-bind:key="item"
+            >
+                <span class="ol-notification-title">{{item.title}}</span>
+                <p class="ol-notification-content">{{item.content}}</p>
+                <span class="ol-notification-close    ion-close-round" @click="closeItem(item)"></span>
+            </div>
+        </transition-group >
+    </div>
+</template>
+<script>
+export default {
+    computed: {
+    },
+    components: { 
+    },
+    data () {
+        return {
+            allItem: []
+        }
+    },
+    mounted() {
+    },
+    methods:{
+        closeItem (item) {
+            this.allItem = this.allItem.filter(function(current) {
+                return current !== item
+            })
+        },
+        addItem (item) {
+            this.allItem.push(item);
+        }
+    }
+}
+</script>
+```
 
+####createObjectURL
 window.URL.createObjectURL(blob|| file) 方法会根据传入的参数创建一个指向该对象的URL，这个URL 的生命周期仅仅存在于被创建的文档里面新的对象URL指向执行的File对象或者是Blob对象.
 
 File对象或者Blob对象
@@ -350,84 +255,5 @@ URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的�
 
 比如一张图片,我创建了一个对象URL,然后通过这个对象URL,我页面里加载了这张图.既然已经被加载,并且不需要再次加载这张图,那我就把这个对象URL释放,然后这个URL就不再指向这张图了.
 
- 
-
-语法:
-
-window.URL.revokeObjectURL(objectURL);
 
 
-遇到的问题
-
-自定义组件的原生事件
-
-在 Vue 2.0 中的组定义组件上使用 v-on 就能直接监听自定义事件。
-
-如果要监听原生事件就必须使用修饰符 .native
-
-Vue 组件库 Element 的 Button 组件支持两种事件监听方式
-
-  <el-button @click.native="handleClick">Click Me!</el-button>
-  <el-button @click="handleClick">Click Me!</el-button>
-我根据尽量保持轻量和不打扰用户的原则，权衡之后决定只让用户自己决定事件的监听：
-
-  <r-btn info @click.native="handleClick">Button Click</r-btn>
-而且任何自定义的组件都可以用 @click.native="handleClick" 的方式给跟组件添加事件监听
-
-事件机制 Event Bus
-
-组件库中的组件之间肯定会有关联，而且父子组件之间也会通信，所以需要一套事件机制(简单的 pub/sub )来把所有的组件糅合在一起。
-
-因为事件库起到了桥梁的作用，所以我起名叫 util/bridge.js ，其实叫 bus.js 或者 events.js 可能会更清晰点。
-
-把 bridge 挂载到 Vue.prototype.$rubik 上，就很容易的通过 this.$rubik.bridge 在每个组件中进行事件的传递了。
-
-bridge.js 如下：
-
-import EventEmitter from 'events'
-
-class Bridge extends EventEmitter {
-  constructor () {
-    super()
-    this.setMaxListeners(500)
-  }
-
-  sub (event, cb) {
-    const type = typeof event
-
-    if (type !== 'object' && type !== 'array') {
-      return this.on(event, cb)
-    }
-
-    event.forEach(i => this.on.apply(this, i))
-  }
-
-  unsub (event, cb) {
-    const type = typeof event
-
-    if (type !== 'object' && type !== 'array') {
-      return this.removeListener(event, cb)
-    }
-    
-    event.forEach(i => this.removeListener.apply(this, i))
-  }
-
-  pub () {
-    this.emit.apply(this, arguments)
-  }
-}
-
-export default new Bridge()
-
-当组件被销毁时，注册事件也要执行 unsub，因为有了 Vue 生命周期的 Hook ，所以很简单，只需要写一个 mixin: mixins/event.js
-
-export default {
-  mounted () {
-    this.$rubik.bridge.sub(this.events)
-  },
-
-  beforeDestroy () {
-    this.$rubik.bridge.unsub(this.events)
-  }
-}
- 
