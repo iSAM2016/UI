@@ -36,7 +36,11 @@
   </section>
 </template>
 <script>
+<<<<<<< HEAD
 import arrIcon from '../../js/icon.js'
+=======
+import arrIcon from '../../js/icon'
+>>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
 
   export default {
     components: { 

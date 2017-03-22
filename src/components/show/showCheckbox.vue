@@ -1,6 +1,5 @@
 <style  lang = "stylus" >
 
-
 </style>
 <template>
   <section>

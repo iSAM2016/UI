@@ -1,6 +1,4 @@
-<style  lang = "stylus" >
- 
-
+<style  lang = "sass" >
 </style>
 <template>
   <section >

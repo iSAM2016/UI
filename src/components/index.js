@@ -14,9 +14,11 @@ import olRadioGroup from "./form/radioGroup.vue"
 import olInput from "./form/input.vue"
 import olSwitch from "./form/switch.vue"
 import olSlider from "./form/slider.vue"
+
 // import olDatepick from "./form/datepick.vue"
  import olSelect from "./form/select.vue"
 //import olCascader from "./form/cascader.vue"
+
 
 // common
 import olAlert from "./common/alert.vue"
@@ -42,7 +44,6 @@ export  {
     olTable,
 
     olCheckbox,
-   
     olCard,
     olRadio,
     olRadioGroup,

@@ -248,9 +248,19 @@
             case "info":
               list.push("info")
               break
+<<<<<<< HEAD
             case "warning":
               list.push("warning")
               break 
+=======
+
+           
+            case "warning":
+              list.push("warning")
+              break 
+
+
+>>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
            }
 
            switch(this.size){
@@ -260,6 +270,7 @@
             case "large":
               list.push("ol-btn-large")
               break
+<<<<<<< HEAD
             }
              if (this.disabled) {
                 list.push('ol-btn-disabled')
@@ -269,11 +280,38 @@
               }
         return list
     },
+=======
+
+                
+            }
+
+             if (this.disabled) {
+                list.push('ol-btn-disabled')
+            }
+
+          
+            if (this.icon) {
+                list.push('ol-btn-icon')
+              }
+
+            
+         
+
+
+        return list
+       
+    },
+
+>>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
     data () {
       return {
         
       }
     },
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
     methods: {
       
     }

@@ -1,7 +1,4 @@
 <style lang = "stylus">
-
-
-
 .ol-input-content{
     position: relative;
     width: 100%;

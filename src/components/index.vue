@@ -117,16 +117,4 @@
   </section>
 </template>
 <script>
-
-  export default {
-    components: { 
-          },
-    mounted() {
-    },
-    data () {
-      return {
-        totalTime: 0,
-      }
-    },
-  }
 </script>
