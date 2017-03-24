@@ -2,8 +2,6 @@
 </style>
 <template>
   <section>
-         
-
     <div>
       <h4>
         #标签
@@ -24,9 +22,7 @@ import { olLoding }from '../index'
           },
 
     ready() {
-        console.log(this.$route.auth + "user")
     },
-
     data () {
       return {
         loading: {
@@ -34,10 +30,6 @@ import { olLoding }from '../index'
         },
       }
     },
-    
-    events: {
-      
-    }
   }
 
 </script>

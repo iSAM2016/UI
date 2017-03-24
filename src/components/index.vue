@@ -14,7 +14,7 @@
    left: 0;
    top: 0;
    width:180px;
-   z-index: 1000000;
+   z-index: 100;
    text-align:left;
    font-size:14px;
    border-right: 1px solid #f3f3f3;

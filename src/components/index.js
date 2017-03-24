@@ -6,7 +6,6 @@ import olTag from "./base/tag.vue"
 import olTable from "./base/table.vue"
 import olCard from "./base/card.vue"
 
-
 //form
 import olCheckbox from "./form/checkbox.vue"
 import olRadio from "./form/radio.vue"
@@ -16,16 +15,14 @@ import olSwitch from "./form/switch.vue"
 import olSlider from "./form/slider.vue"
 
 // import olDatepick from "./form/datepick.vue"
- import olSelect from "./form/select.vue"
-//import olCascader from "./form/cascader.vue"
-
+import olSelect from "./form/select.vue"
+import olCascader from "./form/cascader.vue"
 
 // common
 import olAlert from "./common/alert.vue"
 import olTooltip from "./common/toolTip.vue"
 import olTimeline from "./common/timeline.vue"
 import olLoding from "./common/loding.vue"
-
 import olUpload from "./common/upload.vue"
 import olTree from "./common/tree.vue"
 import olProgress from "./common/progress.vue"
@@ -52,23 +49,20 @@ export  {
     olSlider,
     //olDatepick,
     olSelect,
-    //olCascader,
-
+    olCascader,
 
     olAlert,
-    olModal,
     olTooltip,
     olTimeline,
     olLoding,
     olUpload,
-    olProgress,
     olTree,
+    olProgress,
 
+    olModal,
     olNotification,
-
 
     olBreadcrumb,
     olpagination
-
 }
 

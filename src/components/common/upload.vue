@@ -114,35 +114,25 @@
 </template>
 <script>
 import olButton from '../base/button.vue'
-
-
 const imageType = /^image\//
-
 export default {
   props: {
      accept: String,
      finishUPload: Boolean
     },
-  
-
   data: function () {
     return {
         $file: null,
         fileList: [],
         myResult: this.finishUPload//data中新增字段
-
     }
   },
-
   mounted(){
       this.$file = this.$el.getElementsByClassName('ol-upload-file')[0]
-
   },
-
   components: {
       olButton
   },
-
   methods: {
      sizeCalc (size) {
             return Math.round(size / 10.24) / 100 + 'Kb'
@@ -152,7 +142,6 @@ export default {
                 this.$file.click()
             }
         },
-
       changeFile(e){
         let previewURL ="";
         let newItem = {};
@@ -160,9 +149,7 @@ export default {
            previewURL = ''
           if(imageType.test(this.$file.files[i].type)){
               previewURL = window.URL.createObjectURL(this.$file.files[i])
-
           }
-
           newItem = {
             src: previewURL,
             file: this.$file.files[i]
@@ -170,9 +157,7 @@ export default {
             this.fileList.push(newItem)
             this.$emit('add', newItem, this.fileList)
         }
-
       },
-
        delFile (item) {
             this.fileList.splice(this.fileList.findIndex((obj=> item === obj)),1)
             window.URL.revokeObjectURL(item.src)
@@ -181,10 +166,8 @@ export default {
         beginupdate(){
           this.$emit('actionUpdata', this.fileList)
             this.myResult = !this.myResult
-
         }
   },
-
   watch:{
         finishUPload(key){
           if(key){

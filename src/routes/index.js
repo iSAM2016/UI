@@ -1,173 +1,145 @@
-const showButton = resolve => require(['../components/show/showButton.vue'], resolve)
-const icon= resolve => require(['../components/show/showIcon.vue'], resolve)
-const index = resolve => require(['../components/index.vue'], resolve)
-const datas = resolve => require(['../components/datas.vue'], resolve)
-const showDropButtn = resolve => require(['../components/show/showDropButtn.vue'], resolve)
-const showTag = resolve => require(['../components/show/showTag.vue'], resolve)
-const checkbox = resolve => require(['../components/show/showCheckbox.vue'], resolve)
-const table = resolve => require(['../components/show/showTable.vue'], resolve)
-const card = resolve => require(['../components/show/showCard.vue'], resolve)
-const radio = resolve => require(['../components/show/showRadio.vue'], resolve)
-const input = resolve => require(['../components/show/showInput.vue'], resolve)
-const iswitch = resolve => require(['../components/show/showSwitch.vue'], resolve)
-const slider = resolve => require(['../components/show/showSlider.vue'], resolve)
-//const datepick = resolve => require(['../components/show/showDatepick.vue'], resolve)
-const select = resolve => require(['../components/show/showSelect.vue'], resolve)
-const cascader= resolve => require(['../components/show/showCascader.vue'], resolve)
-const alert= resolve => require(['../components/show/showAlert.vue'], resolve)
-const timeline= resolve => require(['../components/show/showTimeline.vue'], resolve)
-const loding= resolve => require(['../components/show/showLoding.vue'], resolve)
-const upload= resolve => require(['../components/show/showUpload.vue'], resolve)
-const tree= resolve => require(['../components/show/showTree.vue'], resolve)
-const progress= resolve => require(['../components/show/showProgress.vue'], resolve)
-const notifiction= resolve => require(['../components/show/showNotifiction.vue'], resolve)
-const breadcrumb= resolve => require(['../components/show/showBreadcrumb.vue'], resolve)
-const pagination= resolve => require(['../components/show/showPagination.vue'], resolve)
-const tooltip= resolve => require(['../components/show/showTooltip.vue'], resolve)
-const model= resolve => require(['../components/show/showModel.vue'], resolve)
-const preview= resolve => require(['../components/show/showPreview.vue'], resolve)
-
+// const table = resolve => require(['../components/show/showTable.vue'], resolve)
 export const routes = [
-   { path: '/', component: index, 
+   { path: '/', component: resolve => require(['../components/index.vue'], resolve), 
     children: [
        {
-          path: '',
+          path: '/datas',
           name: '总结',
-          component: datas
+          component: resolve => require(['../components/datas.vue'], resolve) 
         },
         {
           path: '/icon',
           name: 'icon',
-          component:icon
+          component:resolve => require(['../components/show/showIcon.vue'], resolve)
         },
-        {
+       /* {
           path: '/button',
           name: 'button',
-          component: showButton
+          component: resolve => require(['../components/show/showButton.vue'], resolve)
         },
 
         {
           path: '/dropButton',
           name: 'dropButton',
-          component: showDropButtn
+          component: resolve => require(['../components/show/showDropButtn.vue'], resolve)
         },
         {
           path: '/tag',
           name: 'tag',
-          component: showTag
+          component: resolve => require(['../components/show/showTag.vue'], resolve)
         },
 
         {
           path: '/checkbox',
           name: 'checkbox',
-          component: checkbox
+          component: resolve => require(['../components/show/showCheckbox.vue'], resolve)
         },
 
         {
           path: '/table',
           name: 'table',
-          component:table
+          component: resolve => require(['../components/show/showTable.vue'], resolve)
         },
          {
           path: '/card',
           name: 'card',
-          component:card
+          component: resolve => require(['../components/show/showCard.vue'], resolve)
         },
          {
           path: '/radio',
           name: 'radio',
-          component:radio
+          component: resolve => require(['../components/show/showRadio.vue'], resolve)
         },
         {
           path: '/input',
           name: 'input',
-          component:input
+          component: resolve => require(['../components/show/showInput.vue'], resolve)
         },
 
         {
           path: '/switch',
           name: 'switch',
-          component:iswitch
+          component: resolve => require(['../components/show/showSwitch.vue'], resolve)
         },
          {
           path: '/slider',
           name: 'slider',
-          component:slider
-        },
+          component: resolve => require(['../components/show/showSlider.vue'], resolve)
+        },*/
         /*{
           path: '/datepick',
           name: 'datepick',
-          component:datepick
+          component: resolve => require(['../components/show/showDatepick.vue'], resolve)
         }, */
         {
           path: '/select',
           name: 'select',
-          component:select
+          component: resolve => require(['../components/show/showSelect.vue'], resolve)
         }, 
         {
           path: '/cascader',
           name: 'cascader',
-          component:cascader
+          component: resolve => require(['../components/show/showCascader.vue'], resolve)
         },
          {
           path: '/alert',
           name: 'alert',
-          component:alert
+          component: resolve => require(['../components/show/showAlert.vue'], resolve)
         },
         {
           path: '/showTooltip',
           name: 'showTooltip',
-          component:tooltip
+          component: resolve => require(['../components/show/showTooltip.vue'], resolve)
         },
         {
           path: '/timeline',
           name: 'timeline',
-          component:timeline
+          component: resolve => require(['../components/show/showTimeline.vue'], resolve)
         },
         {
           path: '/loding',
           name: 'loding',
-          component:loding
+          component: resolve => require(['../components/show/showLoding.vue'], resolve)
         },
          {
           path: '/progress',
           name: 'progress',
-          component:progress
+          component: resolve => require(['../components/show/showProgress.vue'], resolve)
         },
          {
           path: '/upload',
           name: 'upload',
-          component:upload
+          component: resolve => require(['../components/show/showUpload.vue'], resolve)
         },
         {
           path: '/tree',
           name: 'tree',
-          component:tree
+          component: resolve => require(['../components/show/showTree.vue'], resolve)
         },
          {
           path: '/model',
           name: 'model',
-          component:model
+          component: resolve => require(['../components/show/showModel.vue'], resolve)
         },
         {
           path: '/notifiction',
           name: 'notifiction',
-          component:notifiction
+          component: resolve => require(['../components/show/showNotifiction.vue'], resolve)
         },
         {
           path: '/preview',
           name: 'preview',
-          component:preview
+          component: resolve => require(['../components/show/showPreview.vue'], resolve)
         },
         {
           path: '/breadcrumb',
           name: 'breadcrumb',
-          component:breadcrumb
+          component: resolve => require(['../components/show/showBreadcrumb.vue'], resolve)
         }, 
         {
           path: '/pagination',
           name: 'pagination',
-          component:pagination
+          component: resolve => require(['../components/show/showPagination.vue'], resolve)
         }],
 }]
 

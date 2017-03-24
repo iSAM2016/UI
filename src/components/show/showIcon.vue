@@ -1,24 +1,34 @@
 <style  lang = "stylus" >
-  
-    .step {
-      display: inline-block;
-      line-height: 1;
-      position: relative;
-      width: 10%;
-    }
+.size-12 { font-size: 12px; }
+.size-14 { font-size: 14px; }
+.size-16 { font-size: 16px; }
+.size-18 { font-size: 18px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-32 { font-size: 32px; }
+.size-48 { font-size: 48px; }
+.size-64 { font-size: 64px; }
+.size-96 { font-size: 96px; }
 
-    .step i {
-      -webkit-transition: opacity .3s;
-      -moz-transition: opacity .3s;
-      -ms-transition: opacity .3s;
-      -o-transition: opacity .3s;
-      transition: opacity .3s;
-    }
+.step {
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  width: 10%;
+}
 
-    .step:hover i { opacity: .3; }
-    #biao1{
-      height: 0;
-    }
+.step i {
+  -webkit-transition: opacity .3s;
+  -moz-transition: opacity .3s;
+  -ms-transition: opacity .3s;
+  -o-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+.step:hover i { opacity: .3; }
+#biao1{
+  height: 0;
+}
 </style>
 <template>
   <section>
@@ -27,7 +37,7 @@
 
     </div>
     <span 
-      class=" ol-icons step size-32"
+      class=" ol-icons step size-24"
       v-for="item in arrIcon"
       @click="select(item)"
    > <i class="icon" :class="item"></i>
@@ -36,11 +46,7 @@
   </section>
 </template>
 <script>
-<<<<<<< HEAD
 import arrIcon from '../../js/icon.js'
-=======
-import arrIcon from '../../js/icon'
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
 
   export default {
     components: { 

@@ -1,48 +1,49 @@
-<style  lang = "sass" >
-</style>
 <template>
-  <section >
-
     <ol-cascader 
       :cascader="cascader">
     </ol-cascader>            
-    
-   </div>  
-      
-  </section>
 </template>
 <script>
-const options = [{
+let options = [{
     // label 是级联选项展示值
     label: '中国',
-
+    show:false,
     // value 是对象自定义属性
     value: 'china',
     // 也可以自定义其他属性
-    sku: '2234234',
-    id: 'j4jb345jb34j5',
-
-    // 该对象的子选项数组
-    children: [{
+    children: [{show:false,
         value: 'sichuan',
         label: '四川',
-        children: [{
+        children: [{ show:false,
             value: 'chegndu',
             label: '成都'
-        }, {
+        }, { show:false,
             value: 'deyang',
             label: '德阳'
         }]
     }]
+},{
+    label: '美国',
+    value: 'usa',
+    show:false,
+    children: [{ show:false,
+        value: 'sichuan',
+        label: '纽约',
+        children: [{ show:false,
+            value: 'chegndu',
+            label: '白宫'
+        }, { show:false,
+            value: 'deyang',
+            label: '五角大楼'
+        }]
+    }]
 }]
 
-import { olCascader }from '../index'
-
+import { olCascader } from '../index.js'
 export default {
     components: { 
      olCascader
     },
-
     data () {
         return {
             cascader: {
@@ -50,8 +51,6 @@ export default {
                 valueArr: []
             }
         }
-      
     },
 }
-
 </script>

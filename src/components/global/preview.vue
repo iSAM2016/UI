@@ -77,11 +77,7 @@ export default {
     }
 }
 </script>
-<<<<<<< HEAD
 <style lang = "stylus" >
-=======
-<style lang = "sass" >
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
 .ol-perview-container{
     display: table;
     position: fixed;
