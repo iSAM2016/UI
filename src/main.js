@@ -12,8 +12,9 @@ Vue.use(myPlugin, {
 })
 
 const router = new VueRouter({
-  mode: 'history',
-  routes
+    strict: process.env.NODE_ENV !== 'production',
+    mode: 'hash',
+    routes
 });
 router.beforeEach((to, from, next) => { 
  window.scrollTo(0, 0);
