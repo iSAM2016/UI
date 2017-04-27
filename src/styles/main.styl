@@ -14,8 +14,14 @@
 
 
 html, body
-  line-height:  1.428571429 
+  line-height: 1
   font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif
 ul, li
     list-style: none
-    
+.clear
+  clear: both
+  &:after, &:before
+    content: " "
+    display: table
+    clear: both
+

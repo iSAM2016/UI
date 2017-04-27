@@ -1,5 +1,3 @@
-
-
     const index = resolve => require(['../components/index.vue'], resolve);
     const datas = resolve => require(['../components/datas.vue'], resolve);
     const nav = resolve => require(['../components/show/showNav.vue'], resolve);
@@ -30,6 +28,7 @@
     const breadcrumb = resolve => require(['../components/show/showBreadcrumb.vue'], resolve);
     const pagination = resolve => require(['../components/show/showPagination.vue'], resolve);
     const  top = resolve => require(['../components/show/showGotoTop.vue'],resolve);
+
 export const routes = [
    { path: '/', component: index, 
     redirect: to => {
@@ -49,7 +48,6 @@ export const routes = [
         {
           path: '/icon',
           name: 'icon',
-          component: icon,
         },
         {
           path: '/button',
@@ -111,24 +109,27 @@ export const routes = [
           component: datepick,
         }, 
         {
-          path: '/select',
-          name: 'select',
-          component: select,
-        }, 
-         {
-          path: '/alert',
-          name: 'alert',
-          component: alert,
-        },
-        {
-          path: '/cascader',
-          name: 'cascader',
-          component: cascader,
-        },
-        {
           path: '/tip',
           name: 'tip',
           component: tip,
+        },
+        {
+          path: '/select',
+          name: 'select',
+          component: select
+        }, 
+        {
+          path: '/cascader',
+          name: 'cascader',
+          component: cascader
+        },
+         {
+          path: '/alert',
+          name: 'alert',
+          component: alert
+        },
+        {
+          path: '/showTooltip',
         },
         {
           path: '/timeline',
@@ -186,3 +187,4 @@ export const routes = [
           component: top,
         }]
 }]
+

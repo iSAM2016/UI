@@ -24,7 +24,6 @@ export default {
     },
     methods: {
         success () {
-            console.log(this.$Notification)
             this.$Notification.success('编辑成功', '', 5000)
         },
         info () {

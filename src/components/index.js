@@ -38,6 +38,7 @@ import olpagination from "./navigation/pagination.vue"
 import olNav from "./layout/nav.vue"
 import olNavPane from "./layout/navpane.vue"
 
+
 export  {
     olButton,
     olButtonGroup,
@@ -72,6 +73,5 @@ export  {
 
     olNav,
     olNavPane
-
 }
 

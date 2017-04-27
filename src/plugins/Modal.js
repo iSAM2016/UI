@@ -9,6 +9,7 @@ export default function(Vue) {
         props += `${keys}=${options[keys]} `
     })
     const modalDiv = document.createElement('div');
+          modalDiv.className = "modal-box"
           modalDiv.innerHTML = `<ol-modal ${props}></ol-modal>`;
     document.body.appendChild(modalDiv);
     const modal = new Vue({

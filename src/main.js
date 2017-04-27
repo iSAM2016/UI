@@ -4,17 +4,19 @@ import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
 import { routes } from './routes/index';
+import myPlugin from './plugins/plugins.js'
 
 Vue.use(VueRouter);
-import myPlugin from './plugins/plugins.js'
 Vue.use(myPlugin, {
   preview: true
 })
 
 const router = new VueRouter({
+    strict: process.env.NODE_ENV !== 'production',
     mode: 'hash',
     routes
 });
+
 router.beforeEach((to, from, next) => { 
  window.scrollTo(0, 0);
         next();
@@ -22,12 +24,8 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from, next) => { 
 });
+
 /* eslint-disable no-new */
-/*new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#root');
-*/
 new Vue({
   el: '#root',
   router,
