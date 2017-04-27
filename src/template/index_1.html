@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>中科紫鑫</title>
+	<link rel="shortcut icon" href="./src/favicon.ico" mce_href="./SRC/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="" src="./pub/webuploader/webuploader.css">
+
+	<!-- <script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
+-->
+<script rel="stylesheet" href="" src="./src/js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<div class="cd-user-modal">
+	<div class="cd-user-modal-container">
+		<ul class="cd-switcher">
+			<li>
+				<h3>上传文件</h3>
+			</li>
+
+		</ul>
+
+		<div id="cd-login">
+			<form class="form-horizontal" role="form" id="propertyForm">
+				<div class="form-group">
+
+					<input type="text" name="folderId"/ id="myfolderId" style="display:none">
+
+					<label for="lastname" class="col-sm-2 control-label">名称</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="lastname" 
+            placeholder="请输入属性名称" name="name"  value=""></div>
+
+					<label for="lastname" class="col-sm-2 control-label">属性名称</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="lastname" 
+            placeholder="请输入属性名称" name="testProperty" value=""></div>
+				</div>
+
+				<div class="form-group choseFils">
+					<div class="col-sm-offset-2 col-sm-10" id="uploader">
+
+						<div class="btns">
+							<span id="attach"></span>
+
+						</div>
+						<div id="thelist" class="uploader-list"></div>
+
+					</div>
+				</div>
+			</form>
+			<div class=" ready-to-show"></div>
+
+			<div class="row start-upload" >
+
+				<button type="button" class="btn  btn-primary cd-signin  " for="upload"  id="submitFiles">开始上传</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="app"></div>
+
+</body>
+</html>
+
+
+<script rel="stylesheet" href="" src="./pub/webuploader/webuploader.min.js"></script>
+<script rel="stylesheet" href="" src="./src/js/common.js"></script>
+<script src="./src/js/saveInfo.js"></script>
+
