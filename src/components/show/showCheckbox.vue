@@ -3,14 +3,10 @@
 </style>
 <template>
   <section>
-         
-
     <div>
       <h4>
         #选择框
       </h4>
-      
-    
     </div>  
     <ol-checkbox :checkbox="checkbox">
       

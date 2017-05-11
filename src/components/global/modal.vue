@@ -65,10 +65,10 @@
             >
                 <span class="ol-modal-icon" @click="closeModal"> <i class=" icon ion-android-close"></i>
                 </span>
-                <div class="ol-modal-title">{{ this.title}}</div>
-                <p class="ol-modal-content">{{this.content}}</p>
+                <div class="ol-modal-title">{{title}}</div>
+                <p class="ol-modal-content">{{content}}</p>
                 <div class="ol-modal-close">
-                    <ol-button type="info" @click.native="closeModal">关闭</ol-button>
+                    <ol-button type="info" @click.native="fail">关闭</ol-button>
                     <ol-button type="info" :size="this.size"  :color="this.color" @click.native="success">好的</ol-button>
                 </div>
             </div>
@@ -117,17 +117,22 @@ export default {
     },
     methods:{
         closeModal(item) {
-            this.isShow = false;
+             this.isShow = false;
             document.body.removeChild(document.body.querySelector('.ol-modal-container'))
         },
-        addModal(obj) {
-            this.isShow = true;
-            this.callBack = obj.callBack;
+        fail() {
+            this.closeModal();
+            this.rejected();
         },
         success() {
-            this.callBack();
             this.closeModal();
-        }
+            this.resolve();
+        },
+        addStatus(resolve, rejected) {
+            this.isShow = true;
+            this.resolve = resolve;
+            this.rejected  = rejected;
+         }
     }
 }
 </script>

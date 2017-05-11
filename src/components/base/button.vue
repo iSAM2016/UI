@@ -171,10 +171,8 @@
         v-if="icon"
       >
       </i>
-
        <span class="ol-btn-loading ion-load-a" 
           v-if="loading && !icon"></span>
-
       <span v-if="!icon">
             <slot></slot>
       </span>

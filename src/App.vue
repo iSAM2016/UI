@@ -6,14 +6,14 @@
 <template>
 <div>
    <router-view></router-view>  
-   <ol-preview></ol-preview>   
+  <ol-preview></ol-preview>    
 </div>
 </template>
 <script>
- import olPreview from './components/global/preview';
+  import olPreview from './components/global/preview';
   export default {
     components: {
-       olPreview 
+      olPreview 
     },
     data () {
       return {

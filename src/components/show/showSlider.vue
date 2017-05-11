@@ -1,21 +1,19 @@
 <style  lang = "stylus" >
-
+.top{
+  margin-top: 80px
+}
 </style>
 <template>
   <section>
-         
-
     <div>
       <h4>
         #标签
       </h4>
-        <ol-slider :value="slider" @change="change"/>
+        <ol-slider :value="slider" class="top" @change="change"/>
         {{ value }}
 
-        <ol-slider :value="slider1" />
+        <ol-slider :value="slider1" class="top" />
     </div>  
-
-
   </section>
 </template>
 <script>

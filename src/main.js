@@ -6,10 +6,15 @@ import VueRouter from 'vue-router';
 import { routes } from './routes/index';
 import myPlugin from './plugins/plugins.js'
 
-Vue.use(VueRouter);
 Vue.use(myPlugin, {
   preview: true
 })
+
+import {olCollapseItem} from './components/';
+Vue.component('olCollapseItem', olCollapseItem);
+
+
+Vue.use(VueRouter);
 
 const router = new VueRouter({
     strict: process.env.NODE_ENV !== 'production',

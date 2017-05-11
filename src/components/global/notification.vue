@@ -44,7 +44,6 @@
 .ol-notification-title {
     font-size: .9rem;
 }
-
 .ol-notification-content {
     color: #999;
     font-size: .8rem;
@@ -86,24 +85,22 @@
 <template>
     <div class="ol-notification-container" >
         <transition-group  name="notification">
-            <div 
-                class="ol-notification"
-                v-for="(item, index) in allItem"
-                :class="typeClass(item)"
-                v-bind:key="item"
-            >
-               <!-- <span class="ol-notification-icon" :class="iconClass(item)"></span> -->
-                <span class="ol-notification-title">{{item.title}}</span>
-                <p class="ol-notification-content">{{item.content}}</p>
-                <span class="ol-notification-close    ion-close-round" @click="closeItem(item)"></span>
-            </div>
+           <!--  <div 
+               class="ol-notification"
+               v-for="(item, index) in allItem"
+               :class="typeClass(item)"
+               v-bind:key="item"
+           >
+              <span class="ol-notification-icon" :class="iconClass(item)"></span>
+               <span class="ol-notification-title">{{item.title}}</span>
+               <p class="ol-notification-content">{{item.content}}</p>
+               <span class="ol-notification-close    ion-close-round" @click="closeItem(item)"></span>
+           </div> -->
         </transition-group >
     </div>
 </template>
 <script>
 export default {
-    computed: {
-    },
     components: { 
     },
     data () {
@@ -133,12 +130,11 @@ export default {
             this.allItem.push(item);
         }
     },
-    watch: {
-        allItem() {
+    computed: {
+      /*  allItem() {
             if (this.allItem.length === 0) {
                 document.body.removeChild(document.body.querySelector('.ol-notification-container'))
             }
-        }
+        }*/
     }
 }
-</script>

@@ -28,6 +28,7 @@
     const breadcrumb = resolve => require(['../components/show/showBreadcrumb.vue'], resolve);
     const pagination = resolve => require(['../components/show/showPagination.vue'], resolve);
     const  top = resolve => require(['../components/show/showGotoTop.vue'],resolve);
+    const  collapse = resolve => require(['../components/show/showCollapse.vue'],resolve);
 
 export const routes = [
    { path: '/', component: index, 
@@ -48,6 +49,7 @@ export const routes = [
         {
           path: '/icon',
           name: 'icon',
+          component: icon,
         },
         {
           path: '/button',
@@ -129,9 +131,6 @@ export const routes = [
           component: alert
         },
         {
-          path: '/showTooltip',
-        },
-        {
           path: '/timeline',
           name: 'timeline',
           component: timeline,
@@ -185,6 +184,10 @@ export const routes = [
           path: '/top',
           name: 'top',
           component: top,
+        }, {
+          path: '/collapse',
+          name: 'collapse',
+          component: collapse,
         }]
 }]
 

@@ -22,17 +22,14 @@ export default {
 
     methods: {
         opmodel () {
-            this.$Modal('title','非法操作',{
-                    callBack: action => {
-                        console.log(this.data);
-                    }
-                },
-               {
+            this.$Modal('确定退出吗?','').then(()=>{
+            });
+           /* {
                     text: '确定',//[按钮text]
                     type: '', //[按钮类型]
                     size: '', // [按钮尺寸]
                     color:'', // [按钮颜色]
-             });
+             }*/
         }
     }
 }

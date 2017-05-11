@@ -14,7 +14,7 @@ import olInput from "./form/input.vue"
 import olSwitch from "./form/switch.vue"
 import olSlider from "./form/slider.vue"
 
-// import olDatepick from "./form/datepick.vue"
+import olDatepick from "./form/datepick.vue"
 import olSelect from "./form/select.vue"
 import olCascader from "./form/cascader.vue"
 
@@ -26,6 +26,8 @@ import olLoding from "./common/loding.vue"
 import olUpload from "./common/upload.vue"
 import olTree from "./common/tree.vue"
 import olProgress from "./common/progress.vue"
+import olCollapse from "./common/collapse.vue"
+import olCollapseItem from "./common/collapseItem.vue"
 
 // global
 import olModal from "./global/modal.vue"
@@ -40,12 +42,14 @@ import olNavPane from "./layout/navpane.vue"
 
 
 export  {
+    // base
     olButton,
     olButtonGroup,
     olDropButton,
     olTag,
     olTable,
 
+    // form
     olCheckbox,
     olCard,
     olRadio,
@@ -53,10 +57,11 @@ export  {
     olInput,
     olSwitch,
     olSlider,
-    //olDatepick,
+    olDatepick,
     olSelect,
     olCascader,
 
+    // common
     olAlert,
     olTooltip,
     olTimeline,
@@ -64,13 +69,17 @@ export  {
     olUpload,
     olTree,
     olProgress,
+    olCollapse,
+    olCollapseItem,
 
+    // global
     olModal,
     olNotification,
 
     olBreadcrumb,
     olpagination,
 
+    // layout
     olNav,
     olNavPane
 }

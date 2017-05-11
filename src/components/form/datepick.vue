@@ -73,70 +73,36 @@
 
 </style>
 <template>
-<div class="ol-datepick-section">
-    <ol-input  
-        :textfield = 'user'
-        @click="showfn"
+    <div class="ol-datepick-section">
+        <ol-input  :textfield = 'user' @click="showfn"
         />
-
-
-<div 
-    class="ol-datepick "
-    v-show = "isShow"
->   
-
-   <div class="ol-chosedate" v-if="value.chose">
-<<<<<<< HEAD
-        <a @click="nextMoth(-1)"><</a>
-=======
-        <a @click="preMoth">{{
-         pre
-        }}</a>
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
-        <a href="">
-            {{  this.FullYear }}
-        </a>
-            <a href="">
-            {{  this.Month +1 }}
-                
-            </a>
-            
-<<<<<<< HEAD
-        <a @click="nextMoth(1)"> <i class="icon-angle-right">></i></a>
-=======
-        <a @click="nextMoth"> <i class="icon-angle-right">></i></a>
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
-   </div> 
-
-   <div class="ol-title">
-       <span>日</span>
-       <span>一</span>
-       <span>二</span>
-       <span>三</span>
-       <span>四</span>
-       <span>五</span>
-       <span>六</span>
-   </div>
-   <div class="ol-content clearfix"> 
-
-     <span 
-        v-for=' (dates,index) in eleArr '
-        :class= "{'glay': dates.iskey,
-                 'active':dates.active     
-        }"
-        @click = "print(dates,index)"
-        >
-         {{ dates.date }}
-     </span>
-   </div>
-</div>
-</div>
+        <div class="ol-datepick" v-show = "isShow">
+            <div class="ol-chosedate" v-if="value.chose">
+                <a @click="nextMoth(-1)"><</a>
+                <a href="">{{  this.FullYear }}</a>
+                <a href="">{{  this.Month +1 }}</a>
+                <a @click="nextMoth(1)"> <i class="icon-angle-right">></i></a>
+            </div>
+            <div class="ol-title">
+                <span>日</span>
+                <span>一</span>
+                <span>二</span>
+                <span>三</span>
+                <span>四</span>
+                <span>五</span>
+                <span>六</span>
+            </div>
+            <div class="ol-content clearfix">
+                <span 
+                    v-for=' (dates,index) in eleArr' 
+                    :class= "{'glay': dates.iskey, 'active':dates.active }"
+                    @click = "print(dates,index)">{{ dates.date }}</span>
+            </div>
+        </div>
+    </div>
 </template>
-
-
 <script>
 import olInput from './input'
-
 export default {
     props:{
         value:{
@@ -173,29 +139,15 @@ export default {
     },
 
     mounted(){
-<<<<<<< HEAD
+
         this.init()
     },
     methods:{
         getTime(){//getTime
-=======
-        this.getTime();
-        this.init()
-    },
-   
-
-    methods:{
-        getTime(){//getTime
-            this.date        =  new Date()
-            this.Month       =  this.date.getMonth()
-            this.FullYear    =  this.date.getFullYear() 
-
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
             this.daycount    = new Date(this.FullYear, this.Month +1, 0).getDate() //
             this.date        =  new Date(this.FullYear, this.Month ,'1') //
             this.begin       =  this.date.getDay()  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
             this.eleArr      = [];
-<<<<<<< HEAD
         },
 
         init(){
@@ -204,14 +156,7 @@ export default {
             this.FullYear    =  this.date.getFullYear() 
             this.getTime();
             this._layout()  
-=======
 
-        },
-
-        init(){
-            let that = this;
-                that._layout()  
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
         },
 
         _layout( ){
@@ -350,11 +295,6 @@ export default {
 
                     }
             })
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
             let date =  this.addArr[0].year + "-"+ 
                         this.addArr[0].month+ "-"+ 
                         this.addArr[0].date + '---' +
@@ -371,13 +311,10 @@ export default {
         },
         showfn(){
             this.isShow = !this.isShow
-<<<<<<< HEAD
-=======
             console.log(this.isShow)
         },
         preMoth() {
 
->>>>>>> f05a5efe05f09dcc154523ca3ef6c0e8441bf096
         },
         nextMoth() {
 

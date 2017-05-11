@@ -14,7 +14,6 @@
   border: 1px solid #e6e6e6;
   margin-right: .4rem;
   border-radius: 4px;
-  top:1.5rem;
       &:hover{
         border: 1px solid #2db7f5;
       }

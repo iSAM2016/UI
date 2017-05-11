@@ -21,6 +21,10 @@
     &.notborder{
       border: none
     }
+    i{
+      position: relative;
+      top: 8px;
+    }
 }
 .ol-pagination.primary {
     color: #fff;

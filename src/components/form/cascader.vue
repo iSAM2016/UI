@@ -160,7 +160,7 @@ export default {
 }
 .ol-cascader-arrow {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: .5rem;
     font-size: .4rem;
     transform: rotate(0);

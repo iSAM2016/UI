@@ -4,8 +4,8 @@
     width:98%;
     .ol-slider-handle{
         position:absolute;
-        top:1.2rem;
-        left:0rem;
+        top: -10px;
+        left: 0px;
         height: 1.6rem;
         width: 1.6rem;
         border: 2px solid #57c5f7;
@@ -59,13 +59,10 @@
 
 </style>
 <template>
-<div 
-    class="ol-slider"
-   
->   <div class="ol-slider-handle">
-        <div class="ol-slider-handle-tip" v-if="showTip">{{ showValue }}</div>
+<div class="ol-slider">   
+    <div class="ol-slider-handle">
+        <div class="ol-slider-handle-tip" v-if="showTip">{{showValue}}</div>
     </div>
-
     <div class="ol-slider-mark">
         <div class="ol-slider-show"></div>
     </div>
@@ -175,8 +172,8 @@ export default {
                                     console.log(_that.value.step)
                                     if( _that.value.step ){
                                         let num = Math.round(X/_that.eachSection/_that.value.step)*_that.value.step*_that.eachSection
-                                            show.style.width = num+ "px";
-                                            handle.style.left = num+"px";
+                                            show.style.width = num + "px";
+                                            handle.style.left = num  +"px";
 
                                          _that.change(Math.round(X/_that.eachSection/_that.value.step)*_that.value.step)
                                         
