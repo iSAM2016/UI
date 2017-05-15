@@ -1,5 +1,5 @@
 <template>
-    <div class="ol-form-item">
+    <div class="ol-form-item" :class="{'ol-form-inline': isInline}">
         <label class="ol-form-item__label" :style="{width: labelWidth + 'px'}" :class="[labelPosition]">
             {{ label }}
         </label>
@@ -28,7 +28,6 @@ export default {
     props: {
         label: {
             type: String,
-            required: true
         },
         labelWidth: {
             type: Number,
@@ -42,7 +41,7 @@ export default {
     },
     data () {
         return {
-           
+           isInline: '' // 行内显示
         }
     },
     computed: {
@@ -65,10 +64,7 @@ export default {
     components: {
     },
     mounted(){
-       console.log()
-    },
-    beforeDestroy () {
-       
+       this.isInline = this.$parent.inline;
     },
     methods: {
         hide ($event) {
@@ -85,9 +81,12 @@ export default {
 <style lang = "stylus">
 .ol-form-item{
     position: relative;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
+    vertical-align: middle;
 }
-
+.ol-form-item.ol-form-inline{
+   display: inline-block;
+}
 .ol-form-item__label{
     float: left;
     text-align: left;
@@ -104,6 +103,7 @@ export default {
     }
 }
 .ol-form-item__content{
+    min-width: 13rem;
     position: relative;
     line-height: 2.5;
     font-size: 1rem

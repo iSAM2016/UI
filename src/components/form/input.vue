@@ -2,7 +2,6 @@
 .ol-input-content{
     position: relative;
     width: 100%;
-    height: 4.7rem;
 }
 .ol-input{
         
@@ -58,8 +57,8 @@
 }
 .ol-tip{
     position: relative;
-    top:-1.6rem;
     display: inline-block;
+    padding: 4px 0
     font-size: 12px;
     color: red;
     line-height: 1;
@@ -67,19 +66,17 @@
 
 </style>
 <template>
-   <div
-    class="ol-input-content"
-    @click="click">
+   <div class="ol-input-content">
         <input
             class="ol-input"
+            v-model="inputValue"
             :class="styleList"
             :placeHolder = "placeHolder" 
-            v-model="inputValue"
             :disabled="disabled"
              @input="changAction"
              @blur="inputAction" />
 
-        <span class="ol-tip" v-if="tip">{{tip}}</span>
+        <span class="ol-tip" v-if="tips">{{tips}}</span>
    </div>
 </template>
 <script>
@@ -103,11 +100,10 @@ const TYPE_MAP = {
 }
 
 export default {
-<<<<<<< HEAD
     mixins: [MIXIN],
     props: {
         value:{
-            type:String,
+            type:[String, Number],
             default: ()=> ""
         },
         placeHolder:{
@@ -127,7 +123,7 @@ export default {
              default: ()=> false
         },
         limit: {
-            type: Object,
+            type: [Object, String],
             default () {
                 return {
                     length: 0,
@@ -145,11 +141,18 @@ export default {
     },
     data() {
         return {
-            inputValue: ''
+            inputValue: '',
+            tips: '', //提示框
+            states: ''
         }
     },
     mounted() {
-        this.inputValue = this.value;
+        this.inputValue = this.value; // 避免重写父组件数据
+        this.tips = this.tip;// 避免重写父组件数据
+        this.states = this.state;// 避免重写父组件数据
+        if (this.type !== 'text') {
+            this.$el.querySelector('.ol-input').type = this.type;
+        }
     },
     methods: {
         changAction(e){
@@ -157,19 +160,22 @@ export default {
             this.dispath('olForm', 'changeOlFromValue', [this, this.inputValue]);
         },
         inputAction() {
+            this.$emit('changing', this.inputValue, this);
+            this.dispath('olForm', 'changeOlFromValue', [this, this.inputValue]);
             this.limitType()
         },
         setState (state, tip) {
-            this.state = state
-            this.tip = tip
+            console.log(state);
+            console.log(tip);
+            this.states = state
+            this.tips = tip
         },
         cleanState () {
-            this.tip = ''
-            this.state = 'default'
+            this.tips = ''
+            this.states = 'default'
         },
         limitLen () {
             if (this.limit.max) {
-                console.log(12)
                 if (this.inputValue.length > this.limit.max) {
                     return this.setState('warning', '输入最多' + this.limit.max + '字符')
                 } else {
@@ -190,7 +196,6 @@ export default {
             return !Number.isNaN(num)
         },
         limitType () {
-            
             if (!this.limit.type) return
             if (this.limit.type === 'Length') return this.limitLen()
             if (!TYPE_MAP[this.limit.type]) return
@@ -211,20 +216,14 @@ export default {
             } else {
                 this.cleanState()
             }
-        },
-        click(){
-        this.$emit("click")
-        
-      }
-    
-      
+        }
     },
 
     computed: {
       styleList(){
          let list = []
-         if(this.state)
-         list.push(this.state) 
+         if(this.states)
+         list.push(this.states) 
           return list 
       }
   }

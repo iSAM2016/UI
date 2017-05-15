@@ -18,7 +18,7 @@
 .ol-datepick{
    
     position:absolute;
-    top: 4rem;
+    top: 2.6rem;
     left:.2rem;
     width: 16rem;
     border: 1px solid rgba(0,0,0,.1);
@@ -74,8 +74,7 @@
 </style>
 <template>
     <div class="ol-datepick-section">
-        <ol-input  :textfield = 'user' @click="showfn"
-        />
+        <ol-input  v-model="inputvalue"  placeHolder='请输入内容' state='primary'  @click.native="showfn"></ol-input>
         <div class="ol-datepick" v-show = "isShow">
             <div class="ol-chosedate" v-if="value.chose">
                 <a @click="nextMoth(-1)"><</a>
@@ -113,13 +112,6 @@ export default {
 
     data () {
         return {
-            user: {
-                value: '',
-                placeHolder: 'time',
-                state: 'default',
-                tip: '' 
-            },
-
             date     :  null,
             Date     :  null,  //ÌìÊý ×ÜÊý35
             Day      :  null,  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
@@ -129,17 +121,14 @@ export default {
             begin    :  null, //¿ªÊ¼µÄ
             allData  :  null,  //×Ü¹²µÄÌìÊ¹
             addArr   :  [],
-            isShow   :  false
-
+            isShow   :  false,
+            inputvalue: ''
         }
     },
-
     components: { 
         olInput
     },
-
     mounted(){
-
         this.init()
     },
     methods:{
@@ -149,7 +138,6 @@ export default {
             this.begin       =  this.date.getDay()  // ÖÜ¼¸ ¿ªÊ¼Êý¾Ý
             this.eleArr      = [];
         },
-
         init(){
             this.date        =  new Date()
             this.Month       =  this.date.getMonth()
@@ -158,7 +146,6 @@ export default {
             this._layout()  
 
         },
-
         _layout( ){
                 let that = this
                  // »ñÈ¡Ç°Ò»¸öÔÂµÄ×îºó¼¸¸öÊý¾Ý
@@ -255,21 +242,19 @@ export default {
                 that = this
             if(!this.value.section){
                 this.$emit("change",date,dates)
-                this.user.value = date
-                this.isShow = !this.isShow
+                this.inputvalue = date;
+                console.log(this.inputvalue);
+                this.isShow = !this.isShow;
             }
            
             this.eleArr.forEach((item,index) => {
-                            that.$set(that.eleArr[index],"active",false)
+                that.$set(that.eleArr[index],"active",false)
             })
             this.$set(this.eleArr[index],"active",true)
             this.value.section ? this.find(dates) : "";
-            
-
         },
 
         find( datas ){
-
             let key = 0
             let that  = this
             this.addArr.push(datas) 
@@ -302,12 +287,8 @@ export default {
                         this.addArr[1].month+ "-"+ 
                         this.addArr[1].date 
             this.$emit("change",date,this.addArr);
-            this.user.value = date
-
-           
+            this.inputvalue = date
             this.isShow = !this.isShow
-            
-
         },
         showfn(){
             this.isShow = !this.isShow

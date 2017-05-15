@@ -22,49 +22,12 @@
        border-radius: 0;
      
     }
-
-
-
-
 }
-
-
-
 </style>
 <template>
-  <div  
-    class="ol-btn-group">
-            <slot></slot>
+  <div class="ol-btn-group">
+      <slot></slot>
   </div>
 </template>
 <script>
-
-  export default {
-    mounted (){
-     
-    },
-    props:{
-        
-    },
-
-    components: { 
-      
-    },
-
-    computed: {
-     
-       
-    },
-
-    data () {
-      return {
-        
-      }
-    },
-    
-    events: {
-      
-    }
-  }
-
 </script>

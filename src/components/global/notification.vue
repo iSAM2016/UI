@@ -16,7 +16,7 @@
     margin-bottom: 1rem;
     &.success,
     &.warning,
-    &.failed,
+    &.faile
     &.info {
         padding-left: 4rem;
     }

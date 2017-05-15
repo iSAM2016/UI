@@ -91,9 +91,9 @@ color: rgba(0, 0, 0, 0.870588);
                 v-if="table.options.select"
                 class="ol-table-check-col"
                 >
-                <ol-checkbox :checkbox="selectAll" />
+              <!--   <ol-checkbox :checkbox="selectAll" />
+              <ol-checkbox label="" name="" @changing='show' :checked="true"></ol-checkbox> -->
              </th>
-
              <th
                 v-for="col in this.table.columns"
                 class="ol-table-td"
@@ -126,16 +126,13 @@ color: rgba(0, 0, 0, 0.870588);
               v-if="item.checkbox"
               class="table-check-col"
             >
-              <ol-checkbox :checkbox="item.checkbox"/>
+             <!--  <ol-checkbox :checkbox="item.checkbox"/> -->
             </td>
-
-
             <td
               class="ol-table-td"
               v-for=" val in item._value"
               track-by="$index"
               >
-
                 <div v-if="val && typeof val === 'object'">
                    <img 
                       v-if="val.type ==='image'"     
@@ -152,7 +149,6 @@ color: rgba(0, 0, 0, 0.870588);
                 <div v-else>{{val}}</div>
             
             </td>
-
             <td
               class="ol-table-td"
               v-if="item.state"
@@ -191,10 +187,7 @@ color: rgba(0, 0, 0, 0.870588);
                 {{ action.text }}
               </ol-button>
             </td>
-
-
           </tr>
-         
         </tbody>
      </table>
 </template>
@@ -223,10 +216,6 @@ const throwErr = (err)=>{
     })
 
     let List = [];
-
-   
-   
-
     tableData.forEach(item =>{
       var itemTem = {
         _value:[]
@@ -240,77 +229,56 @@ const throwErr = (err)=>{
       })
     List.push(itemTem)
     })
-
     return List
-
   }
 
 
   export default {
     ready(){
-
-      
     },
     mounted (){
-    
-        },
-
+    },
     props:{
         table:{
           type: Object
-          
         }
-         
     },
-
     components: { 
       olCheckbox,
       olButton
     },
-
     computed: {
        dataList: function (){
          return  generateList(this.table.columns,this.table.tableData)
        }
     },
-
     data () {
       return {
-           selectAll: {
-                  checked: false,
-                  text: ""
-                      },
-                
+       selectAll: {
+          checked: false,
+          text: ""
+        },
       }
     },
-
      watch: {
         'selectAll.checked' (val) {
           console.log(val)
             this.selectAllAction(val)
         }
     },
-    
-    events: {
-      
-    },
-
     methods:{
       stateTagClass (state) {
             let classList = {}
             classList[state.type] = true
             return classList
-        },
-
+      },
       selectAllAction(val){
         this.table.tableData.forEach(row =>{
            row.checkbox.checked = val
         })
       },
-
       touchCol(e,col){
         if(col.sort && col.sort.func){
-
            col.sort.func( e,col )
         }
       }

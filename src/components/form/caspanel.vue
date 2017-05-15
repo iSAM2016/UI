@@ -5,7 +5,6 @@
     <ul 
       v-if="caspanel && caspanel.length" 
       :class="">
-
        <li 
           v-for="item in caspanel"
           @click.stop="openchild(item)"

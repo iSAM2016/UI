@@ -1,10 +1,9 @@
 <style lang="stylus" >
-
 .ol-checkbox-wrapper {
    cursor: pointer;
    display: inline-block;
    font-size: 1rem;
-   line-height: 4rem
+   line-height: 2
 }
 .ol-checkbox-inner{
   position: relative;
@@ -18,7 +17,6 @@
         border: 1px solid #2db7f5;
       }
 }
-
 .ol-checkbox-inner-icon{
     position: absolute;
     color: #fff;
@@ -32,9 +30,7 @@
     line-height: .8rem;
     text-align: center;
     transition: background .2s;
-
 }
-
 .ol-checkbox-inner.selected {
     background: #2db7f5;
     border: 1px solid #2db7f5;
@@ -44,74 +40,78 @@
 }
 .ol-checkbox-input{
   opacity: 0;
-
 }
-
 .ol-checkbox-inner.disabled {
     background: #eaeaea;
 }
-
-
 </style>
 <template>
  <label for="">
    <div class="ol-checkbox-wrapper">
-     
     <span 
       class="ol-checkbox-inner"
       :class="{
-        'selected': checkbox.checked,
-        'disabled': checkbox.disabled
+        'selected': ischecked,
+        'disabled': disabled
         }"
       @click="changeAction" >
-
-        <i class="ol-checkbox-inner-icon ion-android-done ">
-        </i>  
-
+        <i class="ol-checkbox-inner-icon ion-android-done"></i>  
         <input 
           type="checkbox"
-          :checked ="checkbox.checked"
-          class="ol-checkbox-input"
-          
-        >
-
+          :checked ="ischecked"
+          class="ol-checkbox-input">
     </span>
-        <span>{{ checkbox.text }}</span>
+        <span>{{ label }}</span>
    </div>
  </label>
 </template>
 <script>
 
   export default {
+    data() {
+      return{
+        ischecked: ''
+      }
+    },
     mounted (){
-     
+      this.ischecked = this.checked;
+      if (this.checked && !this.disabled)  {
+          this.pulldata();
+      }
     },
     props:{
-        checkbox:{
-          type: Object,
-          text: {
+          label: {
               type: String,
-              default: ()=> "checkbox"
+              required: true,
+              default: ()=> ""
           },
-
+          name: {
+              type: String,
+              required: true,
+              default: ()=> ""
+          },
           checked:{
             type: Boolean,
             default: ()=> false
           },
-
           disabled:{
             type: Boolean,
             default: ()=> false
-          },
-
-        },
-       
+          }
     },
     methods:{
       changeAction(){
-         event.stopPropagation()
-         if (this.checkbox.disabled) return 
-          this.checkbox.checked = !this.checkbox.checked
+        if (this.disabled) return 
+        this.ischecked = !this.ischecked;
+        this.pulldata();
+      },
+      pulldata() {
+        let obj = {};
+        obj[this.name] = this.ischecked;
+        this.$emit('changing', obj, this);
+        if (this.$parent.$options.componentName === 'olCheckBoxGroup') {
+            this.$parent.addDatas(obj, this.name);
+        }
       }
     }
     

@@ -14,7 +14,6 @@
     border: 1px solid #ccc;
         &:hover{
             border: 1px solid #2db7f5;
-
         }
 }
 
@@ -32,10 +31,12 @@
     transition: opacity .2s;
 }
 
+.ol-radio.disabled {
+    color: #eaeaea;
+}
 .ol-radio.checked .ol-radio-inner:after{
     opacity: 1
 }
-
 .ol-radio-text{
   top: 1px;
 }
@@ -44,24 +45,33 @@
 <template>
 <label 
     class="ol-radio"
-    :class='{"checked" : radio.checked}'
-    @click.stop="checkAction(radio)"    
-    >        
+    :class='{"checked": isActive, "disabled": disabled}'
+    @click.stop="checkAction()">        
         <span class="ol-radio-inner"></span> 
-        <span class="ol-radio-text"> {{ radio.value }} </span>
+        <span class="ol-radio-text"> <slot></slot> </span>
     </label>
 </template>
 <script>
 export default {
     props: {
-        radio: Object
+        label: {
+            type: [String, Number],
+            required: true
+        },
+        disabled: {
+            type: Boolean,
+            default: () => false
+        }
     },
-
+    computed: {
+        isActive() {
+            return this.$parent.activeNames.indexOf(this.label) > -1;
+        }
+    },
     methods: {
         checkAction(radio){
-             event.stopPropagation()
-            radio.checked = !radio.checked
-            this.$emit("change", true)
+            if (this.disabled) return;
+            this.$parent.addItem(this.label)
         }
         
     }

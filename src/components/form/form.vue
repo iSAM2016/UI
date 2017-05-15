@@ -1,13 +1,11 @@
 <template>
-   <form ><slot></slot> {{ model }}</form>
+   <form @blur="" ><slot></slot> <!-- {{ model }} --></form>
 </template>
 <script>
 /**
- * formItem  Attributes
- * [prop]       表单的model字段      string
- * label        标签文本             string
- * label-width  表单区域标签的宽度   string
- * required     是否必填
+ * modal            元数据
+ * labelPosition    表单域标签的位置
+ * inline           行内表单模式
  */
 import {catIn} from '../utils.js'
 export default {
@@ -21,6 +19,10 @@ export default {
         model: {
             type: Object,
             required: true
+        },
+        inline: {
+            type: Boolean,
+            default: () => false
         }
     },
     data () {
@@ -30,8 +32,7 @@ export default {
     },
     components: {
     },
-    mounted(){
-        console.log(this.$props.model)
+    mounted() {
     },
     created() {
         this.$on('changeOlFromValue', this.changeOlFromValue)
@@ -50,10 +51,12 @@ export default {
         },
         changeOlFromValue(child, value) {
             this.model[child.$parent.prop] = value
+        },
+        form(e){
+            console.log(e)
         }
     }
 }
 </script>
 <style lang = "stylus">
-
 </style>

@@ -10,10 +10,12 @@ Vue.use(myPlugin, {
   preview: true
 })
 
-import {olCollapseItem, olCheckbox, olRadio, olRadioGroup, olInput, olSwitch, olSlider, olDatepick, olSelect, olOption, olCascader, olFormItem, olForm} from './components/';
+import {olButton, olCollapseItem, olCheckbox, olCheckboxGroup, olRadio, olRadioGroup, olInput, olSwitch, olSlider, olDatepick, olSelect, olOption, olCascader, olFormItem, olForm} from './components/';
 Vue.component('olCollapseItem', olCollapseItem);
+Vue.component('olButton', olButton);
 Vue.component('olFormItem', olFormItem);
 Vue.component('olCheckbox', olCheckbox);
+Vue.component('olCheckboxGroup', olCheckboxGroup);
 Vue.component('olRadio', olRadio);
 Vue.component('olRadioGroup', olRadioGroup);
 Vue.component('olInput', olInput);

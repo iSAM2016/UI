@@ -8,6 +8,7 @@ import olCard from "./base/card.vue"
 
 //form
 import olCheckbox from "./form/checkbox.vue"
+import olCheckboxGroup from "./form/checkboxGroup.vue"
 import olRadio from "./form/radio.vue"
 import olRadioGroup from "./form/radioGroup.vue"
 import olInput from "./form/input.vue"
@@ -53,6 +54,7 @@ export  {
 
     // form
     olCheckbox,
+    olCheckboxGroup,
     olCard,
     olRadio,
     olRadioGroup,

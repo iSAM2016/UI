@@ -164,12 +164,10 @@
 <template>
   <button  
     class="ol-btn block block__element"
-    :class="btnClass"
-    >
+    :class="btnClass">
      <i class="rd-btn-icon-only" 
         :class="iconClass" 
-        v-if="icon"
-      >
+        v-if="icon">
       </i>
        <span class="ol-btn-loading ion-load-a" 
           v-if="loading && !icon"></span>
@@ -220,14 +218,13 @@
     },
 
     computed: {
-      iconClass(){
+      iconClass() {
          let list = []
          if(!this.icon) return list
          list.push(this.icon) 
           return list 
       },
-
-      btnClass(){
+      btnClass() {
            let list = []
 
           switch(this.type){
@@ -266,13 +263,6 @@
                 list.push('ol-btn-icon')
               }
         return list
-    },
-    data () {
-      return {
-        
-      }
-    },
-    methods: {
     }
   }
 }

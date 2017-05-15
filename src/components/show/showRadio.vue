@@ -1,102 +1,31 @@
-<style  lang = "stylus" >
-</style>
+<style  lang = "stylus" ></style>
 <template>
   <section>
-    <div>
-      <h4>
-        #标签
-      </h4>
-       <div >
-          <ol-radio 
-            :radio="radio"
-            @change = "change" 
-          ></ol-radio>
-
-           <ol-radio 
-            :radio="radio1"
-            @change = "change" 
-          ></ol-radio>
-         
-       </div>
-    </div> 
-
-         <ol-RadioGroup :radios = "radios"/>
- 
+    <h4>#多个使用</h4>
+    <ol-RadioGroup v-model="radio">
+      <ol-radio  label="1">备选1</ol-radio>
+      <ol-radio  label="2">备选2</ol-radio>
+      <ol-radio  label="3" :disabled='true'>备选3</ol-radio>
+    </ol-RadioGroup>
   </section>
 </template>
 <script>
 import { olRadio, olRadioGroup }from '../index'
-
   export default {
     components: { 
       olRadio,
       olRadioGroup
-          },
-
+    },
     ready() {
-        console.log(this.$route.auth + "user")
     },
-
     data () {
-      return  {
-                radio: {
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'one'
-                     },
-
-                     radio1: {
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'one'
-                     },
-                radios:[{
-                      // radio 的选择状态:Boolean
-                      checked: true,
-                      // radio 的展示文字: String
-                      value: 'B'
-                     },{
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'C'
-                     },{
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'D'
-                     },{
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'E'
-                     },
-                     {
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'E'
-                     },{
-                      // radio 的选择状态:Boolean
-                      checked: false,
-                      // radio 的展示文字: String
-                      value: 'E'
-                     },
-
-                     ]     
-              }
+      return {
+        radio: '1'
+      }
     },
-    
     methods: {
       change( key ) {
-        
       }
     }
   }
-
 </script>
-
-
-

@@ -1,6 +1,7 @@
 <style  lang = "stylus" ></style>
 <template>
     <section >
+    <p>渲染分为数据渲染和组件渲染，如果使用form表单请看form 表单的例子</p>
         <ol-select 
       :select="form.selectProvince"></ol-select>
         <ol-select 

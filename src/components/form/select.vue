@@ -51,29 +51,22 @@
         border-bottom: 1px sold transparent;
     }
 }
-
 .ol-select-option.selected {
     background: #67cdfb;
     color: #fff;
 }
-
 .ol-select-option.disabled {
     background: #efefef;
     color: #b7b7b7;
     cursor: not-allowed;
 }
-
-
 .ol-select-option:hover {
     opacity: .7;
 }
-
 .ol-select-search-wrapper {
-    
     top: 0;
     width: 100%;
 }
-
 .ol-select-search-input {
     width: 100%;
     padding: 0 .5rem;
@@ -81,19 +74,25 @@
     opacity: .5;
     outline: none;
 }
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+  transform: translate3d(0, -1rem, 0)
+}
 </style>
 <template>
-   <div
+    <div
         class="ol-select-container"
         :class="{'disabled': this.select ? select.disabled : ''}"
         @click="openfn">
         <span v-show="valueShow">{{ displayValue }}</span>
-        <div 
-            class="ol-select-options-container" 
-            v-show="open">
-            <div class="ol-select-selected-value">
-                <div class="ol-select-search-wrapper" v-if="show">
-                    <input 
+        <transition name="fade">
+            <div class="ol-select-options-container" v-show="open">
+                <div class="ol-select-selected-value">
+                    <div class="ol-select-search-wrapper" v-if="show">
+                        <input 
                         @focus="focusInput" 
                         @click="touchInput" 
                         @blur="leaveInput"
@@ -102,11 +101,10 @@
                         type="text" 
                         v-model="search" 
                         class="ol-select-search-input"
-                    >
+                    ></div>
                 </div>
-            </div>
-           <!--  数据渲染 -->
-            <div 
+                <!--  数据渲染 -->
+                <div 
                 v-if="select"
                 class="ol-select-option"
                 v-for="option in List"
@@ -114,13 +112,12 @@
                 :class="{
                     'selected': option.selected,
                     'disabled': option.disabled
-                }">
-                {{option.value}}
+                }">{{option.value}}</div>
+                <!--  组件渲染  -->
+                <slot v-if="!select"></slot>
             </div>
-           <!--  组件渲染  -->
-            <slot v-if="!select"></slot>
-        </div>
-   </div>
+        </transition>
+    </div>
 </template>
 <script>
 /**
@@ -170,7 +167,6 @@ export default {
         if (this.select) { // 数据渲染
             this.setDisplayValue(this.select.options)
         } else { // 组件渲染
-            console.log(this.value);
         }
         window.addEventListener('click', this.hide, false)
     },
@@ -224,20 +220,17 @@ export default {
             e.stopPropagation()
         },
         leaveInput (e) {
-           
         },
         focusInput () {
             this.search = ''
         },
         changeInput (e) {
             e.stopPropagation()
-          
         },
-
         setValue( option ){
             event.stopPropagation()
             if(option.disabled) return
-            if(this.select.multiple){//多选
+            if(this.select.multiple){// 多选
                 if(this.select.value.includes( option )) { 
                     this.select.value.splice(this.select.value.findIndex(item => item === option ),1)
                         option.selected = false
@@ -260,10 +253,7 @@ export default {
          let selected = this.select.options.filter( item =>{
              return item.selected
          } )
-
          this.select.value =  this.select.multiple ? selected : selected[0] || {}
-
-           
         },
         openfn(){
             if (this.select) {

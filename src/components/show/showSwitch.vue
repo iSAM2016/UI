@@ -6,14 +6,12 @@
       <h4>
         #标签
       </h4>
-        <ol-switch :switchs="switchA" @change="change"/>
-        <ol-switch :switchs="switchB" />
+        <ol-switch v-model="checked" :size='size' @change="change"/>
     </div>  
   </section>
 </template>
 <script>
 import { olSwitch }from '../index'
-
   export default {
     components: { 
       olSwitch
@@ -21,8 +19,7 @@ import { olSwitch }from '../index'
 
     data () {
       return {
-        switchA: { "checked": false, "size": "small" },
-        switchB: { "checked": false,  }
+        "checked": false, "size": "small" 
       }
     },
     
