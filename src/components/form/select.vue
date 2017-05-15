@@ -1,4 +1,3 @@
-
 <style lang = "stylus">
 .ol-select-container {
     position: relative;
@@ -280,7 +279,6 @@ export default {
                 this.search = ''
             }
         },
-       
     },
 
 }

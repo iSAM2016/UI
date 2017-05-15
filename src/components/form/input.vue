@@ -2,6 +2,7 @@
 .ol-input-content{
     position: relative;
     width: 100%;
+    height: 4.7rem;
 }
 .ol-input{
         
@@ -68,7 +69,7 @@
 <template>
    <div
     class="ol-input-content"
-     @click="click">
+    @click="click">
         <input
             class="ol-input"
             :class="styleList"
@@ -76,8 +77,7 @@
             v-model="inputValue"
             :disabled="disabled"
              @input="changAction"
-             @blur="inputAction"
-       >
+             @blur="inputAction" />
 
         <span class="ol-tip" v-if="tip">{{tip}}</span>
    </div>
@@ -103,6 +103,7 @@ const TYPE_MAP = {
 }
 
 export default {
+<<<<<<< HEAD
     mixins: [MIXIN],
     props: {
         value:{
@@ -205,7 +206,6 @@ export default {
             if (this.limit.tip) {
                 tip = this.limit.tip
             }
-            
             if (!check) {
                 this.setState(TypeLimit.state, tip)
             } else {
@@ -225,7 +225,6 @@ export default {
          let list = []
          if(this.state)
          list.push(this.state) 
-          
           return list 
       }
   }
