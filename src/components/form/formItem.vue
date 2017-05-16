@@ -1,10 +1,11 @@
 <template>
     <div class="ol-form-item" :class="{'ol-form-inline': isInline}">
-        <label class="ol-form-item__label" :style="{width: labelWidth + 'px'}" :class="[labelPosition]">
-            {{ label }}
-        </label>
+        <label class="ol-form-item__label" :style="{width: labelWidth + 'px'}" :class="[labelPosition]">{{ label }}</label>
         <div class="ol-form-item__content" :style="{marginLeft: (labelPosition === 'top' ? 0 : labelWidth) + 'px'}">
             <slot></slot>
+            <transition name="fade">
+                <div class="ol-from-item--message" v-show="isshow"> {{ message }}</div>
+            </transition>
         </div>
     </div>
 </template>
@@ -41,7 +42,9 @@ export default {
     },
     data () {
         return {
-           isInline: '' // 行内显示
+           isInline: '', // 行内显示
+           isshow: false,
+           message: ''
         }
     },
     computed: {
@@ -66,6 +69,9 @@ export default {
     mounted(){
        this.isInline = this.$parent.inline;
     },
+    created() {
+        this.$on('showFormItemMessage', this.showFormItemMessage)
+    },
     methods: {
         hide ($event) {
             if(!catIn($event.target, this.$el)) {
@@ -74,6 +80,15 @@ export default {
         },
         showAction () {
             this.show = !this.show;
+        },
+        showFormItemMessage(prop, message, isAllright){
+            if (isAllright === undefined) {
+                this.isshow = true;
+                this.message = message;
+            } else {
+                this.isshow = false;
+                this.message = '';
+            }
         }
     }
 }
@@ -81,7 +96,7 @@ export default {
 <style lang = "stylus">
 .ol-form-item{
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
     vertical-align: middle;
 }
 .ol-form-item.ol-form-inline{
@@ -108,4 +123,18 @@ export default {
     line-height: 2.5;
     font-size: 1rem
 }
+.ol-from-item--message{
+    position: absolute;
+    font-size: 12px;
+    top: 36px;
+    color: red
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+  transform: translate3d(0, -.2rem, 0)
+}
+
 </style>

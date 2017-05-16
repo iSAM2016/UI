@@ -42,11 +42,6 @@ export const routes = [
           name: '总结',
           component: datas,
         },
-         {
-          path: '/nav',
-          name: 'nav',
-          component: nav,
-        },
         {
           path: '/icon',
           name: 'icon',
@@ -185,6 +180,11 @@ export const routes = [
           path: '/pagination',
           name: 'pagination',
           component: pagination,
+        },
+         {
+          path: '/nav',
+          name: 'nav',
+          component: nav,
         },
          {
           path: '/top',

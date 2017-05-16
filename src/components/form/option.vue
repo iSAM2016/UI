@@ -2,7 +2,7 @@
 
 </style>
 <template>
-    <div class="ol-select-option" :class="{'disabled': disabled, 'selected': selected}"   @click="setValue()">
+    <div class="ol-select-option" :class="{'disabled': disabled, 'selected': isselected}"   @click="setValue()">
         {{ label }}
     </div>
 </template>
@@ -22,6 +22,10 @@ export default {
             type: Boolean,
             default: () => false
         },
+        selected: {
+            type: Boolean,
+            default: () => false
+        }
     },
 
     data () {
@@ -29,9 +33,12 @@ export default {
         }
     },
     mounted(){
+        if (this.selected) { 
+            this.setValue();
+        }
     },
     computed: {
-        selected() {
+        isselected() {
             let isSelect = '';
             this.$parent.selectedArr.forEach(item => {
                 isSelect = (item.label=== this.label && item.value === this.value); 

@@ -20,15 +20,11 @@ export default {
     },
     methods: {
         addDatas(obj, key) {
-            if (this.checkDatas.length === 0) {
-                this.checkDatas.push(obj);
-                return;
-            }
             let isSave = true;
-            this.checkDatas.forEach(item => {
+            this.checkDatas.forEach((item, index) => {
                 if (item[key] !== undefined) { // 存在数据 
-                    item[key] = obj[key];
-                    isSave = false;
+                    this.checkDatas.splice(index, 1);
+                    isSave = false;   
                 }
             })
             if (isSave)  {
