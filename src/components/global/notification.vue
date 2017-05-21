@@ -85,22 +85,23 @@
 <template>
     <div class="ol-notification-container" >
         <transition-group  name="notification">
-           <!--  <div 
+          <div 
                class="ol-notification"
                v-for="(item, index) in allItem"
                :class="typeClass(item)"
                v-bind:key="item"
            >
-              <span class="ol-notification-icon" :class="iconClass(item)"></span>
+              <!-- <span class="ol-notification-icon" :class="iconClass(item)"></span> -->
                <span class="ol-notification-title">{{item.title}}</span>
                <p class="ol-notification-content">{{item.content}}</p>
                <span class="ol-notification-close    ion-close-round" @click="closeItem(item)"></span>
-           </div> -->
+           </div> 
         </transition-group >
     </div>
 </template>
 <script>
 export default {
+    componentName: 1234,
     components: { 
     },
     data () {
@@ -125,16 +126,17 @@ export default {
             this.allItem = this.allItem.filter(function(current) {
                 return current !== item
             })
+            this.removeBox();
         },
         addItem (item) {
             this.allItem.push(item);
-        }
-    },
-    computed: {
-      /*  allItem() {
+        },
+        removeBox() {
             if (this.allItem.length === 0) {
                 document.body.removeChild(document.body.querySelector('.ol-notification-container'))
             }
-        }*/
+        }
     }
 }
+</script>
+

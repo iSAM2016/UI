@@ -64,15 +64,12 @@ import { olInput }from '../index'
     components: { 
       olInput
     },
-
     methods:{
       inputing( value ){
         console.log(  value )
       }
     },
-
     computed:{
-
     },
   }
     

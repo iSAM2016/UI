@@ -226,6 +226,12 @@ export default {
          list.push(this.states) 
           return list 
       }
-  }
+    },
+    watch: {
+        value() {
+            console.log(this.value)
+            this.inputValue = this.value; // 避免重写父组件数据
+        }
+    }
 }
 </script>
