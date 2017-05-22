@@ -30,6 +30,7 @@
     const top = resolve => require(['../components/show/showGotoTop.vue'],resolve);
     const collapse = resolve => require(['../components/show/showCollapse.vue'],resolve);
     const form = resolve => require(['../components/show/showForm.vue'],resolve);
+    const menu = resolve => require(['../components/show/showMenu.vue'],resolve);
 
 export const routes = [
    { path: '/', component: index, 
@@ -111,6 +112,11 @@ export const routes = [
           name: 'datepick',
           component: datepick,
         }, 
+        {
+          path: 'menu',
+          name:'menu',
+          component: menu,
+        },
         {
           path: '/tip',
           name: 'tip',

@@ -81,9 +81,9 @@ import { olTable } from '../index'
                     avatar: {
                         type: 'image',
                         class: ['tabel-avatar'],
-                        src: 'http://covteam.u.qiniudn.com/test20.jpg?imageView2/1/w/100/h/100'
+                        src: './static/icon-me.jpg'
                     },
-                    name: '王尼玛',
+                    name: '李云龙',
                     age: '33',
                     wechat: 'wangnima',
                     state: {
@@ -109,9 +109,9 @@ import { olTable } from '../index'
                     avatar: {
                         type: 'image',
                         class: ['tabel-avatar'],
-                        src: 'http://covteam.u.qiniudn.com/test20.jpg?imageView2/1/w/100/h/100'
+                        src: './static/icon-me.jpg'
                     },
-                    name: '赵铁柱',
+                    name: '孔杰',
                     age: '26',
                     wechat: 'Iron-column-zhao',
                     __actions: [{
@@ -136,9 +136,9 @@ import { olTable } from '../index'
                     avatar: {
                         type: 'image',
                         class: ['tabel-avatar'],
-                        src: 'http://covteam.u.qiniudn.com/test20.jpg?imageView2/1/w/100/h/100'
+                        src: './static/icon-me.jpg'
                     },
-                    name: '张全蛋',
+                    name: '赵四',
                     age: '27',
                     wechat: 'Michael Jack',
                     state: {

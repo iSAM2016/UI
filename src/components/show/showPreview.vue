@@ -19,7 +19,7 @@ import { olTag }from '../index'
     },
     data () {
       return {
-          imgs: ['http://covteam.u.qiniudn.com/ka2.jpg', 'http://covteam.u.qiniudn.com/poster.png']
+          imgs: ['https://isam2016.github.io/img/b83c93e92706785a25914bd4fcd6f0d2_b.jpg', 'https://isam2016.github.io/img/v2-62dee35e7ae332e2581d6f7e4d918a3c_r.jpg']
         }
     },
     events: {
