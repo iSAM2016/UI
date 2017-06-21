@@ -14,10 +14,17 @@
             :value = 'value1'
             @change = "change" />
     </div>  
+
   </section>
 </template>
 <script>
+
+
+
+
+
 import{ olDatepick }from '../index'
+
   export default {
     components: { 
       olDatepick

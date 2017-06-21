@@ -38,6 +38,7 @@ import olNotification from "./global/notification.vue"
 
 import olBreadcrumb from "./navigation/breadcrumb.vue"
 import olpagination from "./navigation/pagination.vue"
+import olMenu from "./navigation/menu.vue"
 
 // layout
 import olNav from "./layout/nav.vue"
@@ -83,8 +84,10 @@ export  {
     olModal,
     olNotification,
 
+    // 
     olBreadcrumb,
     olpagination,
+    olMenu,
 
     // layout
     olNav,
