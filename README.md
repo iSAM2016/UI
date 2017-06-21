@@ -60,39 +60,43 @@ import { olNotification } from "../components/index"
 // 注册全局的组件
 // 创建一个div 把olNotification组件挂在到div中，就可以调用组件中方法了，把‘调用结果’放到组件（olNotification）中，来展示视图
 
-const div = document.createElement('div');
-div.innerHTML = `<ol-notification></ol-notification>`;
-document.body.appendChild(div);
-const notification = new Vue({
-    el: div,
-    components: { olNotification }
-}).$children[0];
-
-
 export default function() {
     Vue.prototype.$Notification = {
-        remove (item, duration){
+        $notificationRoot:{}, 
+        createBox () {
+            // chau创建盒子
+            if (!this.$notificationRoot.notification) {
+                const notificationDiv = document.createElement('div');
+                notificationDiv.innerHTML = `<ol-notification></ol-notification>`;
+                document.body.appendChild(notificationDiv);
+                const notification = new Vue({
+                    el: notificationDiv,
+                    render: h => h(olNotification)  
+                }).$children[0];
+                this.$notificationRoot.notification = notification;
+            }
+        },
+        remove (item, duration) {
+            let self = this;
             setTimeout(() => {
-                notification.closeItem(item)
+                self.$notificationRoot.notification.closeItem(item)
+                if (self.$notificationRoot.notification.allItem === 0) {
+                    self.$notificationRoot = false;
+                } 
             }, duration)
         },
-        create(type, title, content, duration){
+        create (type, title, content, duration) {
+            this.createBox();
             let data = {
                 title,
                 content,
                 duration
             }
-
-            // 把‘调用结果’放到组件
-            notification.addItem(data)
+            this.$notificationRoot.notification.addItem(data)
             if(duration){
-
-                // 一段时间（duration）把‘调用结果’移除组件
                 this.remove(data, duration)
             }
         },
-
-        // 四种组件形态
         success (title, content, duration) {
             this.create('success', title, content, duration)
         },
@@ -104,7 +108,7 @@ export default function() {
         },
         failed (title, content, duration) {
             this.create('failed', title, content, duration)
-        }
+        },
     }
 }
 ```
@@ -212,8 +216,7 @@ export default function() {
 </template>
 <script>
 export default {
-    computed: {
-    },
+    componentName: 1234,
     components: { 
     },
     data () {
@@ -224,13 +227,29 @@ export default {
     mounted() {
     },
     methods:{
+        typeClass (item) {
+            if (!item.type) {
+                return {
+                    'rd-notification-info': true
+                }
+            }
+            let classList = {}
+            classList[item.type] = true
+            return classList
+        },
         closeItem (item) {
             this.allItem = this.allItem.filter(function(current) {
                 return current !== item
             })
+            this.removeBox();
         },
         addItem (item) {
             this.allItem.push(item);
+        },
+        removeBox() {
+            if (this.allItem.length === 0) {
+                document.body.removeChild(document.body.querySelector('.ol-notification-container'))
+            }
         }
     }
 }
