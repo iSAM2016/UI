@@ -34,6 +34,31 @@ import arrIcon from '../../js/icon.js'
         Url2.select(); // 选择对象
         document.execCommand("Copy"); // 执行浏览器复制命令
         alert(copyText);
+      },
+      kl{
+        export default async(ctx) => {
+  var fileStream = new Promise((resolve, reject) => {
+    var url = path.resolve(__dirname, '../../src/less/ui/iconfont.less');
+    var data = '';
+    try {
+      var readStream = fs.createReadStream(url);
+      readStream.on('data', (chunk) => {
+        data += chunk;
+      });
+      readStream.on('end', () => {
+        resolve(data);
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+  var str = await fileStream;
+  var fonts = str.match(/e\w{3}(?=";)/g);
+  await ctx.render('f2e/standard', {
+    fonts
+  });
+};
+
       }
     }
   }
