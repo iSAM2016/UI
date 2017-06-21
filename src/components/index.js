@@ -31,6 +31,8 @@ import olTree from "./common/tree.vue"
 import olProgress from "./common/progress.vue"
 import olCollapse from "./common/collapse.vue"
 import olCollapseItem from "./common/collapseItem.vue"
+import olCutPicture from "./common/cutPicture.vue"
+
 
 // global
 import olModal from "./global/modal.vue"
@@ -45,7 +47,7 @@ import olNav from "./layout/nav.vue"
 import olNavPane from "./layout/navpane.vue"
 
 
-export  {
+export {
     // base
     olButton,
     olButtonGroup,
@@ -79,6 +81,7 @@ export  {
     olProgress,
     olCollapse,
     olCollapseItem,
+    olCutPicture,
 
     // global
     olModal,
@@ -93,4 +96,3 @@ export  {
     olNav,
     olNavPane
 }
-

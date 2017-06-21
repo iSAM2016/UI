@@ -23,7 +23,7 @@ export default {
         
     },
     methods: {
-        success () {
+        success(){
             this.$Notification.success('编辑成功', '', 5000)
         },
         info () {

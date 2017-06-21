@@ -27,28 +27,27 @@
     const preview = resolve => require(['../components/show/showPreview.vue'], resolve);
     const breadcrumb = resolve => require(['../components/show/showBreadcrumb.vue'], resolve);
     const pagination = resolve => require(['../components/show/showPagination.vue'], resolve);
-    const top = resolve => require(['../components/show/showGotoTop.vue'],resolve);
-    const collapse = resolve => require(['../components/show/showCollapse.vue'],resolve);
-    const form = resolve => require(['../components/show/showForm.vue'],resolve);
-    const menu = resolve => require(['../components/show/showMenu.vue'],resolve);
+    const top = resolve => require(['../components/show/showGotoTop.vue'], resolve);
+    const collapse = resolve => require(['../components/show/showCollapse.vue'], resolve);
+    const form = resolve => require(['../components/show/showForm.vue'], resolve);
+    const menu = resolve => require(['../components/show/showMenu.vue'], resolve);
+    const cutPicture = resolve => require(['../components/show/showCutPicture.vue'], resolve);
 
-export const routes = [
-   { path: '/', component: index, 
-    redirect: to => {
+    export const routes = [{
+      path: '/',
+      component: index,
+      redirect: to => {
         return '/datas';
-    },
-    children: [
-       {
+      },
+      children: [{
           path: '/datas',
           name: '总结',
           component: datas,
-        },
-        {
+        }, {
           path: '/icon',
           name: 'icon',
           component: icon,
-        },
-        {
+        }, {
           path: '/button',
           name: 'button',
           component: button,
@@ -58,8 +57,7 @@ export const routes = [
           path: '/dropButton',
           name: 'dropButton',
           component: dropButton,
-        },
-        {
+        }, {
           path: '/tag',
           name: 'tag',
           component: tag,
@@ -75,18 +73,15 @@ export const routes = [
           path: '/table',
           name: 'table',
           component: table,
-        },
-         {
+        }, {
           path: '/card',
           name: 'card',
           component: card,
-        },
-         {
+        }, {
           path: '/radio',
           name: 'radio',
           component: radio,
-        },
-        {
+        }, {
           path: '/input',
           name: 'input',
           component: input,
@@ -96,103 +91,87 @@ export const routes = [
           path: '/switch',
           name: 'switch',
           component: switchs,
-        },
-         {
+        }, {
           path: '/slider',
           name: 'slider',
           component: slider,
-        },
-        {
+        }, {
           path: '/form',
           name: 'form',
           component: form,
-        },
-        {
+        }, {
           path: '/datepick',
           name: 'datepick',
           component: datepick,
-        }, 
-        {
+        }, {
           path: 'menu',
-          name:'menu',
+          name: 'menu',
           component: menu,
-        },
-        {
+        }, {
           path: '/tip',
           name: 'tip',
           component: tip,
-        },
-        {
+        }, {
           path: '/select',
           name: 'select',
           component: select
-        }, 
-        {
+        }, {
           path: '/cascader',
           name: 'cascader',
           component: cascader
-        },
-         {
+        }, {
           path: '/alert',
           name: 'alert',
           component: alert
-        },
-        {
+        }, {
           path: '/timeline',
           name: 'timeline',
           component: timeline,
-        },
-        {
+        }, {
           path: '/loding',
           name: 'loding',
           component: loding,
-        },
-         {
+        }, {
+          path: '/cutPicture',
+          name: 'cutPicture',
+          component: cutPicture,
+        }, {
           path: '/progress',
           name: 'progress',
           component: progress,
-        },
-         {
+        }, {
           path: '/upload',
           name: 'upload',
           component: upload,
-        },
-        {
+        }, {
           path: '/tree',
           name: 'tree',
           component: tree,
-        },
-         {
+        }, {
           path: '/model',
           name: 'model',
           component: model,
-        },
-        {
+        }, {
           path: '/notifiction',
           name: 'notifiction',
           component: notifiction,
-        },
-        {
+        }, {
           path: '/preview',
           name: 'preview',
           component: preview,
-        },
-        {
+        }, {
           path: '/breadcrumb',
           name: 'breadcrumb',
           component: breadcrumb,
-        }, 
-        {
+        }, {
           path: '/pagination',
           name: 'pagination',
           component: pagination,
-        },
-         {
+        }, {
           path: '/nav',
           name: 'nav',
           component: nav,
-        },
-         {
+        }, {
           path: '/top',
           name: 'top',
           component: top,
@@ -200,6 +179,6 @@ export const routes = [
           path: '/collapse',
           name: 'collapse',
           component: collapse,
-        }]
-}]
-
+        }
+      ]
+    }]
