@@ -1,5 +1,4 @@
 <style lang="stylus" >
-
 .ol-alert{
     position: relative;
     width: 100%;
@@ -104,14 +103,12 @@
 </style>
 <template>
   <div
-      class='ol-alert-recourse'
-  >
+    class='ol-alert-recourse'>
       <div
         v-for="item in alerts"
         class='ol-alert'
         :class="item.state"
-        v-if="item.show"
-      >
+        v-if="item.show">
 
         <i class=" ol-alert-icon" :class='{
           "ion-ios-checkmark": item.state === "success",
@@ -121,46 +118,31 @@
           "samll": !item.content
           }'></i>
         <div class="ol-alert-content " >
-           <span class="ol-alert-title">{{ item.title }}</span>
-           <p class="ol-alert-word" v-if="item.content">{{ item.content }}</p>
-        <i class="icon-file-alt ol-alert-close"
-            @click="closefn(item)"
-        ></i>
-       </div>
+          <span class="ol-alert-title">{{ item.title }}</span>
+          <p class="ol-alert-word" v-if="item.content">{{ item.content }}</p>
+          <i class="icon-file-alt ol-alert-close" @click="closefn(item)"></i>
+        </div>
       </div>
   </div>
 </template>
 <script>
-  export default {
-    mounted (){
-     
-    },
-    props:{
-        alerts:{
-          type: Array,
-          require: true
-        },
-
-    },
-
-    components: { 
-      
-    },
-    data () {
-      return {
-        show:true
-      }
-    },
-
-    computed: {
-
-    },
-
-    methods: {
-        closefn(item){
-          item.show = false
-        }
+export default {
+  props:{
+      alerts:{
+        type: Array,
+        require: true
+      },
+  },
+  data () {
+    return {
+      show:true
     }
+  },
+  methods: {
+      closefn(item){
+        item.show = false
+      }
+  }
 }
 </script>
 
