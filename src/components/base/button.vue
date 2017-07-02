@@ -32,11 +32,7 @@
         color: #fff;
     }
 }
-.ol-btn.ghost {
-    color: #666;
-    background-color: #f7f7f7;
-    border-color: #d9d9d9;
-}
+
 .ol-btn.warning {
     color: #fff;
     background-color: #fa0;

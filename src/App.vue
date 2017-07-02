@@ -5,7 +5,7 @@
 </style>
 <template>
 <div>
-   <router-view></router-view>  
+  <router-view></router-view>  
   <ol-preview></ol-preview>    
 </div>
 </template>
