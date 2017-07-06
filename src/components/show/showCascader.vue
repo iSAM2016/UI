@@ -65,7 +65,8 @@ export default {
 </showmark>
 
 <!-- 接口 -->
-<h3>API</h3>
+<h3>接口</h3>
+<h4>props</h4>
 <document>
 <textarea class="mydocument">
 ```html   
