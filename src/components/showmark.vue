@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
     <div class="ol-contents">
       <div class="ol-content-UI">
@@ -26,17 +25,17 @@
     data () {
       return {
         rawHtml:"",
-        height: '220px' ,
+        height: '20px' ,
       }
     },
     methods: {
       openitem() {
-        if (this.$el.getElementsByClassName('ol-code-content')[0].offsetHeight < 220) return false;
-        if (this.height === '220px') {
+        if (this.$el.getElementsByClassName('ol-code-content')[0].offsetHeight < 20) return false;
+        if (this.height === '20px') {
             var rawHtmlHeight = Number(this.$el.getElementsByClassName('ol-code-content')[0].offsetHeight);
             this.height = rawHtmlHeight + 20 + 'px';
         } else {
-            this.height = 220 + 'px';
+            this.height = 20 + 'px';
           }
       }
     },
@@ -59,18 +58,16 @@
     font-size: 0;
 }
 .ol-content-UI{
-    display: inline-block;
     vertical-align: top;
-    width: 46%;
+    width: 100%;
     font-size: 1rem;
 }
 .ol-content-code{
-    display: inline-block;
     border-left: 1px dashed #ccc;
     overflow: hidden;
-    height: 220px;
+    height: 10px;
     font-size: 1rem;
-    line-height: 2.6;
+    line-height: 1.2;
     transition: all 1s;
     -webkit-transition: all 1s ease ;
       .ol-drop{
@@ -93,5 +90,3 @@
 }
 
 </style>
-=======
->>>>>>> 5c5aee3fa81acd5d58b89fa1947d6414936f4dbb

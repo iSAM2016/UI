@@ -1,5 +1,5 @@
 <template>
-
+<div>
 <!-- 例子 -->
 <h3>联机选择器</h3>
 <showmark>
@@ -81,7 +81,8 @@ export default {
 | cascader      | 组件参数 详细看以下文档         |  object |                      |        |
 ```    
 </textarea>
-</document>           
+</document> 
+</div>         
 </template>
 <script>
 let options = [{
