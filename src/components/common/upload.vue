@@ -179,7 +179,6 @@ export default {
         },
         myResult(){
           //双向数据半丁
-            this.$emit("on-result-change");//组件内对myResult变更后向外部发送事件通知
         }
       }
 

@@ -1,9 +1,8 @@
 <template>
-   <div
+    <div
         class="ol-cascader-container"
         :class="{'active': show, 'ol-cascader-top': position === 'top'}"
-        @click="showAction"
-    >
+        @click="showAction">
         <div class="ol-cascader-input">
             <span class="ol-cascader-text">{{value}}</span>
             <span class="ol-cascader-arrow ion-chevron-down"></span>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
     <div class="ol-contents">
       <div class="ol-content-UI">
@@ -92,3 +93,5 @@
 }
 
 </style>
+=======
+>>>>>>> 5c5aee3fa81acd5d58b89fa1947d6414936f4dbb
