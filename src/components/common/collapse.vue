@@ -30,7 +30,6 @@
         methods: {
             setActiveNames(activeNames) {
                 activeNames = [].concat(activeNames);
-                console.log(activeNames)
                 let value = activeNames[0];
                 this.activeNames = activeNames;
                 this.$emit('input', value);
