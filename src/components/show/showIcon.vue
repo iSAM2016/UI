@@ -1,32 +1,22 @@
 <template>
   <section>
-    <div>
-      <h4>#icon</h4>
-
-    </div>
+    <h3>icon</h3>
     <span 
       class="ol-icons step size-24"
       v-for="item in arrIcon"
-      @click="select(item)"
-   > <i class="icon" :class="item"></i>
+      @click="select(item)"><i class="icon" :class="item"></i>
     </span>
     <textarea id="biao1">用户定义的代码区域</textarea>
   </section>
 </template>
 <script>
 import arrIcon from '../../js/icon.js'
-
   export default {
-    components: { 
-      
-    },
-
     data () {
       return {
         arrIcon: arrIcon       
       }
     },
-    
     methods: {
       select(copyText){
        let Url2=document.getElementById("biao1");

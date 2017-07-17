@@ -62,8 +62,8 @@
 </template>
 <script>
 import {olCheckbox} from '../index';
-import  showMark from '../showMark.vue';
-import  document from '../document.vue';
+import showMark from '../showMark.vue';
+import document from '../document.vue';
   export default {
     data () {
       return {

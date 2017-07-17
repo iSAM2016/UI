@@ -25,17 +25,17 @@
     data () {
       return {
         rawHtml:"",
-        height: '20px' ,
+        height: '0px' ,
       }
     },
     methods: {
       openitem() {
-        if (this.$el.getElementsByClassName('ol-code-content')[0].offsetHeight < 20) return false;
-        if (this.height === '20px') {
+        if (this.$el.getElementsByClassName('ol-code-content')[0].offsetHeight < 0) return false;
+        if (this.height === '0px') {
             var rawHtmlHeight = Number(this.$el.getElementsByClassName('ol-code-content')[0].offsetHeight);
-            this.height = rawHtmlHeight + 20 + 'px';
+            this.height = rawHtmlHeight + 0 + 'px';
         } else {
-            this.height = 20 + 'px';
+            this.height = 0 + 'px';
           }
       }
     },

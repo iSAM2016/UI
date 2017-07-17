@@ -5,31 +5,72 @@
 </style>
 <template>
   <section>
-    <div>
-      <h4>#标签 改动较大</h4>
-      <ol-input placeHolder='请输入内容'></ol-input>
-      <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' tip='我是提示语' :disabled='true'></ol-input>
-      <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='primary'  @changing ="inputing"></ol-input>
-      <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='danger'  @changing ="inputing"></ol-input>
-      <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='success'  @changing ="inputing"></ol-input>
-      <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='warning'  @changing ="inputing"></ol-input>
-      </div>
+<h3>输入框</h3>
+<h4>基本</h4>
+<showMark>
+<span>改动较大</span>
+<textarea class="ol-mark-text">
+```html
+<ol-input placeHolder='请输入内容'></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='primary' @changing ="inputing"></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='danger'  @changing ="inputing"></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='success' @changing ="inputing"></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='warning' @changing ="inputing"></ol-input>
+```
+</textarea>
+<ol-input placeHolder='请输入内容'></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='primary' @changing ="inputing"></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='danger'  @changing ="inputing"></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='success' @changing ="inputing"></ol-input>
+<ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' state='warning' @changing ="inputing"></ol-input>
+</showMark>
 
-    <div>
-      <h4>#密码</h4>
-      <ol-input  v-model="form1.name"  placeHolder='请输入内容' state='primary' type='password'></ol-input>
-    </div>
-    <div>
-      <h4>#验证</h4>
-     长度<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.length"></ol-input>
-     手机<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.phone"></ol-input> 
-     email<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.email"></ol-input> 
-     number<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.number"></ol-input> 
-    </div>
+<h4>提示框</h4>
+<showMark>
+<textarea class="ol-mark-text">
+```html
+ <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' tip='我是提示语' :disabled='true'></ol-input>
+
+```
+</textarea>
+ <ol-input class="item" v-model="form1.name"  placeHolder='请输入内容' tip='我是提示语' :disabled='true'></ol-input>
+</showMark>
+
+
+<h4>密码</h4>
+<showMark>
+<textarea class="ol-mark-text">
+```html
+<ol-input  v-model="form1.name"  placeHolder='请输入内容' state='primary' type='password'></ol-input>
+
+```
+</textarea>
+<ol-input  v-model="form1.name"  placeHolder='请输入内容' state='primary' type='password'></ol-input>
+</showMark>
+
+<h4>验证</h4>
+<showMark>
+<textarea class="ol-mark-text">
+```html
+ 长度<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.length"></ol-input>
+手机<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.phone"></ol-input> 
+email<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.email"></ol-input> 
+number<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.number"></ol-input> 
+
+```
+</textarea>
+ 长度<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.length"></ol-input>
+手机<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.phone"></ol-input> 
+email<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.email"></ol-input> 
+number<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.number"></ol-input> 
+</showMark>
   </section>
 </template>
+
 <script>
-import { olInput }from '../index'
+import { olInput }from '../index';
+import showMark from '../showMark.vue';
+import document from '../document.vue';
 /**
  * placeHolder: 'disabled'
  * state:  组件状态分类 共计五种
@@ -62,7 +103,9 @@ import { olInput }from '../index'
     },
 
     components: { 
-      olInput
+      olInput,
+      showMark,
+      document
     },
     methods:{
       inputing( value ){
@@ -72,8 +115,4 @@ import { olInput }from '../index'
     computed:{
     },
   }
-    
-    
-
-
 </script>

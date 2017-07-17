@@ -6,7 +6,7 @@
       <h4>
         #标签
       </h4>
-      <div class="item" v-for="item in datas">{{item.name}}</div>
+      <div class="line" v-for="item in datas">{{item.name}}</div>
           <aside class="return_top" @click="backTop" v-if="showBackStatus">
             <i class="ion-android-arrow-up"></i>
         </aside>
@@ -47,7 +47,7 @@ import { getdata } from'./json.js';
         right: 1rem
         i
             font-size: 2rem
-    .item
+    .line
         width: 100%
         height: 40px;
         line-height:40px
