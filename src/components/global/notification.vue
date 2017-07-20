@@ -101,7 +101,7 @@
 </template>
 <script>
 export default {
-    componentName: 1234,
+    componentName: 'notification',
     components: { 
     },
     data () {
