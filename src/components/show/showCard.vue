@@ -5,8 +5,8 @@
 <h3>
   卡片
 </h3>
-<showmark>
-<textarea class="myshowmark">
+<showMark>
+<textarea class="ol-mark-text">
 ```html
 <ol-card 
   :title="content"
@@ -25,6 +25,7 @@ shift+↑ 向上选中多行。
 shift+↓ 向下选中多行</p>
 </ol-card>
 ```
+</textarea>
 <ol-card 
   :title="content"
   :bgColor="bgColor"
@@ -41,34 +42,32 @@ shift+↓ 向下选中多行</p>
   shift+↑ 向上选中多行。
   shift+↓ 向下选中多行</p>
 </ol-card>
-</textarea>
-</showmark>
+</showMark>
 
 <!-- 接口文档 -->
 <h3>API</h3>
 <document>
-<textarea class="mydocument">
-```html
+<textarea class="ol-mark-document">
        
 | 参数          | 说明                            |   类型  | 可选值               | 默认值 |     
 | ------------- | ------------------------------- |-------- |--------------------- |--------|
 | content       | 文字内容                        |  string |                      |        |
 | fontColor     | 文字颜色                        |  string |                      |#333    |
 | bgColor       | 背景颜色                        |  string |                      |#fff    |
- ``` 
 </textarea>
 </document>
 
 </section>
 </template>
 <script>
-import { olCard }from '../index'
-import showmark from '../showmark.vue'
-import document from '../document.vue'
+import { olCard }from '../index';
+import showMark from '../showmark.vue';
+import document from '../document.vue';
   export default {
     components: { 
       olCard,
-      showmark
+      showMark,
+      document
     },
     data () {
       return {

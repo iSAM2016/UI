@@ -114,14 +114,7 @@
           type:  String,
           default: ()=> ""
         },
-
-         
     },
-
-    components: { 
-      
-    },
-
     computed: {
        classList () {
           let list = []
@@ -129,26 +122,9 @@
           if(this.type){
             list.push(this.type)
           }
-          
-         
-
           return list
        }
     },
-
-    data () {
-      return {
-       
-      }
-    },
-    
-    events: {
-      
-    },
-
-    methods:{
-     
-    }
   }
 
 </script>

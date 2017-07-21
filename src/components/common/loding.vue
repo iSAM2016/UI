@@ -1,7 +1,7 @@
 <style lang = "stylus">
 .ol-loading {     
   margin: 2px 8px;     
-  float: left;     
+ /*  float: left;    */  
   font-size: 10px;     
   position: relative;     
   text-indent: -9999em;     
@@ -44,35 +44,18 @@
   
 </style>
 <template>
-<div class="ol-loading"
-     :style="{ 'border-left': '.2rem solid ' + loading.color }"
->
-
-</div>
+<div class="ol-loading" :style="{ 'border-left': '.2rem solid ' + color }"></div>
 </template>
 <script>
 export default {
   props: {
-    loading: {
-      type:Object,
+    color: {
+      type:String,
       require:true,
-      color:{
-        type: String,
         default (){
           return  '#2db7f5'
         } 
-          
-      }
-    },
-  },
-
-  data: function () {
-    return {
     }
-  },
-
-  methods: {
-   
   },
 }
 

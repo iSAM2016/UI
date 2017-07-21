@@ -33,6 +33,24 @@ export default {
     events: {
     }
   }
+
+
+在根组件中添加<ol-preview></ol-preview>
+
+<template>
+<div>
+  <router-view></router-view>  
+  <ol-preview></ol-preview>    
+</div>
+</template>
+<script>
+  import olPreview from './components/global/preview';
+  export default {
+    components: {
+      olPreview 
+    }
+  }
+</script>
 ```
 </textarea>
 点击查看代码

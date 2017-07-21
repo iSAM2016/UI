@@ -16,7 +16,7 @@
     const select = resolve => require(['../components/show/showSelect.vue'], resolve);
     const cascader = resolve => require(['../components/show/showCascader.vue'], resolve);
     const alert = resolve => require(['../components/show/showAlert.vue'], resolve);
-    const tip = resolve => require(['../components/show/showTooltip.vue'], resolve);
+    const tooltip = resolve => require(['../components/show/showTooltip.vue'], resolve);
     const timeline = resolve => require(['../components/show/showTimeline.vue'], resolve);
     const loding = resolve => require(['../components/show/showLoding.vue'], resolve);
     const progress = resolve => require(['../components/show/showProgress.vue'], resolve);
@@ -108,9 +108,9 @@
           name: 'menu',
           component: menu,
         }, {
-          path: '/tip',
-          name: 'tip',
-          component: tip,
+          path: '/tooltip',
+          name: 'tooltip',
+          component: tooltip,
         }, {
           path: '/select',
           name: 'select',

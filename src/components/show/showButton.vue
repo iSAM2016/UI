@@ -84,7 +84,7 @@
 | 参数          | 说明          | 类型    |  可选值                                        | 默认值|
 | ------------- | ------------- | ------- | ---------------------------------------------- | ----- |
 | type          | 按钮类型      | string  |   default success primary danger info warning  |default|
-| size          | 按钮尺寸      | string  |   small   large                                |       |
+| size          | 按钮尺寸      | string  |   small   large  default                       |default|
 | disabled      | 按钮禁用      | Boolean |   false true                                   |  false|
 | icon          | icon          | string  |                                                |       |
 | loading       | 下载          | Boolean |   false true                                   |  false|
