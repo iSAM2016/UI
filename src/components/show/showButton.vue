@@ -31,12 +31,10 @@
 <showMark>
 <textarea  class="ol-mark-text">
 ```html
-<ol-button  size="large" type="primary">推荐</ol-button>
 <ol-button   type="primary">推荐</ol-button>
 <ol-button  size="small" type="primary">推荐</ol-button>
 ```
 </textarea>
-<ol-button  size="large" type="primary">推荐</ol-button>
 <ol-button   type="primary">推荐</ol-button>
 <ol-button  size="small" type="primary">推荐</ol-button>
 </showMark>
