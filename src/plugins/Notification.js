@@ -11,7 +11,7 @@ export default function() {
             // chau创建盒子
             if (!this.$notificationRoot.notification) {
                 const notificationDiv = document.createElement('div');
-                notificationDiv.innerHTML = `<ol-notification></ol-notification>`;
+                notificationDiv.innerHTML = `<ol-notification kl=23></ol-notification>`;
                 document.body.appendChild(notificationDiv);
                 const notification = new Vue({
                     el: notificationDiv,
