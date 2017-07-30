@@ -8,7 +8,6 @@
 <h3>输入框</h3>
 <h4>基本</h4>
 <showMark>
-<span>改动较大</span>
 <textarea class="ol-mark-text">
 ```html
 <ol-input placeHolder='请输入内容'></ol-input>
@@ -64,6 +63,29 @@ number<ol-input v-model="form1.name"  placeHolder='请输入内容' state='prima
 email<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.email"></ol-input> 
 number<ol-input v-model="form1.name"  placeHolder='请输入内容' state='primary' :limit="limits.number"></ol-input> 
 </showMark>
+
+<h3>API</h3>
+<h4>props</h4>
+<document>
+<textarea  class="ol-mark-document">
+| 参数          | 说明          | 类型    |  可选值                                        | 默认值|
+| ------------- | ------------- | ------- | ---------------------------------------------- | ----- |
+| model         | input 的值    | string  |                                                | ---   |
+| state         | input类型     | string  |   default success primary danger info warning  |default|
+| disabled      | input 是否禁用| Boolean |                                                |false  |
+| limit         | input 验证    | string  |                                                |---    |
+</textarea>
+</document>
+
+<h4>event</h4>
+<document>
+<textarea class="ol-mark-document">
+| 事件名称      | 说明                            | 回调参数              |      
+| ------------- | ------------------------------- |-----------------------|
+| changing      | 在输入内容触发的事件            | 改变的数值            |             
+</textarea>
+</document>
+
   </section>
 </template>
 
@@ -101,7 +123,6 @@ import document from '../document.vue';
         },
       }
     },
-
     components: { 
       olInput,
       showMark,
