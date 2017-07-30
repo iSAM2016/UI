@@ -69,11 +69,11 @@
           component: checkbox,
         },
 
-        {
+       /* {
           path: '/table',
           name: 'table',
           component: table,
-        }, {
+        },*/ {
           path: '/card',
           name: 'card',
           component: card,

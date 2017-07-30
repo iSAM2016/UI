@@ -110,6 +110,7 @@ export default {
         }
     },
     mounted() {
+        console.log(this.kl)
     },
     methods:{
         typeClass (item) {

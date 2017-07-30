@@ -1,28 +1,28 @@
-import
+import{
 olModal
+}
 from "../components/"
 // model
 // 添加实例方法
 export default function(Vue) {
-  Vue.prototype.$Modal = (content, title, callBack = {}, options = {}, undefined) => {
+  Vue.prototype.$Modal = (content, title, options, callBack,undefined) => {
     // option object
-    console.log(content);
-    console.log(title);
-    let props = `title=${title} content=${content}`;
-    Object.keys(options, function(keys) {
-      props += `${keys}=${options[keys]} `
+    let props = {};
+     props['title'] = title;
+     props['content'] = content;
+    var keysAyy = Object.keys(options);
+    keysAyy.forEach(function(keys) {
+      props[keys] = options[keys];
     })
-    console.log(props);
     const modalDiv = document.createElement('div');
     modalDiv.className = "modal-box";
-    modalDiv.innerHTML = `<ol-modal title=123 ></ol-modal>`;
+    modalDiv.innerHTML = `<olModal></olModal>`;
     document.body.appendChild(modalDiv);
-    const modal = new Vue({
-      el: '.modal-box',
-      render: h => h(olModal)
-    }).$children[0]
+   const modal = new Vue({
+        el: modalDiv,
+       render: h =>h(olModal,{props})
+  }).$children[0]
 
-    console.log(modal)
     return new Promise((resolve, rejected) => {
       modal.addStatus(resolve, rejected);
     })

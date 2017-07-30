@@ -7,11 +7,6 @@
     <ol-button type="info" @click.native="opmodel">model</ol-button>
 
 export default {
-    data () {
-        return {
-            data:1212
-        }
-    },
     components: {
         olModal,
         olButton,
@@ -21,23 +16,23 @@ export default {
     mounted() {
     },
     methods: {
-        opmodel () {
-            this.$Modal('确定退出吗?','').then(()=>{
+        this.$Modal('确定退出吗?','我是title',{
+                type: '', //[按钮类型]
+                size: '', // [按钮尺寸]
+                color:'', // [按钮颜色]
+             }).then(()=>{
+                console.log('success')
+            }).catch(() => {
+                console.log('fail')
             });
-           /* {
-                    type: '', //[按钮类型]
-                    size: '', // [按钮尺寸]
-                    color:'', // [按钮颜色]
-             }*/
-        }
     }
 
 ```
 </textarea>
 <ol-button type="info" @click.native="opmodel">model</ol-button>
 </showMark>
-</div>
-</template>
+
+
 
  
 <!-- 接口 -->
@@ -62,8 +57,9 @@ export default {
 | size          |  按钮尺寸         | string  | small   large  default                        |  default|
 | color         |  按钮颜色         | string  |                                               |  --     |
 </textarea> 
-</document> 
-
+</document>
+</div> 
+</template>
 <script>
 import { olModal, olButton }from '../index';
 import showMark from '../showMark.vue';
@@ -84,13 +80,15 @@ export default {
     },
     methods: {
         opmodel () {
-            this.$Modal('确定退出吗?','我是title')/*.then(()=>{
-            });*/
-           /* {
-                    type: '', //[按钮类型]
-                    size: '', // [按钮尺寸]
-                    color:'', // [按钮颜色]
-             }*/
+            this.$Modal('确定退出吗?','我是title',{
+                type: '', //[按钮类型]
+                size: '', // [按钮尺寸]
+                color:'', // [按钮颜色]
+             }).then(()=>{
+                console.log('success')
+            }).catch(() => {
+                console.log('fail')
+            });
         }
     }
 }
