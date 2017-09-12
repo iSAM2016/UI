@@ -26,6 +26,10 @@
       top: 8px;
     }
 }
+.ol-pagination__warp{
+  text-align: center;
+  margin-top: 100px;
+}
 .ol-pagination.primary {
     color: #fff;
     background-color: #57c5f7;
